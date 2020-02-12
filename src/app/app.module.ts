@@ -34,6 +34,8 @@ import { MotorsComponent } from './website/motors/motors.component';
 import { ChassisComponent } from './website/chassis/chassis.component';
 import { AccessoryComponent } from './website/accessory/accessory.component';
 import { EngineOilComponent } from './website/engine-oil/engine-oil.component';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
  
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { EngineOilComponent } from './website/engine-oil/engine-oil.component';
     MotorsComponent,
     ChassisComponent,
     AccessoryComponent,
-    EngineOilComponent
+    EngineOilComponent,
+    AdminHomeComponent,
+    AdminProductsComponent
    
   ],
   imports: [
