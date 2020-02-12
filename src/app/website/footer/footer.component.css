@@ -1,0 +1,20 @@
+footer{
+    background-color: #F2F2F2;
+    padding: 30px 0;
+    color: #000;
+}
+.footer-box button{
+    border-radius: 5px;
+    background-color: #FF4E00;
+    color: #fff;
+    border: 0;
+    padding: 10px 20px;
+}
+footer p{
+    font-size: 14px;
+    padding: 5px;
+}
+.footer-bottom{
+    padding: 20px 0;
+    border-top: 1px solid #707070 ;
+}

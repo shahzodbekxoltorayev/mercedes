@@ -1,0 +1,122 @@
+
+    /* Khởi tạo đầu */
+    .imgc, .imgc0 {
+        display: block;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+      }
+      .imgc:before, .imgc0:before {
+        display: block;
+        content: "";
+        padding-bottom: 100%;
+      }
+      .imgc img, .imgc0 img {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+  
+      .imgc0 img {
+        object-fit: scale-down;
+      }
+  
+      /*nb Library (Product detail)*/
+      .nb_library.post-library {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+      .nb_library.post-library .tab-content {
+        margin-bottom: 10px;
+        position: relative;
+        display: none;
+      }
+      .nb_library.post-library .tab-content:before {
+        padding-bottom: 70%;
+      }
+      .nb_library.post-library .tab-content.active {
+        display: block;
+      }
+      .nb_library.post-library .tab-content .zoom {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color: #333;
+        color: #fff;
+        border-radius: 50%;
+        z-index: 3;
+        bottom: 10px;
+        left: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .nb_library.post-library .tab-content .zoom .iconZoom {
+        display: inline-block;
+        font-family: 'FontAwesome';
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-size: 14px;
+        line-height: 1;
+      }
+      .nb_library.post-library .tab-content .zoom .iconZoom:before {
+        content: "\f0b2";
+      }
+      .nb_library.post-library .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -5px;
+        margin-right: -5px;
+      }
+      .nb_library.post-library .tab {
+        max-width: calc(100% / 5);
+        flex: 0 0 calc(100% / 5);
+        width: 100%;
+        padding-left: 5px;
+        padding-right: 5px;
+        box-sizing: border-box;
+      }
+      .nb_library.post-library .tab .imgc:before {
+        padding-bottom: 70%;
+      }
+      .nb_library.post-library .tab-more {
+        position: absolute;
+        width: calc(100% / 5 - 8px);
+        font-size: 13px;
+        z-index: 1;
+        right: 0;
+        bottom: 0;
+      }
+      .nb_library.post-library .tab-more .imgc:before {
+        padding-bottom: 70%;
+      }
+      .nb_library.post-library .tab-more .text-wrap {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.5);
+        text-align: center;
+        padding: 5px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+  
+      .compensate-for-scrollbar {
+        margin-right: 0 !important;
+      }
+  
+  
