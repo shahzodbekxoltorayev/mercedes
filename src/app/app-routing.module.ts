@@ -19,6 +19,9 @@ import { AccessoryComponent } from './website/accessory/accessory.component';
 import { EngineOilComponent } from './website/engine-oil/engine-oil.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
+import { AdminSignComponent } from './admin/admin-sign/admin-sign.component';
+import { AdminAddProductComponent } from './admin/admin-add-product/admin-add-product.component';
 
 const routes: Routes = [
 
@@ -42,11 +45,16 @@ const routes: Routes = [
 
         ]
     },
+    { path: 'login', component: AdminSignComponent },
     {
-      path: 'admin', component: AdminHomeComponent, children : [
-        { path: '', component: AdminProductsComponent }
+      path: 'admin', component: AdminNavbarComponent, children : [
+        { path: '', component: AdminHomeComponent },
+        { path: 'products', component: AdminProductsComponent },
+        { path: 'addProduct', component: AdminAddProductComponent }
+
+
       ]
-    }
+    },
   ];
 
 

@@ -1,14 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { 
+import {
   MatSliderModule ,
   MatInputModule,
   MatButtonModule ,
   MatIconModule,
-  MatSelectModule
+  MatSelectModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatSortModule
 }  from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +23,7 @@ import { HomeComponent } from './website/home/home.component';
 import { NavbarComponent } from './website/navbar/navbar.component';
 import { FooterComponent } from './website/footer/footer.component';
 import { CatalogComponent } from './website/catalog/catalog.component';
-import { AboutComponent } from './website/about/about.component'; 
+import { AboutComponent } from './website/about/about.component';
 import { MagazinComponent} from './website/magazin/magazin.component';
 import { GalleryComponent } from './website/gallery/gallery.component';
 import { NewsComponent } from './website/news/news.component';
@@ -36,7 +42,10 @@ import { AccessoryComponent } from './website/accessory/accessory.component';
 import { EngineOilComponent } from './website/engine-oil/engine-oil.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
- 
+import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
+import { AdminSignComponent } from './admin/admin-sign/admin-sign.component';
+import { AdminAddProductComponent } from './admin/admin-add-product/admin-add-product.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,8 +71,11 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
     AccessoryComponent,
     EngineOilComponent,
     AdminHomeComponent,
-    AdminProductsComponent
-   
+    AdminProductsComponent,
+    AdminNavbarComponent,
+    AdminSignComponent,
+    AdminAddProductComponent
+
   ],
   imports: [
     BrowserModule,
@@ -73,7 +85,14 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
     MatButtonModule,
     MatIconModule,
     MatSelectModule,
-    BrowserAnimationsModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

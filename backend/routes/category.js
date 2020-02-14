@@ -14,7 +14,7 @@ router.post('/:token', async function (request, response, next) {
 
     let category = {
         name_uz : body.name_uz,
-        name_ru : body.name_ru 
+        name_ru : body.name_ru
     }
     const category_new = new Category(category);
 
@@ -35,7 +35,7 @@ else {
 router.get('/getall', async(request, response, next) => {
 
     let category = await Category.find();
-   
+
     response.status(200).json(category)
 
     // var pharms = [];
@@ -50,7 +50,7 @@ router.get('/getall', async(request, response, next) => {
     // })
 })
 
- 
+
 router.get('/getCategory/:id', async function(request, response, next) {
     var id = request.params.id;
       await Category.findById(id).then((res) => {
@@ -65,13 +65,13 @@ router.get('/getCategory/:id', async function(request, response, next) {
     })
 })
 
-router.delete('/deleteCategory/:id/:token', async function(request, response, next) {
+router.delete('/:id/:token', async function(request, response, next) {
     var id = request.params.id;
     var token = request.params.token;
     var admin = await Admin.find();
 
     var obj = Admin.verifyOfAdmin(admin, token);
-    if (obj.isModerator) { 
+    if (obj.isModerator) {
             await Category.findByIdAndDelete(id).then((res) => {
                 response.status(200).json({ message: "Category deleted!" });
             })
@@ -83,7 +83,7 @@ router.delete('/deleteCategory/:id/:token', async function(request, response, ne
         console.log(obj)
         response.status(400).json({ message: "This is not Moderator" });
     }
-    
+
 })
 
 router.patch('/updateCategory/:id/:token' , async function(request, response, next) {
@@ -110,7 +110,7 @@ router.patch('/updateCategory/:id/:token' , async function(request, response, ne
     }
 })
 
- 
+
 
 router.post('/search', async(request, response) => {
     var body = request.body;
@@ -127,7 +127,7 @@ router.post('/search', async(request, response) => {
         response.status(400).json({ message: "Error in search Phram" })
     })
 })
- 
- 
+
+
 module.exports = router;
 

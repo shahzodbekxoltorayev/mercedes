@@ -8,7 +8,7 @@ router.post('/', async function (request, response, next) {
     console.log("Post Admin");
    var body = request.body;
     let admin = {
-        login : body.login, 
+        login : body.login,
         password: await Admin.hashofPassword(body.password),
     }
     const admin_new = new Admin(admin);
@@ -23,7 +23,7 @@ router.post('/', async function (request, response, next) {
     })
 });
 
-       
+
 router.get('/', (request, response, next) =>{
     var admins = [];
     Admin.find().then( (all) =>{
@@ -42,7 +42,7 @@ router.get('/:id', async function(request, response) {
     var data = {};
     var success = false;
     var id = request.params.id;
-    
+
     var body = request.body;
     var admins = await Admin.find();
 
@@ -68,7 +68,7 @@ router.get('/:id', async function(request, response) {
             response.status(200).json(data);
         }
         else {
-            response.status(400).json() 
+            response.status(400).json()
         }
     }
 })
@@ -97,7 +97,7 @@ router.delete('/:id/:token', async function (request, response, next ){
                 success = false
                 response.status(400).json({message: "Admin not found"});
             })
-             
+
                 await Admin.findByIdAndRemove(id).catch( err => {
                     success = false;
                 })
@@ -108,7 +108,7 @@ router.delete('/:id/:token', async function (request, response, next ){
                     response.status(400).json({message: "Error in Delete Admin"})
                 }
             }
-    
+
     else {
         response.status(400).json(data)
     }
@@ -147,19 +147,19 @@ router.post('/sign', async function(request, response) {
     var body = request.body;
     var data = {}
     var admins = await Admin.find();
-    console.log(admins);
-    var obj = Admin.verifyAdmin(admins, body);
+    var obj = await Admin.verifyAdmin(admins, body);
+    response.status(200).json(obj)
 
     if(obj.isAdmin) {
         data.token = obj.token;
         data.isAdmin = obj.isAdmin;
-        response.status(200).json(data)
+        // response.status(200).json(data)
     }
     else {
         response.status(404).json({message: "User Not found!"})
     }
 });
- 
+
 
 
 module.exports = router

@@ -18,7 +18,7 @@ adminSchema.statics.generateToken = function(login, password) {
         login: login,
         password: password
     }
-    
+
     var token = jwt.sign(value, 'pro');
 
     return token;
@@ -29,35 +29,35 @@ adminSchema.statics.generateToken = function(login, password) {
 
 adminSchema.statics.verifyAdmin = function(users, body) {
     var object = { isAdmin: false, isModerator: false};
-    var distoken = undefined; 
+    var distoken = undefined;
 
     users.forEach((user) => {
         try{
             distoken = jwt.verify(user.password, 'pro');
-        console.log(distoken);
+        // console.log(distoken);
         }
         catch {
         }
         if (distoken) {
             if(user.login == body.login && distoken.password == body.password ) {
-                   
+
                     object.token = jwt.sign({login: user.login, password: user.password}, 'pro')
-                           
+
                         if(user == users[0]){
                             object.isAdmin = true;
-                        } 
+                        }
                         else {
                             object.isModerator = true;
                         }
-                        
+
             }
         }
         else {
             console.log("Distoken Undefined")
         }
     })
-
     return object;
+
 }
 
 
@@ -65,13 +65,13 @@ adminSchema.statics.verifyAdmin = function(users, body) {
 //                                                      T e k s  h i r i  s h
 
 adminSchema.statics.verifyOfAdmin2 = function(admins, token) {
-     
+
 };
 
 adminSchema.statics.verifyOfAdmin = function(admins, token) {
     var object = {isAdmin : false, isModerator : false,  adminId: undefined};
-    var distoken = undefined; 
- 
+    var distoken = undefined;
+
     admins.forEach((admin) => {
         try{
             distoken = jwt.verify(token, 'pro');
@@ -87,7 +87,7 @@ adminSchema.statics.verifyOfAdmin = function(admins, token) {
                     object.adminName = admin.login;
                     if(admin == admins[0]){
                         object.isAdmin = true;
-                    } 
+                    }
             }
         }
         else {

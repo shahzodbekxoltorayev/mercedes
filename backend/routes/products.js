@@ -35,10 +35,6 @@ router.post('/:token', multer({ storage: storage }).single('image'), async(reque
     const file = request.file;
 
     var obj = Admin.verifyOfAdmin(admin, token);
-
-    //  var image = 'localhost:5000' + '/images/' + file.filename;
-    // var image = file.filename;
-    // var image = 'https://mercedecapi.herokuapp.com' + '/images/' + file.filename;
     var image_original_name = file.filename;
 
     var product = {
@@ -55,11 +51,13 @@ router.post('/:token', multer({ storage: storage }).single('image'), async(reque
         configuration: body.configuration,
         price: body.price,   //number
         sale: body.sale,     // sale
-        date: new Date()
+        date: new Date().toISOString().
+                       replace(/T/, ' ').
+                       replace(/\..+/, '')
     }
     var new_product = new Product(product);
 
-    if (obj.isModerator) {  
+    if (obj.isModerator) {
         new_product.save().then(res => {
             response.status(200).json(res);
         }).catch(err => {
@@ -87,7 +85,7 @@ router.get('/getall', async(request, response, next) => {
     Product.find().then( (all)=>{
         for(let i=all.length-1; i>=0; i--){
                 prod = all[i];
-                prod.image_original_name = 'localhost:5000' + '/images/' + all[i].image_original_name;
+                prod.image_original_name = 'http://localhost:5000' + '/images/' + all[i].image_original_name;
                 product.push(prod);
         }
         response.status(200).json(product);
@@ -98,7 +96,7 @@ router.get('/getall', async(request, response, next) => {
 
 })
 
- 
+
 router.get('/getProduct/:id', async function(request, response, next) {
     var id = request.params.id;
     var prod = {}
@@ -117,15 +115,13 @@ router.get('/getProduct/:id', async function(request, response, next) {
     })
 })
 
-router.delete('/deleteProduct/:id/:token', async function(request, response, next) {
+router.delete('/:id/:token', async function(request, response, next) {
     var id = request.params.id;
     var token = request.params.token;
     var admin = await Admin.find();
 
     var obj = Admin.verifyOfAdmin(admin, token);
     if (obj.isModerator) {
-
-        
             await Product.findById(id).then( (res) =>{
                var image= res.image_original_name;
                 fs.unlink('backend/images/' + image, function (err) {
@@ -134,21 +130,21 @@ router.delete('/deleteProduct/:id/:token', async function(request, response, nex
                     else {
                         console.log('File deleted!');
                     }
-                }); 
+                });
             });
 
             await Product.findByIdAndDelete(id).then((res) => {
-                response.status(200).json({ message: "Product deleted!" });
+                response.status(200).json({ message: true });
             })
             .catch((err) => {
                 console.log(err);
-                response.status(400).json({ message: "Error in delete Product" });
+                response.status(400).json({ message: false });
             })
     } else {
         console.log(obj)
         response.status(400).json({ message: "This is not Moderator" });
     }
-    
+
 })
 
 router.patch('/updateProduct/:id/:token', multer({ storage: storage }).single('image'), async function(request, response, next) {
@@ -223,5 +219,5 @@ router.get('/getfile', function(req, res) {
     res.json({ 'file': '/files' + body });
 });
 
- 
+
 module.exports = router;
