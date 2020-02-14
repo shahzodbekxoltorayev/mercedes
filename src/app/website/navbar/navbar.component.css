@@ -100,6 +100,7 @@
     font-weight: 400;
     /* line-height: 76px; */
 }
+  
 .navbar-contacts {
     padding: 3px 0;
     text-align: right;
@@ -756,8 +757,7 @@
 /* navbar modal */
 
 .login-page {
-  width: 100%;
-  /* padding: 8% 0 0; */
+  width: 100%; 
   margin: auto;
 }
 .form {
@@ -815,7 +815,9 @@
 }
 
 
-.forma {
+
+
+.form-as {
   position: relative;
   z-index: 1;
   background: #FFFFFF;
@@ -825,7 +827,7 @@
   text-align: center;
   /* box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); */
 }
-.forma input , .forma textarea{
+.form-as input , .form-as textarea{
   font-family: "Roboto", sans-serif;
   outline: 0;
   background: #f2f2f2;
@@ -836,7 +838,7 @@
   box-sizing: border-box;
   font-size: 14px;
 }
-.forma button {
+.form-as button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
@@ -850,18 +852,18 @@
   transition: all 0.3 ease;
   cursor: pointer;
 }
-.forma button:hover,.forma button:active,.forma button:focus {
+/* .forma button:hover,.forma button:active,.forma button:focus {
   background: #43A047;
-}
-.forma .message {
+} */
+/* .forma .message {
   margin: 15px 0 0;
   color: #b3b3b3;
   font-size: 14px;
-}
-.forma .message a {
+} */
+/* .forma .message a {
   color: #4CAF50;
   text-decoration: none;
-}
-.forma .register-form {
+} */
+/* .forma .register-form {
   display: none;
-}
+} */

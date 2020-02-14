@@ -1,7 +1,11 @@
 <section class=" history_wrap wrapper w-100">
     <div class="container-fluid px-lg-5"> 
         <div class="wrap_confirmation">	
-            <div class="row py-4">	
+            <div class="row py-4 ">	
+                <div class="col-12 wrapper_about text-center m-auto "    >
+                    <h2 class="wrapper_about_teme"><span class="border_blue"  ></span>КОРЗИНА <span class="border_blue" ></span></h2>
+                    <p class="wrapper_about_text pb-3 ">	It is a long established fact that a reader will be   distracted  by the readable content of  a page when looking at its layout. The point of using Lorem   </p>			
+                </div>
                 <div class="col-lg-9 col-md-8 mb-4  text-center">	
                     <div class="conard_wrap_works"> 
                         <div class="row	">
@@ -11,23 +15,18 @@
                                         <div class="tabs-content">
                                             <div class="tab-content active imgc" data-tab="tab-1">
                                                 <img src="assets/images/producta.jpg" alt="">
-
                                             </div>
                                             <div class="tab-content imgc" data-tab="tab-2">
                                                 <img src="assets/images/producta.jpg" alt="">
-
                                             </div>
                                             <div class="tab-content imgc" data-tab="tab-3">
                                                 <img src="assets/images/product.jpg" alt="">
-
                                             </div>  
                                             <div class="tab-content imgc" data-tab="tab-4">
                                                 <img src="assets/images/product.jpg" alt="">
-
                                             </div>
                                             <div class="tab-content imgc" data-tab="tab-5">
                                                 <img src="assets/images/product.jpg" alt="">
-
                                             </div>
                                         </div>
                                         <div class="tabs">
@@ -63,6 +62,8 @@
                             <div class="col-sm-7 text-left   "> 
                                 <div class="h5 text-dark">Шаровая опора FEBI BILSTEIN Mercedes W212 36884</div>
                                 <p>Скидка при заказе: Скидка 65,72 cум. за каждые 1 314,30 сум. </p>
+                                <button class="">131,43 сум. Купон нового пользователя</button>
+                                <button class="">Скидка 394,29 сум. за каждые 4 271,48 сум.</button>
                             </div> 
 
 
@@ -71,46 +72,34 @@
                     </div>
                 </div>					
                 <div class="col-lg-3 col-md-4 text-center">	
-                    <div class="	conard_wrap_works">
-                        <div class="h6 text-center font-weight-bold text-dark border-b-2">	СОСТАВ ЗАКАЗА</div>
-                        <hr>
-                        <div class="row d-flex align-items-center pb-2  ">
-                            <div class="col-1">
-                                <p>1</p>
-                            </div>
-                            <div class="col-10 text-left">
-                                <p>Шаровая опора FEBI BILSTEIN</p>
-                                <p>Mercedes W212 36884</p>
-                                <p>1 x 342 720 sum</p>
-                            </div>
-                        </div>							
-                        <div class="row d-flex align-items-center pb-2">
-                            <div class="col-1">
-                                <p>2</p>
-                            </div>
-                            <div class="col-10 text-left">
-                                <p>Шаровая опора FEBI BILSTEIN</p>
-                                <p>Mercedes W212 36884</p>
-                                <p>1 x 342 720 sum</p>
-                            </div> 
+                    <div  class="product-image-wrap product-wrap-mobile text-center mb-3"    >
+                        <div class="product-like">
+                          <div class="d-inline-block float-left">
+                            <button class="fa fa-star aktive-star"></button>
+                            <button class="fa fa-star aktive-star"></button>
+                            <button class="fa fa-star aktive-star"></button>
+                            <button class="fa fa-star-o"></button>
+                            <button class="fa fa-star-o"></button>
+                          </div>
+                          <div class="d-inline-block float-right">
+                            <button class="fa fa-heart aktive"></button>
+                          </div> 
                         </div>
-                        <hr>
-                        <div class="row"> 
-                            <div class="col-6">
-                                <p>Подытог  </p>
-                            </div>
-                            <div class="col-6">
-                                <p>  342 720 sum</p>
-                            </div>
-                            <div class="col-12">
-                                <p class="py-3">
-                                    <a href="#" class="text-info h6">Редактировать заказ</a>
-                                </p>
-                            </div>
-                        </div> 
-                    </div>
+                        <a  routerLink="/about-product">
+                          <div class="p-2">
+                            <img   src="assets/images/Img/8.png"    alt="">
+                            <p class="pl-1" >Ходовая часть</p> 
+                            <div class="text-left product-price pl-1    text-dark " >25,000,000 сум</div>
+                          </div>
+                        </a>
+                        <div class="shopping-button"  >
+                          <button (click)="add()" class="button_price   w-100" > <span class="fa fa-shopping-cart"></span> Добавить в корзину</button>
+                        </div>
+                      </div> 
                 </div>
-                                <div class="col-12">
+                                
+                
+                <div class="col-12">
                 <div class="h4 text-center font-weight-bold text-dark py-3">Шаровая опора FEBI BILSTEIN Mercedes W212 36884 - Характеристики</div>
                 <table class="table table-striped"> 
                     <tbody>
@@ -161,3 +150,86 @@
         </div>
     </div>
 </section>
+
+
+
+<section id="owl-1" >
+    <div class="container-fluid py-3 px-lg-5">
+      <div class="product-tem-card p-2">
+        <div class=" d-inline-block product-price font-weight-bold h5 text-dark  " >ПОПУЛЯРНЫЕ ТОВАРЫ</div>
+        <div class="  product-price float-right  d-inline-block   h5 text-dark  " >Больше   товаров</div>
+      </div>
+    <div class="owl-carousel owl-theme" >
+      <div class="card hoverable" >
+        <div class="card-image waves-effect waves-block waves-light">
+          <div  class="product-image-wrap product-wrap-mobile text-center"   >
+            <div class="product-like">
+              <div class="d-inline-block float-left">
+                <button class="fa fa-star aktive-star"></button>
+                <button class="fa fa-star aktive-star"></button>
+                <button class="fa fa-star aktive-star"></button>
+                <button class="fa fa-star-o"></button>
+                <button class="fa fa-star-o"></button>
+              </div>
+              <div class="d-inline-block float-right">
+                <button class="fa fa-heart aktive"></button>
+              </div> 
+            </div>
+            <a  routerLink="/about-product">
+              <div class="p-2">
+                <img   src="assets/images/Img/8.png"    alt="">
+                <p class="pl-1" >Ходовая часть</p> 
+                <div class="text-left product-price pl-1    text-dark " >25,000,000 сум</div>
+              </div>
+            </a>
+            <div class="shopping-button"  >
+              <button (click)="add()" class="button_price   w-100" > <span class="fa fa-shopping-cart"></span> Добавить в корзину</button>
+            </div>
+          </div>
+        </div>  
+      </div>    
+    </div>      
+    </div>      
+  
+    <div class="container-fluid py-3 px-lg-5">
+      <div class="product-tem-card p-2">
+        <div class=" d-inline-block product-price font-weight-bold h5 text-dark  " >ПОПУЛЯРНЫЕ ТОВАРЫ</div>
+        <div class="  product-price float-right  d-inline-block   h5 text-dark  " >Больше   товаров</div>
+      </div>
+    <div class="owl-carousel owl-theme">
+      <div class="card hoverable">
+        <div class="card-image waves-effect waves-block waves-light">
+          <div class="product-image-wrap product-wrap-mobile text-center"   >
+            <div class="product-like">
+              <div class="d-inline-block float-left">
+                <button class="fa fa-star aktive-star"></button>
+                <button class="fa fa-star aktive-star"></button>
+                <button class="fa fa-star aktive-star"></button>
+                <button class="fa fa-star-o"></button>
+                <button class="fa fa-star-o"></button>
+              </div>
+              <div class="d-inline-block float-right">
+                <button class="fa fa-heart aktive"></button>
+              </div> 
+            </div>
+            <a href="">
+              <div class="p-2">
+                <img   src="assets/images/Img/8.png"    alt="">
+                <p class=" pl-1" >Ходовая часть</p> 
+                <div class="text-left product-price  pl-1   text-dark " >25,000,000 сум</div>
+              </div>
+   
+            </a>
+            <div class="shopping-button"  >
+              <button class="button_price   w-100" > <span class="fa fa-shopping-cart"></span> Добавить в корзину</button>
+            </div>
+          </div>
+        </div>  
+      </div>       
+    </div>      
+    </div>  
+   
+  
+ 
+   
+  </section>

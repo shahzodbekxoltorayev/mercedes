@@ -5,7 +5,6 @@
 .height{
     display: none;
     height: 50px;
-
 }
 @media only screen and (max-width : 992px) {
 
@@ -14,6 +13,9 @@
  }
  .product-price {
     font-size: 14px; 
+}
+.service-offer-pay, .service-wrappera{
+    display: none;
 }
  .wrapper{
    padding: 1.5rem 0 ; 

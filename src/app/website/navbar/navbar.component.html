@@ -642,7 +642,7 @@
 			<div class="col-6 text-right ">
 				
 				<a href="#" class="px-2" data-toggle="modal" data-target="#exampleModalRight"> <img src="assets/img/search.png" alt=""> </a>
-				<a href="#" class="px-3"> <img src="assets/img/user.png" alt=""> </a>
+				<a href="#" class="px-3" data-toggle="modal" data-target="#exampleModalphoneb"> <img src="assets/img/user.png" alt=""> </a>
 				<a href="#" class="px-2" data-toggle="modal" data-target="#exampleModalRighta"> <img src="assets/img/shopping.png" alt=""> </a>
 			</div>
  
@@ -781,7 +781,7 @@
 <!-- modal phone -->
 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalphoneb"  >Open modal for @mdo</button> -->
  
-<div class="modal fade" id="exampleModalphone" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModalphone" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-right: 0;right: 0;">
 	<div class="modal-dialog" role="document">
 	  <div class="modal-content">
 		<div class="modal-body">
@@ -790,14 +790,12 @@
 			z-index: 55;">
 				<span aria-hidden="true">&times;</span>
 			  </button>
-
-			<div class="login-page">
-				<div class="forma">
- 
-				  <form class="login-form">
-					<label for="" style="font-size: 22px;padding-bottom: 15px;">ЧТО С МОИМ ЗАКАЗОМ</label>
+			<div class="login-pagea">
+				<div class="form-as"> 
+				  <form class="login-forma">
+					<label   style="font-size: 22px;padding-bottom: 15px;">ЧТО С МОИМ ЗАКАЗОМ</label>
 					<input type="text" placeholder="Введите номер заказа"/>
-					<input type="password" placeholder="+998 99 999 99 99"/>
+					<input type="number" placeholder="+998 99 999 99 99"/>
 					<button>Проверить заказ</button>
 				  </form>
 				</div>
@@ -819,16 +817,14 @@
 			z-index: 55;">
 				<span aria-hidden="true">&times;</span>
 			  </button>
-			<div class="login-page">
-				<div class="forma">
- 
-				  <form class="login-form">
+			<div class="login-pagea"  >
+				<div class="form-as">
+				  <form class="login-forma" >
 					<label for="" style="font-size: 22px;padding-bottom: 15px;">ПЕРЕЗВОНИТЕ МНЕ	</label>
 					<input type="text" placeholder="Имя"/>
-					<input type="password" placeholder="Номер телефона*"/>
-					<textarea type="password" placeholder="Хочу спросить"></textarea>
+					<input type="number" placeholder="Номер телефона*"/>
+					<textarea type="text" placeholder="Хочу спросить"></textarea>
 					<button>Жду звонка </button>
-					 
 				  </form>
 				</div>
 			  </div>
@@ -837,7 +833,7 @@
 	</div>
   </div>
  <!-- end -->
- <div class="modal fade" id="exampleModalphoneb" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal fade p-0" id="exampleModalphoneb" style="padding: 0;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 	  <div class="modal-content">
 		<div class="modal-body">
@@ -848,7 +844,7 @@
 			  </button>
 			<div class="login-page">
 				<div class="form">
-				  <form class="register-form">
+				  <form class="register-form reg-form">
 					  <label for="" style="font-size: 22px;padding-bottom: 15px;">Регистрация</label>
 					<input type="text" placeholder="Имя"/>
 					<input type="password" placeholder="Пароль"/>
@@ -856,13 +852,12 @@
 					<button>create</button>
 					<p class="message">Already registered? <a href="#">Sign In</a></p>
 				  </form>
-
-				  <form class="login-form">
+				  <form class="login-form reg-form">
 					<label for="" style="font-size: 22px;padding-bottom: 15px;">Логин	</label>
 					<input type="text" placeholder="Имя"/>
 					<input type="password" placeholder="Пароль"/>
 					<button>Логин</button>
-					<p class="message"> Не зарегистрирован? <a href="#">Завести аккаунт
+					<p class="message"> Не зарегистрирован? <a href="#"  >Завести аккаунт
 					</a></p>
 				  </form>
 				</div>

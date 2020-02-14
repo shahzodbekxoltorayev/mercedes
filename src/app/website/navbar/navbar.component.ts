@@ -35,7 +35,7 @@ export class NavbarComponent implements OnInit {
 
 
           $('.message a').click(function(){
-            $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+            $('.reg-form').animate({height: "toggle", opacity: "toggle"} );
          });  
     });
 
