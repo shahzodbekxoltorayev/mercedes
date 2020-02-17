@@ -10,13 +10,16 @@ router.post('/', async function (request, response, next) {
     console.log("Post User");
    var body = request.body;
     let user = {
-        f_name : body.f_name, 
+        f_name : body.f_name,
         m_name :  body.m_name,
         email :  body.email,
         address : body.address,
         phone : body.phone,
         login : body.login,
         password: await User.hashofPassword(body.password),
+        date: new Date().toISOString().
+                          replace(/T/, ' ').
+                          replace(/\..+/, '')
     }
     const use = new User(user);
     console.log(user);
@@ -30,7 +33,7 @@ router.post('/', async function (request, response, next) {
     })
 });
 
-       
+
 router.get('/', (request, response, next) =>{
     var users = [];
     User.find().then( (all) =>{
@@ -49,7 +52,7 @@ router.get('/', (request, response, next) =>{
 router.get('/:id', async function(request, response) {
     var data = {};
     var id = request.params.id;
-  
+
     await User.findById(id).then( (res)=>{
             if(!res) {
                 success = false;
@@ -63,7 +66,7 @@ router.get('/:id', async function(request, response) {
         })
         .catch( (err) =>{
             console.log(err);
-            response.status(400).json() 
+            response.status(400).json()
         });
 });
 
@@ -91,7 +94,7 @@ router.delete('/:id/:token', async function (request, response, next ){
                 success = false
                 response.status(400).json({message: "User not found"});
             })
-             
+
                 await User.findByIdAndRemove(id).catch( err => {
                     success = false;
                 })
@@ -102,7 +105,7 @@ router.delete('/:id/:token', async function (request, response, next ){
                     response.status(400).json({message: "Error in Delete User"})
                 }
             }
-    
+
     else {
         response.status(400).json(data)
     }
@@ -134,7 +137,7 @@ router.get('/verifyUser/:token', async function(request, response) {
 
     var obj = User.verifyOfUser(users, token);
     response.status(200).json(obj);
- 
+
 })
  //                                                                K i r  i  sh
 
@@ -142,7 +145,6 @@ router.post('/sign', async function(request, response) {
     var body = request.body;
     var data = {}
     var users = await User.find();
-    console.log(users);
     var obj = User.verifyUser(users, body);
 
     if(obj.isUser) {
@@ -154,7 +156,7 @@ router.post('/sign', async function(request, response) {
         response.status(404).json({message: "User Not found!"})
     }
 });
- 
+
 
 
 module.exports = router

@@ -7,6 +7,7 @@ const adminRouter = require('./routes/admin');
 const userRouter = require('./routes/users');
 const productRouter = require('./routes/products');
 const categoryRouter = require('./routes/category');
+const sub_categoryRouter = require('./routes/sub-categories');
 const contactRouter = require('./routes/contact');
 const orderRouter = require('./routes/orders');
 const cors = require("cors");
@@ -59,6 +60,7 @@ app.use('/api/admin', adminRouter);
 app.use('/api/users/', userRouter);
 app.use('/api/products/', productRouter);
 app.use('/api/category/', categoryRouter);
+app.use('/api/sub-category/', sub_categoryRouter);
 app.use('/api/contact/', contactRouter);
 app.use('/api/order/', orderRouter);
 

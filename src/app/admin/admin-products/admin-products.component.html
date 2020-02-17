@@ -6,7 +6,7 @@
   </div>
   <!-- Page Heading -->
   <p class="mb-4">Bootstrap's default utility classes can be found on the official
-    <a href="https://getbootstrap.com/docs">Bootstrap Documentation</a>
+    Bootstrap Documentation
     page. The custom utilities below were created to extend this theme past the default utility classes built
     into Bootstrap's framework.
   </p>
@@ -23,9 +23,11 @@
         <mat-label> <mat-icon aria-hidden="false" aria-label="Example home icon">search</mat-icon>Filter</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Example: John">
       </mat-form-field>
+      <mat-spinner *ngIf="isLoad"  [color]="color"></mat-spinner>
 
-      <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="dataSource" matSort>
+      <div class="mat-elevation-z8" *ngIf="!isLoad">
+
+        <table mat-table [dataSource]="dataSource" matSort  >
 
           <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
@@ -47,10 +49,10 @@
             <td mat-cell *matCellDef="let row"> {{row.name_uz}} </td>
           </ng-container>
 
-          <ng-container matColumnDef="category">
+          <!-- <ng-container matColumnDef="category">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
             <td mat-cell *matCellDef="let row"> {{row.category_id}} </td>
-          </ng-container>
+          </ng-container> -->
 
             <ng-container matColumnDef="quantity">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
@@ -85,7 +87,7 @@
           <ng-container matColumnDef="edit">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit </th>
             <td mat-cell  *matCellDef="let row">
-              <button mat-stroked-button color="primary">Edit</button>
+              <button mat-stroked-button routerLink = '/admin/updateProduct/{{row._id}}' color="primary">Edit</button>
             </td>
           </ng-container>
 

@@ -8,9 +8,10 @@ const productSchema = mongoose.Schema({
     // image: {type: String},
     image_original_name : {type: String},
     category_id: {type: String},
+    subcategory_id: {type: String},
 
     quantity: {type: Number},  //miqdori
-    
+
     brand: {type: String},
     model: {type: String},
     configuration: {type: String},

@@ -26,8 +26,9 @@ export class ProductService {
       name_ru: string,
       description_uz: string,
       description_ru: string,
+      image: File,
       category_id: string,
-      image_original_name: File,
+      subcategory_id: string,
       quantity: string,
       brand: string,
       model: string,
@@ -41,29 +42,56 @@ export class ProductService {
     Product.append('description_uz', description_uz);
     Product.append('description_ru', description_ru);
     Product.append('category_id', category_id);
-    Product.append('image', image_original_name);
+    Product.append('subcategory_id', subcategory_id);
+    Product.append('image', image);
     Product.append('quantity', quantity);
     Product.append('brand', brand);
     Product.append('model', model);
     Product.append('configuration', configuration);
-    Product.append('configuration', configuration);
     Product.append('price', price);
     Product.append('sale', sale);
+    // return this.http.post(this.api + localStorage.getItem('token'), Product);
+    return this.http.post(this.api + 'create/' + localStorage.getItem('token'), Product);
 
-    console.log(name_uz);
-    return this.http.post(this.api + localStorage.getItem('token'), Product);
   }
 
-
-  get() {
-    return this.http.get(this.url + '/api/users/verifyUser/' + localStorage.getItem('token'));
+  getProduct(id) {
+    return this.http.get(this.api + 'getProduct/' + id );
   }
 
+ update(
+    id: string,
+    name_uz: string,
+    name_ru: string,
+    description_uz: string,
+    description_ru: string,
+    image: File,
+    category_id: string,
+    subcategory_id: string,
+    quantity: string,
+    brand: string,
+    model: string,
+    configuration: string,
+    price: string,
+    sale: string
+ ) {
+  const Product = new FormData();
+  Product.append('name_uz', name_uz);
+  Product.append('name_ru', name_ru);
+  Product.append('description_uz', description_uz);
+  Product.append('description_ru', description_ru);
+  Product.append('category_id', category_id);
+  Product.append('subcategory_id', subcategory_id);
+  Product.append('image', image);
+  Product.append('quantity', quantity);
+  Product.append('brand', brand);
+  Product.append('model', model);
+  Product.append('configuration', configuration);
+  Product.append('price', price);
+  Product.append('sale', sale);
 
-  getPerson() {
-    return this.http.get(this.url + '/api/person/verifyPerson/' + localStorage.getItem('token'));
-  }
-
+   return this.http.patch(this.api + 'updateProduct/' + id + '/' + localStorage.getItem('token'), Product);
+ }
 
 
 }

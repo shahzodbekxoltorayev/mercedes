@@ -8,7 +8,8 @@ const userSchema = mongoose.Schema({
     password: {type: String},
     email: {type: String},
     address: {type: String},
-    phone: {type: String}
+    phone: {type: String},
+    date: {type: String}
 });
 
 userSchema.statics.hashofPassword = function(pass) {
@@ -22,7 +23,7 @@ userSchema.statics.generateToken = function(login, password) {
         login: login,
         password: password
     }
-    
+
     var token = jwt.sign(value, 'pro');
     return token;
 }
@@ -32,7 +33,7 @@ userSchema.statics.generateToken = function(login, password) {
 
 userSchema.statics.verifyUser = function(users, body) {
     var object = {isUser : false};
-    var distoken = undefined; 
+    var distoken = undefined;
 
     users.forEach((user) => {
         try{
@@ -60,7 +61,7 @@ userSchema.statics.verifyUser = function(users, body) {
 
 userSchema.statics.verifyOfUser = function(users, token) {
     var object = {isUser : false,  userId: undefined};
-    var distoken = undefined; 
+    var distoken = undefined;
 
     users.forEach((user) => {
         try{
@@ -75,7 +76,7 @@ userSchema.statics.verifyOfUser = function(users, token) {
                     object.token = jwt.sign({login: user.login, password: user.password}, 'pro');
                     object.userId = user._id;
                     object.userName = user.login;
- 
+
             }
         }
         else {

@@ -1,11 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-
 import {MatTableDataSource} from '@angular/material/table';
 import { MatPaginator, MatSort } from '@angular/material';
 import { ProductService } from 'src/app/shared/service/productsService';
-
 import Swal from 'sweetalert2';
-
+import {ThemePalette} from '@angular/material/core';
 
 @Component({
   selector: 'app-admin-products',
@@ -14,24 +12,28 @@ import Swal from 'sweetalert2';
 })
 export class AdminProductsComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'image', 'name', 'category', 'quantity', 'brand', 'model', 'price', 'sale', 'date', 'edit', 'delete'];
+  displayedColumns: string[] = ['id', 'image', 'name', 'quantity', 'brand', 'model', 'price', 'sale', 'date', 'edit', 'delete'];
   dataSource;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
+
+  color: ThemePalette = 'primary';
+  isLoad = true;
+
   constructor(
     private productService: ProductService
   ) {
-    this.get()
+    this.get();
    }
 
    get() {
       this.productService.getAll().subscribe( res => {
-        console.log(res.json());
         this.dataSource = new MatTableDataSource(res.json());
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        this.isLoad = false;
       } );
    }
 
@@ -49,21 +51,20 @@ export class AdminProductsComponent implements OnInit {
 
   delete(id) {
     this.productService.delete(id).subscribe( res => {
-      var obj = res.json();
-      if( obj.message ) {
+      const obj = res.json();
+      if ( obj.message ) {
         Swal.fire(
           'Good job!',
           'You clicked the button!',
           'success'
-        )
-        }
-        else {
+        );
+        } else {
           Swal.fire({
             icon: 'error',
             title: 'Error',
             text: 'Maxsulot o`chirilmadi ',
             timer: 3000
-          })
+          });
         }
       this.get();
     });

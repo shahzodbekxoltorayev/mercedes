@@ -22,6 +22,11 @@ import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
 import { AdminSignComponent } from './admin/admin-sign/admin-sign.component';
 import { AdminAddProductComponent } from './admin/admin-add-product/admin-add-product.component';
+import { AdminCategoriesComponent } from './admin/admin-categories/admin-categories.component';
+import { AdminAddCategoryComponent } from './admin/admin-add-category/admin-add-category.component';
+import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
+import { AdminSubCategoryComponent } from './admin/admin-sub-category/admin-sub-category.component';
+import { AdminAddSubCategoryComponent } from './admin/admin-add-sub-category/admin-add-sub-category.component';
 
 const routes: Routes = [
 
@@ -40,17 +45,22 @@ const routes: Routes = [
          { path: 'chassis', component: ChassisComponent},
          { path: 'accessuary', component: AccessoryComponent},
          { path: 'engine_oil', component: EngineOilComponent}
-
-
-
         ]
     },
     { path: 'login', component: AdminSignComponent },
     {
       path: 'admin', component: AdminNavbarComponent, children : [
-        { path: '', component: AdminHomeComponent },
+        { path: '', component: AdminProductsComponent },
         { path: 'products', component: AdminProductsComponent },
-        { path: 'addProduct', component: AdminAddProductComponent }
+        { path: 'addProduct', component: AdminAddProductComponent },
+        { path: 'updateProduct/:id', component: AdminAddProductComponent },
+        { path: 'categories', component: AdminCategoriesComponent },
+        { path: 'addCategory', component: AdminAddCategoryComponent },
+        { path: 'updateCategory/:id', component: AdminAddCategoryComponent },
+        { path: 'subCategory', component: AdminSubCategoryComponent },
+        { path: 'addSubCategory', component: AdminAddSubCategoryComponent },
+        { path: 'updateSubCategory/:id', component: AdminAddSubCategoryComponent },
+        { path: 'users', component: AdminUsersComponent }
 
 
       ]

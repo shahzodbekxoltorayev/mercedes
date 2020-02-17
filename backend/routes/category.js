@@ -9,7 +9,7 @@ router.post('/:token', async function (request, response, next) {
    var body = request.body;
     var token = request.params.token;
     var admins = await  Admin.find();
-
+    console.log(body);
     var obj = await Admin.verifyOfAdmin(admins, token);
 
     let category = {

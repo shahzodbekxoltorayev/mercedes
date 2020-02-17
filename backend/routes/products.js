@@ -26,49 +26,47 @@ const storage = multer.diskStorage({
         cb(null, name + '-' + Date.now() + '.' + ext);
     }
 })
+const upload = multer({ storage: storage })
 
-router.post('/:token', multer({ storage: storage }).single('image'), async(request, response, next) => {
-    var body = request.body;
-    var token = request.params.token;
-    var admin = await Admin.find();
+router.post('/create/:token', upload.single('image'), async (req, res) =>{
+  var body = req.body;
+  var token = req.params.token;
+  var admin = await Admin.find();
+  const file = req.file;
+  var obj = Admin.verifyOfAdmin(admin, token);
 
-    const file = request.file;
+  var product = {
+      name_uz: body.name_uz,
+      name_ru: body.name_ru,
+      description_uz: body.description_uz,
+      description_ru: body.description_ru,
+      // image:  image,
+      image_original_name : file.filename, // file.filename,    //image file
+      category_id: body.category_id,
+      subcategory_id: body.subcategory_id,
+      quantity: body.quantity,  //miqdori Number
+      brand: body.brand,
+      model: body.model,
+      configuration: body.configuration,
+      price: body.price,   //number
+      sale: body.sale,     // sale
+      date: new Date().toISOString().
+                     replace(/T/, ' ').
+                     replace(/\..+/, '')
+  }
+  var new_product = new Product(product);
 
-    var obj = Admin.verifyOfAdmin(admin, token);
-    var image_original_name = file.filename;
-
-    var product = {
-        name_uz: body.name_uz,
-        name_ru: body.name_ru,
-        description_uz: body.description_uz,
-        description_ru: body.description_ru,
-        // image:  image,
-        image_original_name : image_original_name, // file.filename,    //image file
-        category_id: body.category_id,
-        quantity: body.quantity,  //miqdori Number
-        brand: body.brand,
-        model: body.model,
-        configuration: body.configuration,
-        price: body.price,   //number
-        sale: body.sale,     // sale
-        date: new Date().toISOString().
-                       replace(/T/, ' ').
-                       replace(/\..+/, '')
-    }
-    var new_product = new Product(product);
-
-    if (obj.isModerator) {
-        new_product.save().then(res => {
-            response.status(200).json(res);
-        }).catch(err => {
-            console.log(err);
-            response.status(400).json({ message: "Error in Saved Pharm" })
-        })
-    } else {
-        response.status(400).json({ message: "This is not Moderator" });
-    }
-});
-
+  if (obj.isModerator) {
+      new_product.save().then(result => {
+          res.status(200).json(true);
+      }).catch(err => {
+          console.log(err);
+          res.status(400).json({ message: "Error in Saved Pharm" })
+      })
+  } else {
+      res.status(400).json({ message: "This is not Moderator" });
+  }
+} );
 
 
 router.get('/getall', async(request, response, next) => {
@@ -106,7 +104,7 @@ router.get('/getProduct/:id', async function(request, response, next) {
             response.status(400).json({ message: "Product Not found" });
         } else {
             prod = res;
-            prod.image_original_name = 'localhost:5000' + '/images/'  + res.image_original_name
+            prod.image_original_name = 'http://localhost:5000' + '/images/'  + res.image_original_name
             response.status(200).json(prod);
         }
     }).catch((err) => {
@@ -149,25 +147,35 @@ router.delete('/:id/:token', async function(request, response, next) {
 
 router.patch('/updateProduct/:id/:token', multer({ storage: storage }).single('image'), async function(request, response, next) {
     var id = request.params.id;
-    var body = request.body;
-
-    body.logo = request.file.filename;
-
     var token = request.params.token;
     var admin = await Admin.find();
-
     var obj = Admin.verifyOfAdmin(admin, token);
     if (obj.isModerator) {
+      await Product.findById(id).then( (res) =>{
+        var image= res.image_original_name;
+         fs.unlink('backend/images/' + image, function (err) {
+             if (err) {
+             console.log(err.message);}
+             else {
+                 console.log('File deleted!');
+             }
+         });
+     });
+    var body = request.body;
+    body.image_original_name = request.file.filename;
         await Product.findByIdAndUpdate(id, { $set: body }, { new: true }).then((res) => {
             if (res) {
-                response.status(200).json({ message: "Product Update Successfully" });
+                response.status(200).json(true);
             } else {
-                response.status(400).json({ message: "Error in Update Product" })
+                response.status(400).json(false)
             }
         }).catch(err => {
             console.log(err);
-            response.status(400).json({ message: "This is Not Moderator" });
+            response.status(400).json(false);
         })
+    }
+    else {
+      response.status(400).json(false);
     }
 })
 
@@ -199,12 +207,10 @@ router.patch('/updateQuanity/:id', async function(request, response) {
 
 router.post('/search', async(request, response) => {
     var body = request.body;
-    console.log("Body ");
-    console.log(body);
+
 
     var thisname_uz = body.name_uz;
     var thisname_ru = body.name_ru;
-    console.log(thisname)
 
     await Pharmacy.find({ "name_uz": thisname_uz, "name_ru": thisname_ru }).then(all => {
         response.status(200).json(all);

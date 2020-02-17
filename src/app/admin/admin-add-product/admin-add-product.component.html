@@ -4,11 +4,9 @@
 
 
   <div class="col-lg-10">
-
-    <form [formGroup]='form' (submit)="onSave()">
-
+    <mat-spinner *ngIf="!isLoad"></mat-spinner>
+    <form [formGroup]='form' (submit)="onSave()" *ngIf="isLoad">
       <div class="row">
-
         <div class="col-lg-6">
           <mat-form-field appearance="outline">
             <mat-label>Name UZ</mat-label>
@@ -36,14 +34,22 @@
           </mat-form-field>
         </div>
 
-        <!-- image -->
         <div class="col-lg-6">
-
           <mat-form-field>
             <mat-label>Select Category</mat-label>
             <mat-select   formControlName="category_id">
               <mat-option >None</mat-option>
-              <mat-option *ngFor='let category of categories'  value="{{category._id}}" >{{category.name_uz}}</mat-option>
+              <mat-option *ngFor='let category of categories'  value="{{category._id}}" >{{category.name_ru}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col-lg-6">
+          <mat-form-field>
+            <mat-label>Select Sub Category</mat-label>
+            <mat-select   formControlName="subcategory_id">
+              <mat-option >None</mat-option>
+              <mat-option *ngFor='let subcategory of subcategories'  value="{{subcategory._id}}" >{{subcategory.name_ru}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -51,7 +57,7 @@
         <div class="col-lg-6">
           <mat-form-field appearance="outline">
             <mat-label>Quantity</mat-label>
-            <input matInput placeholder="Quantity" formControlName="quantity">
+            <input matInput placeholder="Quantity" type="number" formControlName="quantity">
           </mat-form-field>
         </div>
         <div class="col-lg-6">
@@ -76,19 +82,20 @@
         <div class="col-lg-6">
           <mat-form-field appearance="outline">
             <mat-label>Price</mat-label>
-            <input matInput placeholder="Price" formControlName="price">
+            <input matInput placeholder="Price" type="number" formControlName="price">
           </mat-form-field>
         </div>
         <div class="col-lg-6">
           <mat-form-field appearance="outline">
             <mat-label>Sale</mat-label>
-            <input matInput placeholder="Sale" formControlName="sale">
+            <input matInput placeholder="Sale" type="number" formControlName="sale">
           </mat-form-field>
         </div>
+        <img width="300px" *ngIf = "!imageview" src="{{image}}" [alt]="form.value.image">
         <div class="col-lg-12">
-          <input type="file" name="image" (change)="onInputChange($event)"> <br>
+          <input type="file" name='image' (change)="onInputChange($event)"> <br>
           <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
-            <br><br><img width="300px" [src]="imagePreview" [alt]="form.value.title"> <br><br><br>
+            <br><br><img width="300px" [src]="imagePreview" [alt]="form.value.image"> <br><br><br>
           </div>
         </div>
 

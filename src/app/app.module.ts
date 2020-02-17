@@ -14,7 +14,8 @@ import {
   MatSelectModule,
   MatTableModule,
   MatPaginatorModule,
-  MatSortModule
+  MatSortModule,
+  MatProgressSpinnerModule
 }  from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -45,6 +46,11 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminNavbarComponent } from './admin/admin-navbar/admin-navbar.component';
 import { AdminSignComponent } from './admin/admin-sign/admin-sign.component';
 import { AdminAddProductComponent } from './admin/admin-add-product/admin-add-product.component';
+import { AdminCategoriesComponent } from './admin/admin-categories/admin-categories.component';
+import { AdminAddCategoryComponent } from './admin/admin-add-category/admin-add-category.component';
+import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
+import { AdminSubCategoryComponent } from './admin/admin-sub-category/admin-sub-category.component';
+import { AdminAddSubCategoryComponent } from './admin/admin-add-sub-category/admin-add-sub-category.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +80,12 @@ import { AdminAddProductComponent } from './admin/admin-add-product/admin-add-pr
     AdminProductsComponent,
     AdminNavbarComponent,
     AdminSignComponent,
-    AdminAddProductComponent
+    AdminAddProductComponent,
+    AdminCategoriesComponent,
+    AdminAddCategoryComponent,
+    AdminUsersComponent,
+    AdminSubCategoryComponent,
+    AdminAddSubCategoryComponent
 
   ],
   imports: [
@@ -88,6 +99,7 @@ import { AdminAddProductComponent } from './admin/admin-add-product/admin-add-pr
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatProgressSpinnerModule,
     BrowserAnimationsModule,
     HttpClientModule,
     HttpModule,
