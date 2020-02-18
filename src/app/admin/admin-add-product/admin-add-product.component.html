@@ -4,7 +4,7 @@
 
 
   <div class="col-lg-10">
-    <mat-spinner *ngIf="!isLoad"></mat-spinner>
+    <!-- <mat-spinner *ngIf="!isLoad"></mat-spinner> -->
     <form [formGroup]='form' (submit)="onSave()" *ngIf="isLoad">
       <div class="row">
         <div class="col-lg-6">
