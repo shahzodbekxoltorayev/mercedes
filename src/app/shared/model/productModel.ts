@@ -4,6 +4,7 @@ export interface Product {
   name_ru: String,
   description_uz: String,
   description_ru: String,
+  id_number: String,
   image_original_name : String,
   category_id: String,
   subcategory_id: String,

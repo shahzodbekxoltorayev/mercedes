@@ -49,24 +49,14 @@
             <td mat-cell *matCellDef="let row"> {{row.name_uz}} </td>
           </ng-container>
 
-          <!-- <ng-container matColumnDef="category">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
-            <td mat-cell *matCellDef="let row"> {{row.category_id}} </td>
-          </ng-container> -->
+          <ng-container matColumnDef="id_number">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID Number </th>
+            <td mat-cell *matCellDef="let row" > {{row.id_number}} </td>
+          </ng-container>
 
             <ng-container matColumnDef="quantity">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
               <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.quantity}} </td>
-            </ng-container>
-
-          <ng-container matColumnDef="brand">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Brand </th>
-            <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.brand}} </td>
-          </ng-container>
-
-            <ng-container matColumnDef="model">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> Model </th>
-              <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.model}} </td>
             </ng-container>
 
             <ng-container matColumnDef="price">

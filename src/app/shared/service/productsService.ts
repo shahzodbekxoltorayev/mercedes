@@ -26,6 +26,7 @@ export class ProductService {
       name_ru: string,
       description_uz: string,
       description_ru: string,
+      id_number: string,
       image: File,
       category_id: string,
       subcategory_id: string,
@@ -41,6 +42,7 @@ export class ProductService {
     Product.append('name_ru', name_ru);
     Product.append('description_uz', description_uz);
     Product.append('description_ru', description_ru);
+    Product.append('id_number', id_number);
     Product.append('category_id', category_id);
     Product.append('subcategory_id', subcategory_id);
     Product.append('image', image);
@@ -65,6 +67,7 @@ export class ProductService {
     name_ru: string,
     description_uz: string,
     description_ru: string,
+    id_number: string,
     image: File,
     category_id: string,
     subcategory_id: string,
@@ -80,6 +83,7 @@ export class ProductService {
   Product.append('name_ru', name_ru);
   Product.append('description_uz', description_uz);
   Product.append('description_ru', description_ru);
+  Product.append('id_number', id_number);
   Product.append('category_id', category_id);
   Product.append('subcategory_id', subcategory_id);
   Product.append('image', image);

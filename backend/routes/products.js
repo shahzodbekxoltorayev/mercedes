@@ -40,6 +40,7 @@ router.post('/create/:token', upload.single('image'), async (req, res) =>{
       name_ru: body.name_ru,
       description_uz: body.description_uz,
       description_ru: body.description_ru,
+      id_number: body.id_number,
       // image:  image,
       image_original_name : file.filename, // file.filename,    //image file
       category_id: body.category_id,

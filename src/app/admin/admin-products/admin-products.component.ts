@@ -12,7 +12,7 @@ import {ThemePalette} from '@angular/material/core';
 })
 export class AdminProductsComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'image', 'name', 'quantity', 'brand', 'model', 'price', 'sale', 'date', 'edit', 'delete'];
+  displayedColumns: string[] = ['id', 'image', 'name', 'id_number', 'quantity', 'price', 'sale', 'date', 'edit', 'delete'];
   dataSource;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;

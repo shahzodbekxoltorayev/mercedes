@@ -17,6 +17,10 @@ export class SubCategoryService {
     return this.http.get(this.api + 'getall');
   }
 
+  getSelected(id) {
+    return this.http.get( this.api + 'getSelected/' + id);
+  }
+
   delete(id) {
     return this.http.delete(this.api + id + '/' + localStorage.getItem('token'));
   }
