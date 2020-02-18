@@ -406,12 +406,11 @@
         transition: 150ms ease all;
       }
       nav#navigation ul li ul[class*="dropdown-"] li {
-        width: 623px;
-        height: 450px;
+        width: 350px; 
         background: #fff; 
       }
       nav#navigation ul li ul[class*="dropdown-"] li {
-        width: 623px;
+        width: 350px;
         background: #fff; 
       }
       nav#navigation ul li ul[class*="dropdown-"] li a:hover {
