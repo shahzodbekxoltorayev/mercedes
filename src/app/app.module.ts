@@ -1,10 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {NgxMaskModule} from 'ngx-mask'
 
 import {
   MatSliderModule ,
@@ -51,6 +55,16 @@ import { AdminAddCategoryComponent } from './admin/admin-add-category/admin-add-
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { AdminSubCategoryComponent } from './admin/admin-sub-category/admin-sub-category.component';
 import { AdminAddSubCategoryComponent } from './admin/admin-add-sub-category/admin-add-sub-category.component';
+import { LanguageComponent } from './website/language/language.component';
+import { AdminContactsComponent } from './admin/admin-contacts/admin-contacts.component';
+import { AdminAddNewsComponent } from './admin/admin-add-news/admin-add-news.component';
+import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
+
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
+
 
 @NgModule({
   declarations: [
@@ -85,7 +99,11 @@ import { AdminAddSubCategoryComponent } from './admin/admin-add-sub-category/adm
     AdminAddCategoryComponent,
     AdminUsersComponent,
     AdminSubCategoryComponent,
-    AdminAddSubCategoryComponent
+    AdminAddSubCategoryComponent,
+    LanguageComponent,
+    AdminContactsComponent,
+    AdminAddNewsComponent,
+    AdminNewsComponent
 
   ],
   imports: [
@@ -104,7 +122,15 @@ import { AdminAddSubCategoryComponent } from './admin/admin-add-sub-category/adm
     HttpClientModule,
     HttpModule,
     FormsModule,
-    ReactiveFormsModule
+    NgxMaskModule.forRoot(),
+    ReactiveFormsModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })
   ],
   providers: [],
   bootstrap: [AppComponent]

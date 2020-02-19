@@ -35,7 +35,8 @@ export class ProductService {
       model: string,
       configuration: string,
       price: string,
-      sale: string
+      sale: string,
+      rating: string
   ) {
     const Product = new FormData();
     Product.append('name_uz', name_uz);
@@ -52,6 +53,7 @@ export class ProductService {
     Product.append('configuration', configuration);
     Product.append('price', price);
     Product.append('sale', sale);
+    Product.append('rating', rating);
     // return this.http.post(this.api + localStorage.getItem('token'), Product);
     return this.http.post(this.api + 'create/' + localStorage.getItem('token'), Product);
 
@@ -59,6 +61,10 @@ export class ProductService {
 
   getProduct(id) {
     return this.http.get(this.api + 'getProduct/' + id );
+  }
+
+  getSelected(cat_id, subcat_id) {
+      return this.http.get(this.api + 'getSelected/' + cat_id + '/' + subcat_id);
   }
 
  update(
@@ -76,7 +82,9 @@ export class ProductService {
     model: string,
     configuration: string,
     price: string,
-    sale: string
+    sale: string,
+    rating: string
+
  ) {
   const Product = new FormData();
   Product.append('name_uz', name_uz);
@@ -93,8 +101,8 @@ export class ProductService {
   Product.append('configuration', configuration);
   Product.append('price', price);
   Product.append('sale', sale);
-
-   return this.http.patch(this.api + 'updateProduct/' + id + '/' + localStorage.getItem('token'), Product);
+  Product.append('rating', rating);
+  return this.http.patch(this.api + 'updateProduct/' + id + '/' + localStorage.getItem('token'), Product);
  }
 
 

@@ -13,5 +13,6 @@ export interface Product {
   model: String,
   configuration: String,
   price: Number,
-  sale: Number
+  sale: Number,
+  rating: Number
 }

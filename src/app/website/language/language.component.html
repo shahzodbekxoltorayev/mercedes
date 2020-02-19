@@ -1,0 +1,5 @@
+<select style="background-color: #FAFAFA; color: blue; padding: 8px; border: none" #langSelect
+(change)="translate.use(langSelect.value); select(langSelect.value)">
+<option *ngFor="let lang of langs" [value]="lang"
+  [selected]="lang === translate.currentLang">{{ lang }}</option>
+</select>

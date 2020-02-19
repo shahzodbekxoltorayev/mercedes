@@ -51,7 +51,8 @@ export class AdminAddProductComponent implements OnInit {
       model: new FormControl(null, { validators: [Validators.required] }),
       configuration: new FormControl(null, { validators: [Validators.required] }),
       price: new FormControl(null, { validators: [Validators.required] }),
-      sale: new FormControl(null, { validators: [Validators.required] })
+      sale: new FormControl(null, { validators: [Validators.required] }),
+      rating: new FormControl(null, { validators: [Validators.required] })
     });
 
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
@@ -78,7 +79,8 @@ export class AdminAddProductComponent implements OnInit {
             model: postData.model,
             configuration: postData.configuration,
             price: postData.price,
-            sale: postData.sale
+            sale: postData.sale,
+            rating: postData.rating
           };
             this.form.setValue({
             name_uz:   this.product.name_uz,
@@ -122,7 +124,8 @@ export class AdminAddProductComponent implements OnInit {
         this.form.value.model,
         this.form.value.configuration,
         this.form.value.price,
-        this.form.value.sale
+        this.form.value.sale,
+        this.form.value.rating
       )
       .subscribe( res => {
           if (res) {
@@ -159,7 +162,9 @@ export class AdminAddProductComponent implements OnInit {
           this.form.value.model,
           this.form.value.configuration,
           this.form.value.price,
-          this.form.value.sale
+          this.form.value.sale,
+          this.form.value.rating
+
           ).subscribe( result => {
             if (result.ok) {
               Swal.fire(

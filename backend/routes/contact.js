@@ -5,13 +5,16 @@ const router = express.Router();
 
  //                                                               R e g i  s t r a t s i o n
 router.post('/', async function (request, response, next) {
-   var body = request.body; 
+   var body = request.body;
 
     let contact = {
         name : body.name,
+        email: body.email,
         number: body.number,
         message: body.message,
-        date: new Date()
+        date: new Date().toISOString().
+                        replace(/T/, ' ').
+                        replace(/\..+/, '')
     }
     const contact_new = new Contact(contact);
 
@@ -24,24 +27,11 @@ router.post('/', async function (request, response, next) {
 });
 
 router.get('/getall', async(request, response, next) => {
-
     let contact = await Contact.find();
-   
     response.status(200).json(contact)
-
-    // var pharms = [];
-    // Pharmacy.find().then( (all)=>{
-    //     for(let i=all.length-1; i>=0; i--){
-    //             pharms.push(all[i]);
-    //     }
-    //     response.status(200).json(pharms);
-    // }).catch( (err) =>{
-    //     console.log(err);
-    //     response.status(400).json({message: "Error in Get Pharms"});
-    // })
 })
 
- 
+
 router.get('/getContact/:id', async function(request, response, next) {
     var id = request.params.id;
       await Contact.findById(id).then((res) => {
@@ -62,9 +52,9 @@ router.delete('/deleteContact/:id/:token', async function(request, response, nex
     var admin = await Admin.find();
 
     var obj = Admin.verifyOfAdmin(admin, token);
-    if (obj.isModerator) { 
+    if (obj.isModerator) {
             await Contact.findByIdAndDelete(id).then((res) => {
-                response.status(200).json({ message: "Category deleted!" });
+                response.status(200).json(res);
             })
             .catch((err) => {
                 console.log(err);
@@ -74,34 +64,8 @@ router.delete('/deleteContact/:id/:token', async function(request, response, nex
         console.log(obj)
         response.status(400).json({ message: "This is not Moderator" });
     }
-    
+
 })
-
-// router.patch('/updateContact/:id/:token' , async function(request, response, next) {
-//     var id = request.params.id;
-//     var body = request.body;
-
-//     body.logo = request.file.filename;
-
-//     var token = request.params.token;
-//     var admin = await Admin.find();
-
-//     var obj = Admin.verifyOfAdmin(admin, token);
-//     if (obj.isModerator) {
-//         await Contact.findByIdAndUpdate(id, { $set: body }, { new: true }).then((res) => {
-//             if (res) {
-//                 response.status(200).json({ message: "Category Update Successfully" });
-//             } else {
-//                 response.status(400).json({ message: "Error in Update Category" })
-//             }
-//         }).catch(err => {
-//             console.log(err);
-//             response.status(400).json({ message: "This is Not Moderator" });
-//         })
-//     }
-// })
-
- 
 
 router.post('/search', async(request, response) => {
     var body = request.body;
@@ -117,7 +81,7 @@ router.post('/search', async(request, response) => {
         response.status(400).json({ message: "Error in search Phram" })
     })
 })
- 
- 
+
+
 module.exports = router;
 

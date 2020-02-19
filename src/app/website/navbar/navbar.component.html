@@ -1,32 +1,30 @@
- 
+
 
  <section class="navbar_heder" style="width: 100%; overflow: hidden;position: relative;">
- 
+
   <div class="header-top">
 	  <div class="container-fluid px-lg-5">
 		<div class="float-right d-inline-block">
 			<ul class="toolbar">
-				<li class="toolbar-item"> 
+				<li class="toolbar-item">
 					<a href="#" class="toolbar-link" data-toggle="modal" data-target="#exampleModalphone"  >ЧТО С МОИМ ЗАКАЗОМ</a>
-					
+
 				</li>
-				<li class="toolbar-item"> 
+				<li class="toolbar-item">
 					<a href="#" data-toggle="modal" data-target="#exampleModalphonea" class="toolbar-link"><span class="fa fa-phone pr-2"></span> ЗАКАЗАТЬ ОБРАТНУЮ СВЯЗЬ</a>
 				</li>
-				<li class="toolbar-item toolbar-item-language"> 
-					<!-- <a href="#" class="toolbar-link">O'zbekcha <span class="fa fa-angle-down"  ></span></a> -->
-					<mat-form-field style="width: 50px; ">
-						<!-- <mat-label>Select an option</mat-label> -->
-						<mat-select [(value)]="selected"> 
+				<li class="toolbar-item toolbar-item-language">
+            <app-language></app-language>
+          <!-- <mat-form-field style="width: 50px; ">
+						<mat-select [(value)]="selected">
 						  <mat-option value="option1" class="text-white">UZ</mat-option>
 						  <mat-option value="option2">RU</mat-option>
-						  <mat-option value="option3">ENG</mat-option>
 						</mat-select>
-					  </mat-form-field>
+					  </mat-form-field> -->
 				</li>
-				<li class="toolbar-item border-0"> 
+				<li class="toolbar-item border-0">
 					<a routerLink="/sort-products" class="toolbar-link  border-0">
-						<img src="assets/img/Group.png" style="display: inline-block;" alt=""> 
+						<img src="assets/img/Group.png" style="display: inline-block;" alt="">
 						<span class="toolbar-link-span"  >5</span></a>
 				</li>
 			</ul>
@@ -44,19 +42,19 @@
 			  <div class="navbar-a">
 				<ul class="navbar_nav">
 					<li class="navbar_nav_item">
-						<a routerLink="/" class="navbar_nav_link">Главная</a>
+						<a routerLink="/" class="navbar_nav_link">{{'NAVBAR.ASOSIY' | translate}}</a>
 					</li>
 					<li class="navbar_nav_item">
 						<a routerLink="/catalog" class="navbar_nav_link">Каталог</a>
 					</li>
-					 
+
 					<li class="navbar_nav_item">
 						<a routerLink="/news" class="navbar_nav_link">Новости</a>
 					</li>
 					<li class="navbar_nav_item">
 						<a routerLink="/about" class="navbar_nav_link">Мир Mercedes-Benz</a>
 					</li>
- 
+
 					<!-- <li class="navbar_nav_item">
 						<a href="#" class="navbar_nav_link">Мир Mercedes-Benz</a>
 					</li> -->
@@ -65,7 +63,7 @@
 					</li>
 				</ul>
 			  </div>
- 
+
 		  </div>
 		  <div class=" " style="position: absolute; right: 0;">
 			  <div class="navbar-contacts ">
@@ -96,16 +94,16 @@
 						Найти
 				   </button>
 				 </div>
-			</div> 
+			</div>
 			<div class="header__bottom-block">
-				<div class="cabinet"> 
+				<div class="cabinet">
 					<a class="cabinet__toggler" href="#" data-toggle="modal" data-target="#exampleModalphoneb">
 						<img src="assets/img/user.png" class="d-inline-block absolute" style="position: absolute;" alt="">
-						<h3 class="cabinet__title"   >Кабинет</h3> 
+						<h3 class="cabinet__title"   >Кабинет</h3>
 						<p class="cabinet__item"   >Войти</p>
 					</a>
 				</div>
-				<div class="basket"> 
+				<div class="basket">
 					<a class="basket__toggler" routerLink="/shopping-card">
 						<!-- <img src="assets/img/shopping.png" class="d-inline-block absolute" style="position: absolute;" alt=""> -->
 						<mat-icon aria-hidden="false" class="d-inline-block absolute" style="position: absolute;    font-size: 33px;" aria-label="Example add_shopping_cart icon">add_shopping_cart</mat-icon>
@@ -139,25 +137,25 @@
 				<ul class="dropdown-2 p-0">
 					<li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>  
+					  </li>
 				</ul>
  			</a>
 			</li>
@@ -168,25 +166,25 @@
                 <ul class="dropdown-2 p-0">
 					<li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>  
+					  </li>
 				</ul>
 			</a>
 			</li>
@@ -197,25 +195,25 @@
                 <ul class="dropdown-3 p-0">
 					<li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>  
+					  </li>
 				</ul>
 			</a>
 			  </li>
@@ -226,25 +224,25 @@
 					<ul class="dropdown-4 p-0">
 						<li class="dropdown" rel="2">
 							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-						  </li>  
+						  </li>
 						  <li class="dropdown" rel="2">
 							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-						  </li>  
+						  </li>
 						  <li class="dropdown" rel="2">
 							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-						  </li>  
+						  </li>
 						  <li class="dropdown" rel="2">
 							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-						  </li>  
+						  </li>
 						  <li class="dropdown" rel="2">
 							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-						  </li>  
+						  </li>
 						  <li class="dropdown" rel="2">
 							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-						  </li>  
+						  </li>
 						  <li class="dropdown" rel="2">
 							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-						  </li>  
+						  </li>
 					</ul>
 				</a>
 			  </li>
@@ -255,25 +253,25 @@
 				  <ul class="dropdown-5 p-0">
 					<li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>  
+					  </li>
 				</ul>
 			</a>
 			  </li>
@@ -284,25 +282,25 @@
 					<ul class="dropdown-6 p-0">
 						<li class="dropdown" rel="2">
 							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-						  </li>  
+						  </li>
 						  <li class="dropdown" rel="2">
 							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-						  </li>  
+						  </li>
 						  <li class="dropdown" rel="2">
 							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-						  </li>  
+						  </li>
 						  <li class="dropdown" rel="2">
 							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-						  </li>  
+						  </li>
 						  <li class="dropdown" rel="2">
 							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-						  </li>  
+						  </li>
 						  <li class="dropdown" rel="2">
 							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-						  </li>  
+						  </li>
 						  <li class="dropdown" rel="2">
 							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-						  </li>  
+						  </li>
 					</ul>
 				</a>
 			  </li>
@@ -313,25 +311,25 @@
                 <ul class="dropdown-7 p-0">
 					<li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>  
+					  </li>
 					  <li class="dropdown" rel="2">
 						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>  
+					  </li>
 				</ul>
 			</a>
 		  </li>
@@ -342,31 +340,31 @@
 			<ul class="dropdown-8 p-0">
 				<li class="dropdown" rel="2">
 					<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-				  </li>  
+				  </li>
 				  <li class="dropdown" rel="2">
 					<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-				  </li>  
+				  </li>
 				  <li class="dropdown" rel="2">
 					<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-				  </li>  
+				  </li>
 				  <li class="dropdown" rel="2">
 					<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-				  </li>  
+				  </li>
 				  <li class="dropdown" rel="2">
 					<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-				  </li>  
+				  </li>
 				  <li class="dropdown" rel="2">
 					<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-				  </li>  
+				  </li>
 				  <li class="dropdown" rel="2">
 					<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-				  </li>  
+				  </li>
 				  <li class="dropdown" rel="2">
 					<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-				  </li> 
+				  </li>
 				  <li class="dropdown" rel="2">
 					<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-				  </li> 
+				  </li>
 			</ul>
 		</a>
 	  </li>
@@ -377,41 +375,41 @@
 		<ul class="dropdown-9 p-0">
 			<li class="dropdown" rel="2">
 				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-			  </li>  
+			  </li>
 			  <li class="dropdown" rel="2">
 				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-			  </li>  
+			  </li>
 			  <li class="dropdown" rel="2">
 				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-			  </li>  
+			  </li>
 			  <li class="dropdown" rel="2">
 				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-			  </li>  
+			  </li>
 			  <li class="dropdown" rel="2">
 				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-			  </li>  
+			  </li>
 			  <li class="dropdown" rel="2">
 				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-			  </li>  
+			  </li>
 			  <li class="dropdown" rel="2">
 				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-			  </li>  
+			  </li>
 			  <li class="dropdown" rel="2">
 				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-			  </li>  
+			  </li>
 			  <li class="dropdown" rel="2">
 				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-			  </li>  
+			  </li>
 			  <li class="dropdown" rel="2">
 				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-			  </li>  
+			  </li>
 		</ul>
 	</a>
   </li>
- 
+
               </ul>
             </nav>
-            
+
           </div>
           <!-- <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -420,11 +418,11 @@
         </div>
       </div>
     </div>
- 
+
  </section>
- 
+
 <!-- mobile  -->
- 
+
 <section class="mobile-header" style="position: fixed;z-index: 55555;">
 	<div class="container">
 		<div class="row">
@@ -434,24 +432,24 @@
 				</a>
 			</div>
 			<div class="col-6 text-right ">
-				
+
 				<a href="#" class="px-2" data-toggle="modal" data-target="#exampleModalRight"> <img src="assets/img/search.png" alt=""> </a>
 				<a href="#" class="px-3" data-toggle="modal" data-target="#exampleModalphoneb"> <img src="assets/img/user.png" alt=""> </a>
 				<a href="#" class="px-2" data-toggle="modal" data-target="#exampleModalRighta"> <img src="assets/img/shopping.png" alt=""> </a>
 			</div>
- 
 
- 
+
+
 		</div>
 	</div>
- 
+
 </section>
 <div class="height"></div>
   <!-- Modal left -->
 <div class="modal left fade" id="exampleModalLeftaa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLeft" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 	  <div class="modal-content">
- 
+
 		<div class="modal-body pb-0">
 		  <!-- partial:index.partial.html -->
 <div class="page-wrapper chiller-theme toggled">
@@ -487,27 +485,27 @@
 		<div class="sidebar-menu">
 		  <ul>
 			<li>
-			  <a href="#"> 
-				<span>ГЛАВНАЯ</span> 
+			  <a href="#">
+				<span>ГЛАВНАЯ</span>
 			  </a>
 			</li>
 			<li>
-			  <a href="#"> 
+			  <a href="#">
 				<span>О НАС</span>
 			  </a>
 			</li>
 			<li>
-			  <a href="#"> 
+			  <a href="#">
 				<span>КАТАЛОГ</span>
 			  </a>
 			</li>
 			<li>
-				<a href="#"> 
+				<a href="#">
 				  <span>НОВОСТИ</span>
 				</a>
 			  </li>
 			  <li>
-				<a href="#"> 
+				<a href="#">
 				  <span>КОНТАКТЫ</span>
 				</a>
 			  </li>
@@ -515,14 +513,14 @@
 		</div>
 		<!-- sidebar-menu  -->
 	  </div>
- 
+
 	</nav>
-   
+
 	<!-- page-content" -->
   </div>
 		</div>
 		 <!-- body modal -->
- 
+
 	  </div>
 	</div>
   </div>
@@ -571,10 +569,10 @@
 	</div>
   </div>
   <!-- end modal  -->
-  
+
 <!-- modal phone -->
 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalphoneb"  >Open modal for @mdo</button> -->
- 
+
 <div class="modal fade" id="exampleModalphone" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-right: 0;right: 0;">
 	<div class="modal-dialog" role="document">
 	  <div class="modal-content">
@@ -585,7 +583,7 @@
 				<span aria-hidden="true">&times;</span>
 			  </button>
 			<div class="login-pagea">
-				<div class="form-as"> 
+				<div class="form-as">
 				  <form class="login-forma">
 					<label   style="font-size: 22px;padding-bottom: 15px;">ЧТО С МОИМ ЗАКАЗОМ</label>
 					<input type="text" placeholder="Введите номер заказа"/>
@@ -656,8 +654,8 @@
 				  </form>
 				</div>
 			  </div>
-			
-			
+
+
 		</div>
 	  </div>
 	</div>
