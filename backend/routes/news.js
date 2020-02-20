@@ -1,6 +1,7 @@
 const express = require('express');
 const Product = require('../models/products');
 const News = require('../models/news');
+const Admin = require('../models/admin')
 const multer = require('multer');
 var fs = require('fs');
 const router = express.Router();
@@ -68,12 +69,12 @@ router.get('/getall', async(request, response, next) => {
         for(let i=all.length-1; i>=0; i--){
                 prod = all[i];
                 prod.image_original_name = 'http://localhost:5000' + '/images/' + all[i].image_original_name;
-                product.push(news);
+                news.push(prod);
         }
         response.status(200).json(news);
     }).catch( (err) =>{
         console.log(err);
-        response.status(400).json({message: "Error in Get Pharms"});
+        response.status(400).json({message: "Error in Get News"});
     })
 })
 
