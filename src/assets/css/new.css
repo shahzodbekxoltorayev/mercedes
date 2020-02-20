@@ -676,8 +676,8 @@
   .conard_wrap_works{
       box-shadow: 0 1px 6px rgba(57,73,76,.35);
       width: 100%;
-      padding: 30px;
-      border-radius: 5px;
+      padding: 20px;
+      border-radius: 4px;
   
   }
   .wrap_payinfo{

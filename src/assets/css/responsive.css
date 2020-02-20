@@ -17,6 +17,9 @@
 .service-offer-pay, .service-wrappera{
     display: none;
 }
+.productmobile-none{
+    display: none;
+}
  .wrapper{
    padding: 1.5rem 0 ; 
 }
