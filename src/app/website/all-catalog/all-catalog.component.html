@@ -42,13 +42,12 @@
 <section id="owl-1" *ngIf='select'>
 
 
-  <div class="container-fluid py-3 px-lg-5">
+  <!-- <div class="container-fluid py-3 px-lg-5">
     <div class="product-tem-card p-2">
       <div class=" d-inline-block product-price font-weight-bold h5 text-dark  " >ПОПУЛЯРНЫЕ ТОВАРЫ</div>
       <div class="  product-price float-right  d-inline-block   h5 text-dark  " >Больше   товаров</div>
     </div>
-    <!-- <p *ngFor='let test of products'> {{test.name_ru}}</p> -->
-    <!-- <div class="owl-carousel owl-theme"> -->
+    <div class="owl-carousel owl-theme">
     <div class="card hoverable" *ngFor='let product of products'>
       <div class="card-image waves-effect waves-block waves-light">
         <div class="product-image-wrap product-wrap-mobile text-center"   >
@@ -79,8 +78,8 @@
         </div>
       </div>
     </div>
-   <!-- </div> -->
-  </div>
+   </div>
+  </div> -->
 
 
   <!-- <div class="container-fluid py-3 px-lg-5">
@@ -123,17 +122,19 @@
 
 </section>
 
- 
-     
-   
-  
+
+
+
+
 <div class="container-fluid py-3 px-lg-5">
   <div class="product-tem-card p-2">
     <div class=" d-inline-block product-price font-weight-bold h5 text-dark  " >ПОПУЛЯРНЫЕ ТОВАРЫ</div>
     <div class="  product-price float-right  d-inline-block   h5 text-dark  " >Больше   товаров</div>
   </div>
   <div class="row">
-      <div class="col-md-3 mb-4">
+
+
+      <div class="col-md-3 mb-4" *ngFor='let product of products'>
         <div class="product-image-wrap product-wrap-mobile text-center"   >
             <div class="product-like">
               <div class="d-inline-block float-left">
@@ -145,15 +146,16 @@
               </div>
               <div class="d-inline-block float-right">
                 <button class="fa fa-heart aktive"></button>
-              </div> 
+              </div>
             </div>
             <a href="">
               <div class="p-2">
-                <img   src="assets/images/Img/8.png"    alt="">
-                <p class=" pl-1" >Ходовая часть</p> 
-                <div class="text-left product-price  pl-1   text-dark " >25,000,000 сум</div>
+                <img   src="{{product.image_original_name}}" width='300px'    alt="">
+                <p  class=" pl-1"  *ngIf='!language'>{{product.name_ru}}</p>
+                <p   class=" pl-1"  *ngIf='language'>{{product.name_uz}}</p>
+                <div class="text-left product-price  pl-1   text-dark " >{{product.price}} сум</div>
               </div>
-   
+
             </a>
             <div class="shopping-button"  >
               <button class="button_price   w-100" > <span class="fa fa-shopping-cart"></span> Добавить в корзину</button>
@@ -161,7 +163,7 @@
           </div>
       </div>  <!-- col -->
 
-      <div class="col-md-3  mb-4">
+      <!-- <div class="col-md-3  mb-4">
         <div class="product-image-wrap product-wrap-mobile text-center"   >
             <div class="product-like">
               <div class="d-inline-block float-left">
@@ -173,23 +175,25 @@
               </div>
               <div class="d-inline-block float-right">
                 <button class="fa fa-heart aktive"></button>
-              </div> 
+              </div>
             </div>
             <a href="">
               <div class="p-2">
                 <img   src="assets/images/Img/8.png"    alt="">
-                <p class=" pl-1" >Ходовая часть</p> 
+                <p class=" pl-1" >Ходовая часть</p>
                 <div class="text-left product-price  pl-1   text-dark " >25,000,000 сум</div>
               </div>
-   
+
             </a>
             <div class="shopping-button"  >
               <button class="button_price   w-100" > <span class="fa fa-shopping-cart"></span> Добавить в корзину</button>
             </div>
           </div>
-      </div>  <!-- col -->
+      </div>    -->
+
+
   </div>
-</div>  
+</div>
 
 
 

@@ -129,13 +129,13 @@ export class AdminAddProductComponent implements OnInit {
       )
       .subscribe( res => {
           if (res) {
-            this.form.reset();
+            // this.form.reset();
             Swal.fire(
               'Good job!',
               'New Product Saved!',
               'success'
             );
-            this.router.navigate(['/admin/products']);
+            // this.router.navigate(['/admin/products']);
 
           } else {
             Swal.fire({

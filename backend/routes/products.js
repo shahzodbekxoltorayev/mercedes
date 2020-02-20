@@ -11,6 +11,8 @@ const MIME_TYPE_MAP = {
     'image/jpeg': 'jpg'
 }
 
+const url = 'http://localhost:5000';
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         const isValid = MIME_TYPE_MAP[file.mimetype];
@@ -77,7 +79,7 @@ router.get('/getall', async(request, response, next) => {
     Product.find().then( (all)=>{
         for(let i=all.length-1; i>=0; i--){
                 prod = all[i];
-                prod.image_original_name = 'http://localhost:5000' + '/images/' + all[i].image_original_name;
+                prod.image_original_name = url + '/images/' + all[i].image_original_name;
                 product.push(prod);
         }
         response.status(200).json(product);
@@ -85,9 +87,42 @@ router.get('/getall', async(request, response, next) => {
         console.log(err);
         response.status(400).json({message: "Error in Get Pharms"});
     })
-
 })
 
+router.get('/getForMagazine', async(request, response, next) => {
+  var product = [];
+  var prod = {}
+  Product.find().then( (all)=>{
+      for(let i=all.length-1; i>=0; i--){
+              prod = all[i];
+              prod.image_original_name = url + '/images/' + all[i].image_original_name;
+              product.push(prod);
+              if (i == 10) { break };
+      }
+      response.status(200).json(product);
+  }).catch( (err) =>{
+      console.log(err);
+      response.status(400).json({message: "Error in Get Pharms"});
+  })
+})
+
+router.get('/getForCategory/:id', async(request, response, next) => {
+  var id = request.params.id
+  var product = [];
+  var prod = {}
+  Product.find({'category_id' : id}).then( (all)=>{
+      for(let i=all.length-1; i>=0; i--){
+              prod = all[i];
+              prod.image_original_name = url + '/images/' + all[i].image_original_name;
+              product.push(prod);
+              if (i == 15) { break };
+      }
+      response.status(200).json(product);
+  }).catch( (err) =>{
+      console.log(err);
+      response.status(400).json({message: "Error in Get Pharms"});
+  })
+})
 
 router.get('/getProduct/:id', async function(request, response, next) {
     var id = request.params.id;
@@ -98,7 +133,7 @@ router.get('/getProduct/:id', async function(request, response, next) {
             response.status(400).json({ message: "Product Not found" });
         } else {
             prod = res;
-            prod.image_original_name = 'http://localhost:5000' + '/images/'  + res.image_original_name
+            prod.image_original_name = url + '/images/'  + res.image_original_name
               response.status(200).json(prod);
         }
     }).catch((err) => {
@@ -118,7 +153,7 @@ router.get('/getSelected/:id1/:id2', async function( request, response, next) {
           } else {
             for(let i=res.length-1; i>=0; i--){
               prod = res[i];
-              prod.image_original_name = 'http://localhost:5000' + '/images/' + res[i].image_original_name;
+              prod.image_original_name = url + '/images/' + res[i].image_original_name;
               product.push(prod);
       }
             response.status(200).json(product);

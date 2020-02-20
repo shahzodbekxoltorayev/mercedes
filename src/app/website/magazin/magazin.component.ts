@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2'
+import { ProductService } from 'src/app/shared/service/productsService';
 
 declare var $: any;
 @Component({
@@ -9,45 +10,56 @@ declare var $: any;
 })
 export class MagazinComponent implements OnInit {
 
-  constructor() { }
+  products = [] ;
+  constructor(
+    private productService: ProductService
+  ) {
+    this.getProducts();
+  }
+
+  getProducts() {
+      this.productService.getForMagazine().subscribe( res =>{
+          this.products = res.json();
+      });
+  }
 
   ngOnInit() {
 
     $(document).ready(function(){
       $('#owl-1 .owl-carousel').owlCarousel(
       {
-        responsive:{
-          0:{
-            items:1
+        responsive: {
+          0: {
+            items: 1
           },
-          450:{
-            items:2
+          450: {
+            items: 2
           },
-          700:{
-            items:3
+          700: {
+            items: 3
           },
-          868:{
-            items:3
+          868: {
+            items: 3
           } ,
-          992:{
-            items:5
+          992: {
+            items: 5
           }
         },
         margin: 5,
         loop: true,
-        stagePadding:10,
+        stagePadding: 10,
         nav: true,
     // navText: ['Back','Next'],
-    navText: ['',''],
+    navText: ['', ''],
     // navText: ["<img src='myprevimage.png'>","<img src='mynextimage.png'>"],
-    dots: false,
-    dotsEach: true,
-    lazyLoad: false,
-    autoplay: true,
-    autoplaySpeed: 500,
-    navSpeed: 500,
-    autoplayTimeout: 2000,
-    autoplayHoverPause: true,
+    // dots: false,
+    // dotsEach: true,
+    // lazyLoad: false,
+    // autoplay: true,
+    // autoplaySpeed: 500,
+    // navSpeed: 500,
+    // autoplayTimeout: 2000,
+    // autoplayHoverPause: true,
   }
   );
     });
@@ -55,7 +67,7 @@ export class MagazinComponent implements OnInit {
   }
 
 
-  add(){
+  add() {
     Swal.fire({
       position: 'top-end',
       icon: 'success',

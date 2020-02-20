@@ -78,6 +78,25 @@ router.get('/getall', async(request, response, next) => {
     })
 })
 
+router.get('/getLimit', async(request, response, next) => {
+  var news = [];
+  var prod = {}
+  var q = 0 ;
+  News.find().then( (all)=>{
+      for(let i=all.length-1; i>=0; i--){
+          q++;
+              prod = all[i];
+              prod.image_original_name = 'http://localhost:5000' + '/images/' + all[i].image_original_name;
+              news.push(prod);
+              if (q == 5) { break};
+      }
+      response.status(200).json(news);
+  }).catch( (err) =>{
+      console.log(err);
+      response.status(400).json({message: "Error in Get News"});
+  })
+})
+
 
 router.get('/getNews/:id', async function(request, response, next) {
     var id = request.params.id;

@@ -43,6 +43,10 @@ export class News_Service {
     return this.http.get(this.api + 'getNews/' + id );
   }
 
+  getLimit() {
+    return this.http.get( this.api + 'getLimit');
+  }
+
  update(
     id: string,
     name_uz: string,

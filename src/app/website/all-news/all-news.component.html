@@ -1,20 +1,20 @@
 <section class="news_about_wrap wrapper w-100">
-    <div class="container-fluid px-lg-5"> 
-        <div class="row px-lg-3  justify-content-center d-flex align-items-center">	
-            <div class="col-lg-10 wrapper_about text-center  "  > 
+    <div class="container-fluid px-lg-5">
+        <div class="row px-lg-3  justify-content-center d-flex align-items-center">
+            <div class="col-lg-10 wrapper_about text-center  "  >
                 <h2 class="news_about_teme px-lg-4"> Новости Mercedes Benz<span class="border_bottom"></span></h2>
-                <p class="news_about_text  ">	Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации, например, юмористические вставки или слова, которые даже отдалённо не напоминают латынь.</p>			
-            </div> 
+                <p class="news_about_text  ">	Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации, например, юмористические вставки или слова, которые даже отдалённо не напоминают латынь.</p>
+            </div>
             <div class="col-3 text-center">
                 <div class="news_box" >
                     <div class="h5"><img src="assets/images/SVG/news.svg" class="w-20" alt="">НОВОСТИ</div>
                 </div>
-            </div>	
+            </div>
             <div class="col-3 text-center">
                 <div class="news_box">
                     <div class="h5"><img src="assets/images/SVG/star.svg" class="w-20" alt="">ПОПУЛЯРНЫЙ</div>
                 </div>
-            </div>	
+            </div>
             <div class="col-3 text-center">
                 <div class="news_box">
                     <div class="h5"><img src="assets/images/SVG/film.svg" class="w-20" alt="">ВИДЕО</div>
@@ -25,7 +25,7 @@
 
         <div class="row">
             <div class="col-lg-8">
-                <div class="blog-card">
+                <div class="blog-card" *ngFor = 'let new of news'>
                     <div class="meta">
                         <div class="photo" style="background-image: url(assets/images/Img/84341208_2641742502540357_2156066066399232000_o.png)"></div>
                         <ul class="details">
@@ -33,14 +33,28 @@
                         </ul>
                     </div>
                     <div class="description">
-                        <h5 class="text-dark font-weight-bold">This Short-Wheelbase Camper Van Packs A Lot In A Little Space</h5> 
+                        <h5 class="text-dark font-weight-bold">{{new.name_ru}}</h5>
+                        <p> {{new.description_ru}}</p>
+                        <p class="read-more">
+                            <a href="#">Read More</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="meta">
+                        <div class="photo" style="background-image: url(assets/images/Img/84341208_2641742502540357_2156066066399232000_o.png)"></div>
+                        <ul class="details">
+                        </ul>
+                    </div>
+                    <div class="description">
+                        <h5 class="text-dark font-weight-bold">This Short-Wheelbase Camper Van Packs A Lot In A Little Space</h5>
                         <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco consectetur adipiscing elit,  </p>
                         <p class="read-more">
                             <a href="#">Read More</a>
                         </p>
                     </div>
-                </div>					
-
+                </div>
                 <div class="blog-card">
                     <div class="meta">
                         <div class="photo" style="background-image: url(assets/images/Img/84341208_2641742502540357_2156066066399232000_o.png)"></div>
@@ -49,13 +63,13 @@
                         </ul>
                     </div>
                     <div class="description">
-                        <h5 class="text-dark font-weight-bold">This Short-Wheelbase Camper Van Packs A Lot In A Little Space</h5> 
+                        <h5 class="text-dark font-weight-bold">This Short-Wheelbase Camper Van Packs A Lot In A Little Space</h5>
                         <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco consectetur adipiscing elit,  </p>
                         <p class="read-more">
                             <a href="#">Read More</a>
                         </p>
                     </div>
-                </div>					
+                </div>
                 <div class="blog-card">
                     <div class="meta">
                         <div class="photo" style="background-image: url(assets/images/Img/84341208_2641742502540357_2156066066399232000_o.png)"></div>
@@ -64,22 +78,7 @@
                         </ul>
                     </div>
                     <div class="description">
-                        <h5 class="text-dark font-weight-bold">This Short-Wheelbase Camper Van Packs A Lot In A Little Space</h5> 
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco consectetur adipiscing elit,  </p>
-                        <p class="read-more">
-                            <a href="#">Read More</a>
-                        </p>
-                    </div>
-                </div>					
-                <div class="blog-card">
-                    <div class="meta">
-                        <div class="photo" style="background-image: url(assets/images/Img/84341208_2641742502540357_2156066066399232000_o.png)"></div>
-                        <ul class="details">
-
-                        </ul>
-                    </div>
-                    <div class="description">
-                        <h5 class="text-dark font-weight-bold">This Short-Wheelbase Camper Van Packs A Lot In A Little Space</h5> 
+                        <h5 class="text-dark font-weight-bold">This Short-Wheelbase Camper Van Packs A Lot In A Little Space</h5>
                         <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco consectetur adipiscing elit,  </p>
                         <p class="read-more">
                             <a href="#">Read More</a>

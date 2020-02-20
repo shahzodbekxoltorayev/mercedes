@@ -1,1 +1,6 @@
-Test
+Qilinadigan ishlar :
+
+ID NUmber bo'yicha qidirish
+Chapdagi kategoriyani tanlaganda topish
+Obratniy zvonok
+User Registratsiya, Sign
