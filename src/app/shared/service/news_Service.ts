@@ -6,7 +6,7 @@ import {url} from '../../url/url';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class News_Service {
 
   constructor(private http: Http) { }
 
@@ -39,7 +39,7 @@ export class ProductService {
 
   }
 
-  getProduct(id) {
+  getNews(id) {
     return this.http.get(this.api + 'getNews/' + id );
   }
 
@@ -57,7 +57,7 @@ export class ProductService {
     News.append('description_uz', description_uz);
     News.append('description_ru', description_ru);
     News.append('image', image);
-    return this.http.patch(this.api + 'updateProduct/' + id + '/' + localStorage.getItem('token'), News);
+    return this.http.patch(this.api + 'updateNews/' + id + '/' + localStorage.getItem('token'), News);
  }
 
  updateRating(id) {

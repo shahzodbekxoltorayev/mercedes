@@ -15,13 +15,19 @@
             <div class="col-sm-6 col-md-4 ">
                 <select class="form-control form-control-lg" #category (change) = 'selectCat(category.value)'>
                   <option value='null' disabled >Select one</option>
-                    <option  *ngFor='let category of categories' value='{{category._id}}'>{{category.name_ru}}</option>
+                    <option  *ngFor='let category of categories' value='{{category._id}}'>
+                    <p *ngIf='!language'>{{category.name_ru}}</p>
+                    <p *ngIf='language'>{{category.name_uz}}</p>
+                    </option>
                 </select>
             </div> <!-- col-4-->
             <div class="col-sm-6 col-md-4">
                 <select class="form-control form-control-lg" #subcategory>
                   <option value='null' disabled >Select one</option>
-                    <option *ngFor='let subcategory of subCategories' value='{{subcategory._id}}' >{{subcategory.name_ru}}</option>
+                    <option *ngFor='let subcategory of subCategories' value='{{subcategory._id}}' >
+                      <p *ngIf='!language'>{{subcategory.name_ru}}</p>
+                    <p *ngIf='language'>{{subcategory.name_uz}}</p>
+                      </option>
                 </select>
             </div> <!-- col-4 -->
 
@@ -61,7 +67,8 @@
           <a href="">
             <div class="p-2">
               <img   src="assets/images/Img/8.png"    alt="">
-              <p class=" pl-1" >{{product.name_ + language}}</p>
+              <p  class=" pl-1"  *ngIf='!language'>{{product.name_ru}}</p>
+              <p   class=" pl-1"  *ngIf='language'>{{product.name_uz}}</p>
               <div class="text-left product-price  pl-1   text-dark " >25,000,000 сум</div>
             </div>
 

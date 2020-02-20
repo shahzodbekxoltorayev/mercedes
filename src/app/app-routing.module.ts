@@ -28,6 +28,8 @@ import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { AdminSubCategoryComponent } from './admin/admin-sub-category/admin-sub-category.component';
 import { AdminAddSubCategoryComponent } from './admin/admin-add-sub-category/admin-add-sub-category.component';
 import { AdminContactsComponent } from './admin/admin-contacts/admin-contacts.component';
+import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
+import { AdminAddNewsComponent } from './admin/admin-add-news/admin-add-news.component';
 
 const routes: Routes = [
 
@@ -62,7 +64,10 @@ const routes: Routes = [
         { path: 'addSubCategory', component: AdminAddSubCategoryComponent },
         { path: 'updateSubCategory/:id', component: AdminAddSubCategoryComponent },
         { path: 'users', component: AdminUsersComponent },
-        { path: 'contacts', component: AdminContactsComponent }
+        { path: 'contacts', component: AdminContactsComponent },
+        { path: 'news', component: AdminNewsComponent },
+        { path: 'addNews', component: AdminAddNewsComponent },
+        { path: 'updateNews/:id', component: AdminAddNewsComponent }
       ]
     },
   ];

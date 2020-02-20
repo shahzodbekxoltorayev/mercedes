@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from 'src/app/shared/service/languageService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-language',
@@ -9,11 +10,12 @@ import { LanguageService } from 'src/app/shared/service/languageService';
 })
 export class LanguageComponent implements OnInit {
 
-  langs = [ 'UZB', 'RUS'];
+  langs;
   lang;
   constructor(
     private translate: TranslateService,
-    private langService: LanguageService
+    private langService: LanguageService,
+    private router : Router
   ) {
     translate.addLangs([ 'ru', 'uz']);
     translate.setDefaultLang('UZB');
@@ -28,9 +30,17 @@ export class LanguageComponent implements OnInit {
     } else {
         localStorage.setItem('lang', 'ru');
     }
+    this.router.navigate(['/']);
     // window.location.reload();
   }
   ngOnInit() {
+    if (localStorage.getItem('lang') === 'uz') {
+      this.langs = ['UZB', 'RUS' ];
+
+    } else {
+        this.langs = ['RUS', 'UZB' ];
+
+    }
   }
 
 }

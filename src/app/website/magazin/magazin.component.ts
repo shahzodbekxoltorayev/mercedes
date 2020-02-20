@@ -19,7 +19,7 @@ export class MagazinComponent implements OnInit {
         responsive:{
           0:{
             items:1
-          }, 
+          },
           450:{
             items:2
           },
@@ -28,7 +28,7 @@ export class MagazinComponent implements OnInit {
           },
           868:{
             items:3
-          } ,       
+          } ,
           992:{
             items:5
           }
@@ -56,11 +56,13 @@ export class MagazinComponent implements OnInit {
 
 
   add(){
-    Swal.fire(
-      'Good job!',
-      'You clicked the button!',
-      'success'
-    )
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your work has been saved',
+      showConfirmButton: false,
+      timer: 1500
+    });
   }
 
 

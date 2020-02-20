@@ -33,23 +33,9 @@ else {
 });
 
 router.get('/getall', async(request, response, next) => {
-
     let category = await Category.find();
-
     response.status(200).json(category)
-
-    // var pharms = [];
-    // Pharmacy.find().then( (all)=>{
-    //     for(let i=all.length-1; i>=0; i--){
-    //             pharms.push(all[i]);
-    //     }
-    //     response.status(200).json(pharms);
-    // }).catch( (err) =>{
-    //     console.log(err);
-    //     response.status(400).json({message: "Error in Get Pharms"});
-    // })
 })
-
 
 router.get('/getCategory/:id', async function(request, response, next) {
     var id = request.params.id;
