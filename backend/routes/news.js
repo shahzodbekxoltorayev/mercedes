@@ -1,6 +1,6 @@
 const express = require('express');
 const Product = require('../models/products');
-const Admin = require('../models/admin');
+const News = require('../models/news');
 const multer = require('multer');
 var fs = require('fs');
 const router = express.Router();
@@ -35,31 +35,21 @@ router.post('/create/:token', upload.single('image'), async (req, res) =>{
   const file = req.file;
   var obj = Admin.verifyOfAdmin(admin, token);
 
-  var product = {
+  var news = {
       name_uz: body.name_uz,
       name_ru: body.name_ru,
       description_uz: body.description_uz,
       description_ru: body.description_ru,
-      id_number: body.id_number,
-      // image:  image,
       image_original_name : file.filename, // file.filename,    //image file
-      category_id: body.category_id,
-      subcategory_id: body.subcategory_id,
-      quantity: body.quantity,  //miqdori Number
-      brand: body.brand,
-      model: body.model,
-      configuration: body.configuration,
-      price: body.price,   //number
-      sale: body.sale,     // sale
-      rating: body.rating,
+      rating: 1,
       date: new Date().toISOString().
                      replace(/T/, ' ').
                      replace(/\..+/, '')
   }
-  var new_product = new Product(product);
+  var news_one = new News(news);
 
   if (obj.isModerator) {
-      new_product.save().then(result => {
+      news_one.save().then(result => {
           res.status(200).json(true);
       }).catch(err => {
           console.log(err);
@@ -72,27 +62,26 @@ router.post('/create/:token', upload.single('image'), async (req, res) =>{
 
 
 router.get('/getall', async(request, response, next) => {
-    var product = [];
+    var news = [];
     var prod = {}
-    Product.find().then( (all)=>{
+    News.find().then( (all)=>{
         for(let i=all.length-1; i>=0; i--){
                 prod = all[i];
                 prod.image_original_name = 'http://localhost:5000' + '/images/' + all[i].image_original_name;
-                product.push(prod);
+                product.push(news);
         }
-        response.status(200).json(product);
+        response.status(200).json(news);
     }).catch( (err) =>{
         console.log(err);
         response.status(400).json({message: "Error in Get Pharms"});
     })
-
 })
 
 
-router.get('/getProduct/:id', async function(request, response, next) {
+router.get('/getNews/:id', async function(request, response, next) {
     var id = request.params.id;
     var prod = {}
-      await Product.findById(id).then((res) => {
+      await News.findById(id).then((res) => {
         if (!res) {
             data.message = "Product Not found";
             response.status(400).json({ message: "Product Not found" });
@@ -107,25 +96,6 @@ router.get('/getProduct/:id', async function(request, response, next) {
     })
 })
 
-router.get('/getSelected/:id1/:id2', async function( request, response, next) {
-      var category_id = request.params.id1;
-      var subcategory_id = request.params.id2;
-      var prod = {}
-      var product = [];
-      await Product.find({category_id: category_id, subcategory_id: subcategory_id}).then( res => {
-          if (!res) {
-            response.status(400).json({message: 'Products Not found'});
-          } else {
-            for(let i=res.length-1; i>=0; i--){
-              prod = res[i];
-              prod.image_original_name = 'http://localhost:5000' + '/images/' + res[i].image_original_name;
-              product.push(prod);
-      }
-            response.status(200).json(product);
-          }
-      })
-})
-
 router.delete('/:id/:token', async function(request, response, next) {
     var id = request.params.id;
     var token = request.params.token;
@@ -133,7 +103,7 @@ router.delete('/:id/:token', async function(request, response, next) {
 
     var obj = Admin.verifyOfAdmin(admin, token);
     if (obj.isModerator) {
-            await Product.findById(id).then( (res) =>{
+            await News.findById(id).then( (res) =>{
                var image= res.image_original_name;
                 fs.unlink('backend/images/' + image, function (err) {
                     if (err) {
@@ -144,7 +114,7 @@ router.delete('/:id/:token', async function(request, response, next) {
                 });
             });
 
-            await Product.findByIdAndDelete(id).then((res) => {
+            await News.findByIdAndDelete(id).then((res) => {
                 response.status(200).json({ message: true });
             })
             .catch((err) => {
@@ -158,13 +128,13 @@ router.delete('/:id/:token', async function(request, response, next) {
 
 })
 
-router.patch('/updateProduct/:id/:token', multer({ storage: storage }).single('image'), async function(request, response, next) {
+router.patch('/updateNews/:id/:token', multer({ storage: storage }).single('image'), async function(request, response, next) {
     var id = request.params.id;
     var token = request.params.token;
     var admin = await Admin.find();
     var obj = Admin.verifyOfAdmin(admin, token);
     if (obj.isModerator) {
-      await Product.findById(id).then( (res) =>{
+      await News.findById(id).then( (res) =>{
         var image= res.image_original_name;
          fs.unlink('backend/images/' + image, function (err) {
              if (err) {
@@ -176,7 +146,7 @@ router.patch('/updateProduct/:id/:token', multer({ storage: storage }).single('i
      });
     var body = request.body;
     body.image_original_name = request.file.filename;
-        await Product.findByIdAndUpdate(id, { $set: body }, { new: true }).then((res) => {
+        await News.findByIdAndUpdate(id, { $set: body }, { new: true }).then((res) => {
             if (res) {
                 response.status(200).json(true);
             } else {
@@ -196,15 +166,14 @@ router.patch('/updateProduct/:id/:token', multer({ storage: storage }).single('i
 // Miqdorini o'zgartirish
 
 
-router.patch('/updateQuanity/:id', async function(request, response) {
+router.patch('/updateRaiting/:id', async function(request, response) {
     var id = request.params.id;
-    var rate = request.body;
     let body = {};
     var newRate;
-    Product.findById(id).then(res => {
-        newRate = res.quantity - rate.quantity;
-        body.quantity = newRate;
-        Product.findByIdAndUpdate(id, { $set: body }, { new: true }).then(res => {
+    News.findById(id).then(res => {
+        newRate = res.rating + 1;
+        body.rating = newRate;
+        News.findByIdAndUpdate(id, { $set: body }, { new: true }).then(res => {
             if (res) {
                 response.status(200).json({ message: "Status: Success" })
             } else {
@@ -220,12 +189,10 @@ router.patch('/updateQuanity/:id', async function(request, response) {
 
 router.post('/search', async(request, response) => {
     var body = request.body;
-
-
     var thisname_uz = body.name_uz;
     var thisname_ru = body.name_ru;
 
-    await Pharmacy.find({ "name_uz": thisname_uz, "name_ru": thisname_ru }).then(all => {
+    await News.find({ "name_uz": thisname_uz, "name_ru": thisname_ru }).then(all => {
         response.status(200).json(all);
     }).catch(err => {
         response.status(400).json({ message: "Error in search Phram" })

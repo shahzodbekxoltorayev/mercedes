@@ -10,6 +10,8 @@ const categoryRouter = require('./routes/category');
 const sub_categoryRouter = require('./routes/sub-categories');
 const contactRouter = require('./routes/contact');
 const orderRouter = require('./routes/orders');
+const newsRouter = require('./routes/news');
+
 const cors = require("cors");
 const app = express();
 
@@ -63,6 +65,7 @@ app.use('/api/category/', categoryRouter);
 app.use('/api/sub-category/', sub_categoryRouter);
 app.use('/api/contact/', contactRouter);
 app.use('/api/order/', orderRouter);
+app.use('/api/news/', newsRouter);
 
 // app.get('/*', (req, res) => {
 //     res.sendFile(path.join(__dirname, '../dist/online-pharmacy', 'index.html'))

@@ -27,6 +27,7 @@ import { AdminAddCategoryComponent } from './admin/admin-add-category/admin-add-
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { AdminSubCategoryComponent } from './admin/admin-sub-category/admin-sub-category.component';
 import { AdminAddSubCategoryComponent } from './admin/admin-add-sub-category/admin-add-sub-category.component';
+import { AdminContactsComponent } from './admin/admin-contacts/admin-contacts.component';
 
 const routes: Routes = [
 
@@ -50,7 +51,7 @@ const routes: Routes = [
     { path: 'login', component: AdminSignComponent },
     {
       path: 'admin', component: AdminNavbarComponent, children : [
-        { path: '', component: AdminProductsComponent },
+        { path: '', component: AdminHomeComponent },
         { path: 'products', component: AdminProductsComponent },
         { path: 'addProduct', component: AdminAddProductComponent },
         { path: 'updateProduct/:id', component: AdminAddProductComponent },
@@ -60,9 +61,8 @@ const routes: Routes = [
         { path: 'subCategory', component: AdminSubCategoryComponent },
         { path: 'addSubCategory', component: AdminAddSubCategoryComponent },
         { path: 'updateSubCategory/:id', component: AdminAddSubCategoryComponent },
-        { path: 'users', component: AdminUsersComponent }
-
-
+        { path: 'users', component: AdminUsersComponent },
+        { path: 'contacts', component: AdminContactsComponent }
       ]
     },
   ];

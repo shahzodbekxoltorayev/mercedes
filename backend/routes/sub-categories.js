@@ -51,6 +51,17 @@ router.get('/getall', async(request, response, next) => {
     // })
 })
 
+router.get('/getSelected/:id', async function(request, response, next) {
+    var id = request.params.id;
+    await SubCategory.find({"category_id": id}).then( (res) => {
+      if(!res) {
+        response.status(400).json({message: "Sub Categories Not founded"});
+      } else {
+        response.status(200).json(res);
+      }
+
+    })
+})
 
 router.get('/getSubCategory/:id', async function(request, response, next) {
     var id = request.params.id;

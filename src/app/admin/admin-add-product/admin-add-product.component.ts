@@ -34,8 +34,6 @@ export class AdminAddProductComponent implements OnInit {
 
   ) {
     this.getCategories();
-    this.getSubCategories();
-
    }
 
   ngOnInit() {
@@ -44,9 +42,8 @@ export class AdminAddProductComponent implements OnInit {
       name_ru: new FormControl(null, {validators: [Validators.required, Validators.minLength(3)]}),
       description_uz: new FormControl(null, { validators: [Validators.required] }),
       description_ru: new FormControl(null, { validators: [Validators.required] }),
-
+      id_number: new FormControl(null, { validators: [Validators.required] }),
       image: new FormControl(null, { validators: [Validators.required] }),
-
       category_id: new FormControl(null, { validators: [Validators.required] }),
       subcategory_id: new FormControl(null, { validators: [Validators.required] }),
       quantity: new FormControl(null, { validators: [Validators.required] }),
@@ -54,7 +51,8 @@ export class AdminAddProductComponent implements OnInit {
       model: new FormControl(null, { validators: [Validators.required] }),
       configuration: new FormControl(null, { validators: [Validators.required] }),
       price: new FormControl(null, { validators: [Validators.required] }),
-      sale: new FormControl(null, { validators: [Validators.required] })
+      sale: new FormControl(null, { validators: [Validators.required] }),
+      rating: new FormControl(null, { validators: [Validators.required] })
     });
 
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
@@ -72,6 +70,7 @@ export class AdminAddProductComponent implements OnInit {
             name_ru: postData.name_ru,
             description_uz: postData.description_uz,
             description_ru: postData.description_ru,
+            id_number: postData.id_number,
             image_original_name: postData.image_original_name,
             category_id: postData.category_id,
             subcategory_id: postData.subcategory_id,
@@ -80,13 +79,15 @@ export class AdminAddProductComponent implements OnInit {
             model: postData.model,
             configuration: postData.configuration,
             price: postData.price,
-            sale: postData.sale
+            sale: postData.sale,
+            rating: postData.rating
           };
             this.form.setValue({
             name_uz:   this.product.name_uz,
             name_ru:   this.product.name_ru,
             description_uz:  this.product.description_uz,
             description_ru:   this.product.description_ru,
+            id_number: this.product.id_number,
             image:   this.product.image_original_name,
             category_id:  this.product.category_id,
             subcategory_id:  this.product.subcategory_id,
@@ -114,6 +115,7 @@ export class AdminAddProductComponent implements OnInit {
         this.form.value.name_ru,
         this.form.value.description_uz,
         this.form.value.description_ru,
+        this.form.value.id_number,
         this.form.value.image,
         this.form.value.category_id,
         this.form.value.subcategory_id,
@@ -122,7 +124,8 @@ export class AdminAddProductComponent implements OnInit {
         this.form.value.model,
         this.form.value.configuration,
         this.form.value.price,
-        this.form.value.sale
+        this.form.value.sale,
+        this.form.value.rating
       )
       .subscribe( res => {
           if (res) {
@@ -150,6 +153,7 @@ export class AdminAddProductComponent implements OnInit {
           this.form.value.name_ru,
           this.form.value.description_uz,
           this.form.value.description_ru,
+          this.form.value.id_number,
           this.form.value.image,
           this.form.value.category_id,
           this.form.value.subcategory_id,
@@ -158,7 +162,9 @@ export class AdminAddProductComponent implements OnInit {
           this.form.value.model,
           this.form.value.configuration,
           this.form.value.price,
-          this.form.value.sale
+          this.form.value.sale,
+          this.form.value.rating
+
           ).subscribe( result => {
             if (result.ok) {
               Swal.fire(
@@ -188,11 +194,13 @@ export class AdminAddProductComponent implements OnInit {
     });
   }
 
-  getSubCategories() {
-    this.subcategoryService.getAll().subscribe( res => {
+  selectCat(id) {
+    this.subcategoryService.getSelected(id).subscribe( res => {
       this.subcategories = res.json();
     });
   }
+
+
   onInputChange(event) {
     const file = (event.target as HTMLInputElement).files[0];
     this.form.patchValue({image: file});

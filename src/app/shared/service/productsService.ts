@@ -26,6 +26,7 @@ export class ProductService {
       name_ru: string,
       description_uz: string,
       description_ru: string,
+      id_number: string,
       image: File,
       category_id: string,
       subcategory_id: string,
@@ -34,13 +35,15 @@ export class ProductService {
       model: string,
       configuration: string,
       price: string,
-      sale: string
+      sale: string,
+      rating: string
   ) {
     const Product = new FormData();
     Product.append('name_uz', name_uz);
     Product.append('name_ru', name_ru);
     Product.append('description_uz', description_uz);
     Product.append('description_ru', description_ru);
+    Product.append('id_number', id_number);
     Product.append('category_id', category_id);
     Product.append('subcategory_id', subcategory_id);
     Product.append('image', image);
@@ -50,6 +53,7 @@ export class ProductService {
     Product.append('configuration', configuration);
     Product.append('price', price);
     Product.append('sale', sale);
+    Product.append('rating', rating);
     // return this.http.post(this.api + localStorage.getItem('token'), Product);
     return this.http.post(this.api + 'create/' + localStorage.getItem('token'), Product);
 
@@ -59,12 +63,17 @@ export class ProductService {
     return this.http.get(this.api + 'getProduct/' + id );
   }
 
+  getSelected(cat_id, subcat_id) {
+      return this.http.get(this.api + 'getSelected/' + cat_id + '/' + subcat_id);
+  }
+
  update(
     id: string,
     name_uz: string,
     name_ru: string,
     description_uz: string,
     description_ru: string,
+    id_number: string,
     image: File,
     category_id: string,
     subcategory_id: string,
@@ -73,13 +82,16 @@ export class ProductService {
     model: string,
     configuration: string,
     price: string,
-    sale: string
+    sale: string,
+    rating: string
+
  ) {
   const Product = new FormData();
   Product.append('name_uz', name_uz);
   Product.append('name_ru', name_ru);
   Product.append('description_uz', description_uz);
   Product.append('description_ru', description_ru);
+  Product.append('id_number', id_number);
   Product.append('category_id', category_id);
   Product.append('subcategory_id', subcategory_id);
   Product.append('image', image);
@@ -89,8 +101,8 @@ export class ProductService {
   Product.append('configuration', configuration);
   Product.append('price', price);
   Product.append('sale', sale);
-
-   return this.http.patch(this.api + 'updateProduct/' + id + '/' + localStorage.getItem('token'), Product);
+  Product.append('rating', rating);
+  return this.http.patch(this.api + 'updateProduct/' + id + '/' + localStorage.getItem('token'), Product);
  }
 
 
