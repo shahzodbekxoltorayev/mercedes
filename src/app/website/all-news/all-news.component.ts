@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { News_Service } from 'src/app/shared/service/news_Service';
 
 @Component({
   selector: 'app-all-news',
@@ -7,7 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllNewsComponent implements OnInit {
 
-  constructor() { }
+  news = [];
+  constructor(
+    private newsService : News_Service
+  ) {
+    this.getLimit();
+  }
+
+  getLimit() {
+    this.newsService.getLimit().subscribe( res => {
+      this.news = res.json();
+    });
+  }
 
   ngOnInit() {
   }

@@ -59,10 +59,16 @@ import { LanguageComponent } from './website/language/language.component';
 import { AdminContactsComponent } from './admin/admin-contacts/admin-contacts.component';
 import { AdminAddNewsComponent } from './admin/admin-add-news/admin-add-news.component';
 import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
+<<<<<<< HEAD
 import { NewAboutComponent } from './website/new-about/new-about.component';
 import { PeymentDeleveryComponent } from './website/peyment-delevery/peyment-delevery.component';
 import { ConvenientPaymentComponent } from './website/convenient-payment/convenient-payment.component';
 import { HelpComponent } from './website/help/help.component';
+=======
+import { PopularNewsComponent } from './website/popular-news/popular-news.component';
+import { VideoNewsComponent } from './website/video-news/video-news.component';
+import { SearchWithIDComponent } from './website/search-with-id/search-with-id.component';
+>>>>>>> c32833d7c52196821c4cd68c2611cb2a2f823f4f
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -108,9 +114,15 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AdminContactsComponent,
     AdminAddNewsComponent,
     AdminNewsComponent,
+<<<<<<< HEAD
     NewAboutComponent,
     PeymentDeleveryComponent, 
     ConvenientPaymentComponent, HelpComponent
+=======
+    PopularNewsComponent,
+    VideoNewsComponent,
+    SearchWithIDComponent
+>>>>>>> c32833d7c52196821c4cd68c2611cb2a2f823f4f
 
   ],
   imports: [

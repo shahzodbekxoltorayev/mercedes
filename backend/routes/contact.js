@@ -26,6 +26,28 @@ router.post('/', async function (request, response, next) {
     })
 });
 
+router.post('/call-back', async function (request, response, next) {
+  var body = request.body;
+  var email = 'Call Back Please ! '
+   let contact = {
+       name : body.name,
+       email: email,
+       number: body.number,
+       message: body.message,
+       date: new Date().toISOString().
+                       replace(/T/, ' ').
+                       replace(/\..+/, '')
+   }
+   const contact_new = new Contact(contact);
+
+   contact_new.save().then( (res) =>{
+       response.status(200).json({message: "New contact saved"})
+   }).catch( err =>{
+       console.log(err);
+       response.status(404).json({message: "Error in Saved Category"})
+   })
+});
+
 router.get('/getall', async(request, response, next) => {
     let contact = await Contact.find();
     response.status(200).json(contact)

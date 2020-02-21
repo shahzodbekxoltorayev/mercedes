@@ -130,282 +130,20 @@
         <div class="modal-body p-0" >
          <nav id="navigation">
           <ul class="p-0">
-			<li class="dropdown" rel="1"><a href="#">
+			<li class="dropdown" rel="1" *ngFor = 'let category of categories'>
+        <a href="#">
 				<!-- <i class="fa fa-angle-down"></i> -->
-				<span>Аккумуляторы </span>
+				<span>{{category.name_ru}} </span>
 				<i class="fa fa-angle-right dropdown-icons "  ></i>
-				<ul class="dropdown-2 p-0">
-					<li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>
+				<ul class="dropdown-2 p-0" >
+          <p *ngFor = 'let subcategory of subcategories'>
+					<li class="dropdown" rel="2" *ngIf='category._id == subcategory.category_id'>
+						<a  routerLink='/catalog'><i class="ion-gear-a"></i> <span> {{subcategory.name_ru}}</span> 	</a>
+					  </li></p>
 				</ul>
  			</a>
 			</li>
-              <li class="dropdown" rel="2"><a href="#">
-				  <i class="ion-gear-a"></i>
-				  <span> Ходовая часть</span>
-				  <i class="fa fa-angle-right dropdown-icons "  ></i>
-                <ul class="dropdown-2 p-0">
-					<li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>
-				</ul>
-			</a>
-			</li>
-			<li class="dropdown" rel="1"><a href="#">
-				<i class="ion-email"></i>
-				<span> Моторная часть</span>
-				<i class="fa fa-angle-right dropdown-icons "  ></i>
-                <ul class="dropdown-3 p-0">
-					<li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>
-				</ul>
-			</a>
-			  </li>
-				<li class="dropdown" rel="2"><a href="#">
-					<i class="ion-gear-a"></i>
-					<span>Все виды масел</span>
-					<i class="fa fa-angle-right dropdown-icons "  ></i>
-					<ul class="dropdown-4 p-0">
-						<li class="dropdown" rel="2">
-							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-						  </li>
-						  <li class="dropdown" rel="2">
-							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-						  </li>
-						  <li class="dropdown" rel="2">
-							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-						  </li>
-						  <li class="dropdown" rel="2">
-							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-						  </li>
-						  <li class="dropdown" rel="2">
-							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-						  </li>
-						  <li class="dropdown" rel="2">
-							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-						  </li>
-						  <li class="dropdown" rel="2">
-							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-						  </li>
-					</ul>
-				</a>
-			  </li>
-			  <li class="dropdown" rel="1"><a href="#">
-				  <i class="ion-email"></i>
-				  <span>Фильтры</span>
-				  <i class="fa fa-angle-right dropdown-icons "  ></i>
-				  <ul class="dropdown-5 p-0">
-					<li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>
-				</ul>
-			</a>
-			  </li>
-				<li class="dropdown" rel="2"><a href="#">
-					<i class="ion-gear-a"></i>
-					<span>Антифриз и жидкости</span>
-					<i class="fa fa-angle-right dropdown-icons "  ></i>
-					<ul class="dropdown-6 p-0">
-						<li class="dropdown" rel="2">
-							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-						  </li>
-						  <li class="dropdown" rel="2">
-							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-						  </li>
-						  <li class="dropdown" rel="2">
-							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-						  </li>
-						  <li class="dropdown" rel="2">
-							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-						  </li>
-						  <li class="dropdown" rel="2">
-							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-						  </li>
-						  <li class="dropdown" rel="2">
-							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-						  </li>
-						  <li class="dropdown" rel="2">
-							<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-						  </li>
-					</ul>
-				</a>
-			  </li>
-			  <li class="dropdown" rel="2"><a href="#">
-				<i class="ion-gear-a"></i>
-				<span>Комплектующие</span>
-				<i class="fa fa-angle-right dropdown-icons "  ></i>
-                <ul class="dropdown-7 p-0">
-					<li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-					  </li>
-					  <li class="dropdown" rel="2">
-						<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-					  </li>
-				</ul>
-			</a>
-		  </li>
-		  <li class="dropdown" rel="2"><a href="#">
-			<i class="ion-gear-a"></i>
-			<span>Аксессуары </span>
-			<i class="fa fa-angle-right dropdown-icons "  ></i>
-			<ul class="dropdown-8 p-0">
-				<li class="dropdown" rel="2">
-					<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-				  </li>
-				  <li class="dropdown" rel="2">
-					<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-				  </li>
-				  <li class="dropdown" rel="2">
-					<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-				  </li>
-				  <li class="dropdown" rel="2">
-					<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-				  </li>
-				  <li class="dropdown" rel="2">
-					<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-				  </li>
-				  <li class="dropdown" rel="2">
-					<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-				  </li>
-				  <li class="dropdown" rel="2">
-					<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-				  </li>
-				  <li class="dropdown" rel="2">
-					<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-				  </li>
-				  <li class="dropdown" rel="2">
-					<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-				  </li>
-			</ul>
-		</a>
-	  </li>
-	  <li class="dropdown" rel="2"><a href="#">
-		<i class="ion-gear-a"></i>
-		<span class="h4">Инструменты</span>
-		<i class="fa fa-angle-right dropdown-icons "  ></i>
-		<ul class="dropdown-9 p-0">
-			<li class="dropdown" rel="2">
-				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-			  </li>
-			  <li class="dropdown" rel="2">
-				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-			  </li>
-			  <li class="dropdown" rel="2">
-				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-			  </li>
-			  <li class="dropdown" rel="2">
-				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-			  </li>
-			  <li class="dropdown" rel="2">
-				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-			  </li>
-			  <li class="dropdown" rel="2">
-				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> 	</a>
-			  </li>
-			  <li class="dropdown" rel="2">
-				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-			  </li>
-			  <li class="dropdown" rel="2">
-				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-			  </li>
-			  <li class="dropdown" rel="2">
-				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-			  </li>
-			  <li class="dropdown" rel="2">
-				<a href="#"><i class="ion-gear-a"></i> <span> Ходовая часть</span> </a>
-			  </li>
-		</ul>
-	</a>
-  </li>
+
 
               </ul>
             </nav>
@@ -586,9 +324,9 @@
 				<div class="form-as">
 				  <form class="login-forma">
 					<label   style="font-size: 22px;padding-bottom: 15px;">ЧТО С МОИМ ЗАКАЗОМ</label>
-					<input type="text" placeholder="Введите номер заказа"/>
-					<input type="number" placeholder="+998 99 999 99 99"/>
-					<button>Проверить заказ</button>
+					<input #idNumber type="text" placeholder="Введите ID номер"/>
+					<!-- <input type="number" placeholder="+998 99 999 99 99"/> -->
+					<button (click)='withID(idNumber.value)'>Проверить</button>
 				  </form>
 				</div>
 			  </div>
@@ -611,12 +349,12 @@
 			  </button>
 			<div class="login-pagea"  >
 				<div class="form-as">
-				  <form class="login-forma" >
+				  <form class="login-forma"  [formGroup]='form' (submit)="onSave()"  >
 					<label for="" style="font-size: 22px;padding-bottom: 15px;">ПЕРЕЗВОНИТЕ МНЕ	</label>
-					<input type="text" placeholder="Имя"/>
-					<input type="number" placeholder="Номер телефона*"/>
-					<textarea type="text" placeholder="Хочу спросить"></textarea>
-					<button>Жду звонка </button>
+					<input type="text"  formControlName="name"  placeholder="Имя"/>
+					<input type="text"  formControlName="number"  prefix="+998 " mask="(00) 000 00 00" placeholder="Номер телефона*"/>
+					<textarea type="text"  formControlName="message" placeholder="Хочу спросить"></textarea>
+					<button type='submit' [disabled]="!form.valid">Жду звонка </button>
 				  </form>
 				</div>
 			  </div>
@@ -636,14 +374,19 @@
 			  </button>
 			<div class="login-page">
 				<div class="form">
-				  <form class="register-form reg-form">
+				  <form class="register-form reg-form"  [formGroup]='registerUser' (submit)="resgisterNewUser()" >
 					  <label for="" style="font-size: 22px;padding-bottom: 15px;">Регистрация</label>
-					<input type="text" placeholder="Имя"/>
-					<input type="password" placeholder="Пароль"/>
-					<input type="text" placeholder=" E-mail"/>
-					<button>create</button>
+					<input type="text"   formControlName="name" placeholder="Name"/>
+					<input type="text"   formControlName="full_name"   placeholder="Full Name"/>
+					<input type="text"   formControlName="email"  placeholder="Email"/>
+					<input type="text"   formControlName="address"  placeholder="Address"/>
+					<input type="text"   formControlName="phone_number"  placeholder="Phone Number"/>
+					<input type="text"  formControlName="login"   placeholder="Login"/>
+					<input type="password"  formControlName="password"   placeholder="Password"/>
+					<button type="submit"   >create</button>
+          </form>
 					<p class="message">Already registered? <a href="#">Sign In</a></p>
-				  </form>
+
 				  <form class="login-form reg-form">
 					<label for="" style="font-size: 22px;padding-bottom: 15px;">Логин	</label>
 					<input type="text" placeholder="Имя"/>
