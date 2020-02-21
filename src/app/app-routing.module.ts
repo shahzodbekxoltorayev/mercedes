@@ -30,6 +30,10 @@ import { AdminAddSubCategoryComponent } from './admin/admin-add-sub-category/adm
 import { AdminContactsComponent } from './admin/admin-contacts/admin-contacts.component';
 import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
 import { AdminAddNewsComponent } from './admin/admin-add-news/admin-add-news.component';
+import { NewAboutComponent } from './website/new-about/new-about.component';
+import { PeymentDeleveryComponent } from './website/peyment-delevery/peyment-delevery.component';
+import { ConvenientPaymentComponent } from './website/convenient-payment/convenient-payment.component';
+import { HelpComponent } from './website/help/help.component';
 
 const routes: Routes = [
 
@@ -47,9 +51,14 @@ const routes: Routes = [
          {path: 'motor', component: MotorsComponent },
          { path: 'chassis', component: ChassisComponent},
          { path: 'accessuary', component: AccessoryComponent},
-         { path: 'engine_oil', component: EngineOilComponent}
+         { path: 'engine_oil', component: EngineOilComponent},
+         {path: 'new-about' , component:NewAboutComponent },
+         {path: 'payment-delivery', component:PeymentDeleveryComponent },
+         { path:'convenient-payment' , component: ConvenientPaymentComponent },
+         { path: 'help' , component: HelpComponent }
         ]
     },
+
     { path: 'login', component: AdminSignComponent },
     {
       path: 'admin', component: AdminNavbarComponent, children : [

@@ -59,6 +59,10 @@ import { LanguageComponent } from './website/language/language.component';
 import { AdminContactsComponent } from './admin/admin-contacts/admin-contacts.component';
 import { AdminAddNewsComponent } from './admin/admin-add-news/admin-add-news.component';
 import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
+import { NewAboutComponent } from './website/new-about/new-about.component';
+import { PeymentDeleveryComponent } from './website/peyment-delevery/peyment-delevery.component';
+import { ConvenientPaymentComponent } from './website/convenient-payment/convenient-payment.component';
+import { HelpComponent } from './website/help/help.component';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -103,7 +107,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     LanguageComponent,
     AdminContactsComponent,
     AdminAddNewsComponent,
-    AdminNewsComponent
+    AdminNewsComponent,
+    NewAboutComponent,
+    PeymentDeleveryComponent, 
+    ConvenientPaymentComponent, HelpComponent
 
   ],
   imports: [
