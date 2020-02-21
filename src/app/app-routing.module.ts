@@ -30,6 +30,7 @@ import { AdminAddSubCategoryComponent } from './admin/admin-add-sub-category/adm
 import { AdminContactsComponent } from './admin/admin-contacts/admin-contacts.component';
 import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
 import { AdminAddNewsComponent } from './admin/admin-add-news/admin-add-news.component';
+import { SearchWithIDComponent } from './website/search-with-id/search-with-id.component';
 
 const routes: Routes = [
 
@@ -47,7 +48,8 @@ const routes: Routes = [
          {path: 'motor', component: MotorsComponent },
          { path: 'chassis', component: ChassisComponent},
          { path: 'accessuary', component: AccessoryComponent},
-         { path: 'engine_oil', component: EngineOilComponent}
+         { path: 'engine_oil', component: EngineOilComponent},
+         { path: 'searchwith/:id', component: SearchWithIDComponent}
         ]
     },
     { path: 'login', component: AdminSignComponent },

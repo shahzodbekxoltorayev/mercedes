@@ -124,6 +124,24 @@ router.get('/getForCategory/:id', async(request, response, next) => {
   })
 })
 
+router.get('/getInIdNumber/:id', async(request, response, next) => {
+  var id = request.params.id
+  var product = [];
+  var prod = {}
+  Product.find({'id_number' : id}).then( (all)=>{
+      for(let i=all.length-1; i>=0; i--){
+              prod = all[i];
+              prod.image_original_name = url + '/images/' + all[i].image_original_name;
+              product.push(prod);
+      }
+      response.status(200).json(product);
+  }).catch( (err) =>{
+      console.log(err);
+      response.status(400).json({message: "Error in Get Pharms"});
+  })
+})
+
+
 router.get('/getProduct/:id', async function(request, response, next) {
     var id = request.params.id;
     var prod = {}

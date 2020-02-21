@@ -61,6 +61,7 @@ import { AdminAddNewsComponent } from './admin/admin-add-news/admin-add-news.com
 import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
 import { PopularNewsComponent } from './website/popular-news/popular-news.component';
 import { VideoNewsComponent } from './website/video-news/video-news.component';
+import { SearchWithIDComponent } from './website/search-with-id/search-with-id.component';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -107,7 +108,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AdminAddNewsComponent,
     AdminNewsComponent,
     PopularNewsComponent,
-    VideoNewsComponent
+    VideoNewsComponent,
+    SearchWithIDComponent
 
   ],
   imports: [

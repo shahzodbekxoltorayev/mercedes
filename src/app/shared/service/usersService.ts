@@ -22,14 +22,24 @@ export class UsersService {
   }
 
   post(
-    name_uz: string,
-    name_ru: string
+    f_name: string,
+    m_name: string,
+    email: string,
+    address: string,
+    phone: string,
+    login: string,
+    password: string
   ) {
     const body = {
-      'name_uz': name_uz,
-      'name_ru': name_ru
+      'f_name' : f_name,
+      'm_name':  m_name,
+      'email' : email,
+      'address' : address,
+      'phone' : phone,
+      'login' : login ,
+      'password' :password
     };
-    return this.http.post(this.api + localStorage.getItem('token'), body);
+    return this.http.post(this.api, body);
   }             // keyinroq
 
   getUser(id) {

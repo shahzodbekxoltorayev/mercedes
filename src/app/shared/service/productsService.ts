@@ -75,6 +75,10 @@ export class ProductService {
     return this.http.get(this.api + 'getForCategory/' + id);
   }
 
+  getInIdNumber(id) {
+    return this.http.get( this.api + 'getInIdNumber/' + id);
+  }
+
  update(
     id: string,
     name_uz: string,

@@ -36,6 +36,19 @@ export class ContactService {
     return this.http.post(this.api, body);
   }
 
+  callback(
+    name: string,
+    number: string,
+    message: string
+  ) {
+    const body = {
+                  'name': name,
+                  'number': number,
+                  'message' : message
+    };
+    return this.http.post(this.api + '/call-back', body);
+  }
+
   getCategory(id) {
     return this.http.get(this.api + 'getSubCategory/' + id + '/' + localStorage.getItem('token'));
   }
