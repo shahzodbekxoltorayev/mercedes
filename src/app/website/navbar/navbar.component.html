@@ -138,7 +138,7 @@
 				<ul class="dropdown-2 p-0" >
           <p *ngFor = 'let subcategory of subcategories'>
 					<li class="dropdown" rel="2" *ngIf='category._id == subcategory.category_id'>
-						<a  routerLink='/catalog'><i class="ion-gear-a"></i> <span> {{subcategory.name_ru}}</span> 	</a>
+						<a  routerLink='/select/{{category._id}}/{{subcategory._id}}'><i class="ion-gear-a"></i> <span> {{subcategory.name_ru}}</span> 	</a>
 					  </li></p>
 				</ul>
  			</a>

@@ -131,7 +131,13 @@ export class NavbarComponent implements OnInit {
 
   resgisterNewUser() {
     this.userService.post(
-      { f_name: this.registerUser.value.name, m_name: this.registerUser.value.full_name, email: this.registerUser.value.email, address: this.registerUser.value.address, phone: this.registerUser.value.phone_number, login: this.registerUser.value.login, password: this.registerUser.value.password }    ).subscribe( res => {
+        this.registerUser.value.name,
+        this.registerUser.value.full_name,
+        this.registerUser.value.email,
+        this.registerUser.value.address,
+        this.registerUser.value.phone_number,
+        this.registerUser.value.login,
+        this.registerUser.value.password).subscribe( res => {
       const body = res.json();
       if (res) {
         localStorage.setItem('token', body.token);

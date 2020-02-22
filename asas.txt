@@ -1,6 +1,5 @@
 Qilinadigan ishlar :
 
 ID NUmber bo'yicha qidirish  			++
-Chapdagi kategoriyani tanlaganda topish		++	
-Obratniy zvonok					++
+Chapdagi kategoriyani tanlaganda topish		++ 
 User Registratsiya, Sign			++
