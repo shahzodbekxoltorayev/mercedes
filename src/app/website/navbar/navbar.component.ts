@@ -33,6 +33,7 @@ export class NavbarComponent implements OnInit {
   ) {
     this.getCategory();
     this.subgetCategory();
+    this.verifyUser();
   }
 
   getCategory() {
@@ -50,6 +51,17 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['searchwith/' + id ]);
   }
 
+  sign(login, password) {
+    this.userService.sign(login, password).subscribe( res => {
+      const body = res.json();
+      localStorage.setItem('token', body.token);
+
+    });
+  }
+
+  verifyUser() {
+
+  }
 
 
   ngOnInit() {
@@ -77,18 +89,17 @@ export class NavbarComponent implements OnInit {
 
       // });
           $(document).scroll(function(event) {
-            var scroll=$(this).scrollTop();
-            if($(this).scrollTop()>170){
+            const scroll = $(this).scrollTop();
+            if ($(this).scrollTop() > 170) {
               $('.header-bottom').addClass('fixed');
-            }
-            else{
+            } else {
               $('.header-bottom').removeClass('fixed');
             }
           });
 
 
           $('.message a').click(function(){
-            $('.reg-form').animate({height: "toggle", opacity: "toggle"} );
+            $('.reg-form').animate({height: 'toggle', opacity: 'toggle'} );
          });
     });
 
@@ -120,14 +131,7 @@ export class NavbarComponent implements OnInit {
 
   resgisterNewUser() {
     this.userService.post(
-      this.registerUser.value.name,
-      this.registerUser.value.full_name,
-      this.registerUser.value.email,
-      this.registerUser.value.address,
-      this.registerUser.value.phone_number,
-      this.registerUser.value.login,
-      this.registerUser.value.password
-    ).subscribe( res => {
+      { f_name: this.registerUser.value.name, m_name: this.registerUser.value.full_name, email: this.registerUser.value.email, address: this.registerUser.value.address, phone: this.registerUser.value.phone_number, login: this.registerUser.value.login, password: this.registerUser.value.password }    ).subscribe( res => {
       const body = res.json();
       if (res) {
         localStorage.setItem('token', body.token);

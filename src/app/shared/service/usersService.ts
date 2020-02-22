@@ -8,6 +8,7 @@ import { url } from '../../url/url';
 })
 export class UsersService {
 
+  // tslint:disable-next-line: deprecation
   constructor(private http: Http) { }
 
   url = url.url;
@@ -37,10 +38,18 @@ export class UsersService {
       'address' : address,
       'phone' : phone,
       'login' : login ,
-      'password' :password
+      'password' : password
     };
     return this.http.post(this.api, body);
   }             // keyinroq
+
+  sign(login, password) {
+    const body = {
+      'login' : login,
+      'password': password
+    } ;
+    return this.http.post(this.api + 'sign', body );
+  }
 
   getUser(id) {
     return this.http.get(this.api + id);
