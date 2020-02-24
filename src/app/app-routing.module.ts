@@ -34,6 +34,7 @@ import { NewAboutComponent } from './website/new-about/new-about.component';
 import { PeymentDeleveryComponent } from './website/peyment-delevery/peyment-delevery.component';
 import { ConvenientPaymentComponent } from './website/convenient-payment/convenient-payment.component';
 import { HelpComponent } from './website/help/help.component';
+import { AdminOrdersWaitingComponent } from './admin/admin-orders-waiting/admin-orders-waiting.component';
 
 const routes: Routes = [
 
@@ -56,7 +57,7 @@ const routes: Routes = [
          {path: 'payment-delivery', component: PeymentDeleveryComponent },
          { path: 'convenient-payment' , component: ConvenientPaymentComponent },
          { path: 'help' , component: HelpComponent },
-         { path: 'select/:id1/:id2' , component: AllCatalogComponent },
+         { path: 'select/:id1/:id2' , component: AllCatalogComponent }
         ]
     },
 
@@ -77,7 +78,9 @@ const routes: Routes = [
         { path: 'contacts', component: AdminContactsComponent },
         { path: 'news', component: AdminNewsComponent },
         { path: 'addNews', component: AdminAddNewsComponent },
-        { path: 'updateNews/:id', component: AdminAddNewsComponent }
+        { path: 'updateNews/:id', component: AdminAddNewsComponent },
+        { path: 'orders-waiting' , component: AdminOrdersWaitingComponent }
+
       ]
     },
   ];

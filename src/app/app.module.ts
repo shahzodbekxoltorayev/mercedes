@@ -63,6 +63,7 @@ import { NewAboutComponent } from './website/new-about/new-about.component';
 import { PeymentDeleveryComponent } from './website/peyment-delevery/peyment-delevery.component';
 import { ConvenientPaymentComponent } from './website/convenient-payment/convenient-payment.component';
 import { HelpComponent } from './website/help/help.component';
+import { AdminOrdersWaitingComponent } from './admin/admin-orders-waiting/admin-orders-waiting.component';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -111,7 +112,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     NewAboutComponent,
     PeymentDeleveryComponent,
     ConvenientPaymentComponent,
-    HelpComponent
+    HelpComponent,
+    AdminOrdersWaitingComponent
 
   ],
   imports: [

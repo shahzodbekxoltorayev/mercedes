@@ -1,14 +1,14 @@
 const express = require('express');
 const Orders = require('../models/orders');
 const Admin = require('../models/admin');
-const Users = require('../models/users'); 
+const Users = require('../models/users');
 const router = express.Router();
 
 router.post('/:token' , async(request, response, next) => {
     var body = request.body;
     var token = request.params.token;
     var users = await Users.find();
- 
+
     var obj = Users.verifyOfUser(users, token);
 
     var order = {
@@ -23,7 +23,7 @@ router.post('/:token' , async(request, response, next) => {
     }
     var new_order = new Orders(order);
 
-    if (obj.isUser) {  
+    if (obj.isUser) {
         new_order.save().then(res => {
             response.status(200).json(res);
         }).catch(err => {
@@ -38,7 +38,7 @@ router.post('/:token' , async(request, response, next) => {
 
 
 router.get('/getall/:token', async(request, response, next) => {
-    
+
     var token = request.params.token;
     var admins = await Admin.find();
 
@@ -50,7 +50,7 @@ router.get('/getall/:token', async(request, response, next) => {
     //     pharms.logo = "/files/" + pharms.logo;
     // }
     response.status(200).json(orders)
-    
+
 }
     // var pharms = [];
     // Pharmacy.find().then( (all)=>{
@@ -65,7 +65,7 @@ router.get('/getall/:token', async(request, response, next) => {
 
 })
 
- 
+
 router.get('/getOrder/:id/:token', async function(request, response, next) {
 
     var id = request.params.id;
@@ -178,5 +178,5 @@ router.post('/search', async(request, response) => {
         response.status(400).json({ message: "Error in search Phram" })
     })
 })
- 
+
 module.exports = router;
