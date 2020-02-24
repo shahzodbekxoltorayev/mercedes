@@ -67,6 +67,7 @@ const routes: Routes = [
          { path:'convenient-payment' , component: ConvenientPaymentComponent },
          { path: 'help' , component: HelpComponent },
          { path: 'delvery' , component: DeliveryComponent },
+         { path: 'select/:id1/:id2' , component: AllCatalogComponent },
 
          
         ]

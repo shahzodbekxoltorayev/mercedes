@@ -2,13 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {NgxMaskModule} from 'ngx-mask'
+import {NgxMaskModule} from 'ngx-mask';
 
 import {
   MatSliderModule ,
@@ -113,7 +113,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AdminNewsComponent,
     NewAboutComponent,
     PeymentDeleveryComponent, 
-    ConvenientPaymentComponent, HelpComponent,
+    ConvenientPaymentComponent, 
+    HelpComponent,
     VideoNewsComponent,
     PopularNewsComponent,
     DeliveryComponent

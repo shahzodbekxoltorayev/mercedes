@@ -34,15 +34,16 @@
 
 <section id="owl-1" *ngIf='select'>
 
-
-
 </section>
 
+<div *ngIf = 'error' class="container-fluid py-3 px-lg-5">
+  <div class="product-tem-card p-2">
+    <div class=" d-inline-block product-price font-weight-bold h5 text-dark  " >Tovar topilmadi</div>
+    </div>
+</div>
 
 
-
-
-<div class="container-fluid py-3 px-lg-5">
+<div *ngIf = '!error' class="container-fluid py-3 px-lg-5">
   <div class="product-tem-card p-2">
     <div class=" d-inline-block product-price font-weight-bold h5 text-dark  " >ПОПУЛЯРНЫЕ ТОВАРЫ</div>
     <div class="  product-price float-right  d-inline-block   h5 text-dark  " >Больше   товаров</div>
