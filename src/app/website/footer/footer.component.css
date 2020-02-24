@@ -1,3 +1,27 @@
+.service-offer{
+    background-color: #F2F2F2;
+    width: 100%;
+    padding: 20px 0;
+    margin-top: 30px;
+
+}
+.service-offer img{
+    height: 50px;
+}
+
+
+
+.service-offer-pay{
+    background-color: #fff;
+    padding: 20px;;
+}
+.oplata-pay-border{
+    border-right:1px solid #C1C1C1;padding:30px 0
+}
+
+
+
+
 footer{
     background-color: #F2F2F2;
     padding: 30px 0;
