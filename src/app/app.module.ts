@@ -63,7 +63,9 @@ import { NewAboutComponent } from './website/new-about/new-about.component';
 import { PeymentDeleveryComponent } from './website/peyment-delevery/peyment-delevery.component';
 import { ConvenientPaymentComponent } from './website/convenient-payment/convenient-payment.component';
 import { HelpComponent } from './website/help/help.component';
-import { AdminOrdersWaitingComponent } from './admin/admin-orders-waiting/admin-orders-waiting.component';
+import { VideoNewsComponent } from './website/video-news/video-news.component';
+import { PopularNewsComponent } from './website/popular-news/popular-news.component';
+import { DeliveryComponent } from './website/delivery/delivery.component';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -113,7 +115,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     PeymentDeleveryComponent,
     ConvenientPaymentComponent,
     HelpComponent,
-    AdminOrdersWaitingComponent
+    VideoNewsComponent,
+    PopularNewsComponent,
+    DeliveryComponent
 
   ],
   imports: [

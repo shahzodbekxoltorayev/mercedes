@@ -34,7 +34,10 @@ import { NewAboutComponent } from './website/new-about/new-about.component';
 import { PeymentDeleveryComponent } from './website/peyment-delevery/peyment-delevery.component';
 import { ConvenientPaymentComponent } from './website/convenient-payment/convenient-payment.component';
 import { HelpComponent } from './website/help/help.component';
-import { AdminOrdersWaitingComponent } from './admin/admin-orders-waiting/admin-orders-waiting.component';
+import { VideoNewsComponent } from './website/video-news/video-news.component';
+import { NewsComponent } from './website/news/news.component';
+import { PopularNewsComponent } from './website/popular-news/popular-news.component';
+import { DeliveryComponent } from './website/delivery/delivery.component';
 
 const routes: Routes = [
 
@@ -43,7 +46,12 @@ const routes: Routes = [
         { path: '', component: HomeComponent},
          {path: 'catalog', component: AllCatalogComponent} ,
          {path: 'about', component: AboutWeComponent},
-         {path: 'news', component: AllNewsComponent},
+         {path: 'news', component: AllNewsComponent  , children:[
+          { path: '', component: NewsComponent},
+          { path: 'video-news' , component:VideoNewsComponent },
+          { path: 'popular-news' , component:PopularNewsComponent }
+
+         ]},
          {path: 'contact', component: ContactComponent},
          {path: 'about-product', component: AboutProductComponent},
          {path: 'products', component: ProductsComponent},
@@ -53,11 +61,15 @@ const routes: Routes = [
          { path: 'chassis', component: ChassisComponent},
          { path: 'accessuary', component: AccessoryComponent},
          { path: 'engine_oil', component: EngineOilComponent},
-         {path: 'new-about' , component: NewAboutComponent },
-         {path: 'payment-delivery', component: PeymentDeleveryComponent },
-         { path: 'convenient-payment' , component: ConvenientPaymentComponent },
+         { path: 'new-about' , component:NewAboutComponent
+        }  ,
+         {path: 'payment-delivery', component:PeymentDeleveryComponent },
+         { path:'convenient-payment' , component: ConvenientPaymentComponent },
          { path: 'help' , component: HelpComponent },
-         { path: 'select/:id1/:id2' , component: AllCatalogComponent }
+         { path: 'delvery' , component: DeliveryComponent },
+         { path: 'select/:id1/:id2' , component: AllCatalogComponent },
+
+
         ]
     },
 
