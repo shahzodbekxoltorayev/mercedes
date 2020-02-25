@@ -66,6 +66,9 @@ import { HelpComponent } from './website/help/help.component';
 import { VideoNewsComponent } from './website/video-news/video-news.component';
 import { PopularNewsComponent } from './website/popular-news/popular-news.component';
 import { DeliveryComponent } from './website/delivery/delivery.component';
+import { AdminOrdersWaitingComponent } from './admin/admin-orders-waiting/admin-orders-waiting.component';
+import { AdminOrdersSuccessComponent } from './admin/admin-orders-success/admin-orders-success.component';
+import { AdminVideoNewsComponent } from './admin/admin-video-news/admin-video-news.component';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -117,7 +120,10 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     HelpComponent,
     VideoNewsComponent,
     PopularNewsComponent,
-    DeliveryComponent
+    DeliveryComponent,
+    AdminOrdersWaitingComponent,
+    AdminOrdersSuccessComponent,
+    AdminVideoNewsComponent
 
   ],
   imports: [
