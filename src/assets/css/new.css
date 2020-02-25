@@ -674,18 +674,21 @@
   
   }
   .conard_wrap_works{
-      box-shadow: 0 1px 6px rgba(57,73,76,.35);
+    box-shadow: 0 0 30px rgba(0,0,0,.08);
+
       width: 100%;
-      padding: 20px;
+      padding: 20px 20px 0;
       border-radius: 4px;
   
   }
   .wrap_payinfo{
-      box-shadow: 0 1px 6px rgba(57,73,76,.35);
+    box-shadow: 0 0 30px rgba(0,0,0,.08);
+
       padding: 20px;
       border-radius: 5px;
       width: 100%;
       transition: 0.5s all;
+      cursor: pointer;
   }
   .wrap_payinfoa{
    
@@ -696,6 +699,10 @@
   }
   .wrap_payinfo:hover{
   box-shadow: 0 2px 12px rgba(57,73,76,.25);
+  }
+  .wrap_payinfod{ 
+    padding: 20px;   
+    cursor: pointer;
   }
   .custom-control-label::before {
       position: absolute;
@@ -723,10 +730,13 @@
   .wrap_form_span{
     padding-left: 30px;
     font-weight: bold;
+    font-size: 18px;
+    
   }
-  .wrap_form_spana{
-    float: right;
+  .wrap_form_spana{ 
         color: #6c757d; 
+        padding-left: 28px;
+        padding-top: 15px;
   }
    .was-validated .custom-control-input:invalid~.custom-control-label {
             color: #6c757d; 
@@ -736,7 +746,30 @@
   }
   
    
-  
+  .card-button-dast{
+    background-color: #FF4E00; 
+    color: #fff; 
+    transition: 0.5s all;
+  }
+  .card-button-dast:hover{
+    transform: scale(1.05);
+
+  }
+  .dastav-text-color{
+    color: #6c757d;
+  }
+  .dastav-text-size{
+    font-size: 12px;
+  }
+  .dastaw-row {
+    border-bottom: 1px solid #ccc;
+  }
+  .dastaw-rowa{
+    border-bottom: 1px solid #ccc;border-top: 1px solid #ccc;padding: 15px 0;
+  }
+  .chackbox-text{
+    color: #6c757d;font-size: 12px;
+  }
   .img-cont { 
     margin: .5rem 0 0;
   }
@@ -748,7 +781,9 @@
     border: 2px solid #333;
   }
   
-  
+  .fonts-size18{
+    font-size: 16px;
+  }
   /*slider*/
        .owl-carousel .owl-nav .owl-prev,
       .owl-carousel .owl-nav .owl-next,
