@@ -31,6 +31,7 @@
               "node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
               "node_modules/owl.carousel/dist/assets/owl.theme.default.css",
               "src/assets/css/style.css",
+              "src/assets/css/animation.css",
               "src/assets/css/new.css",
               "src/assets/css/responsive.css"
          

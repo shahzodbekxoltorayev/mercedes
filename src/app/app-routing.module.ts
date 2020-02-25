@@ -91,7 +91,7 @@ const routes: Routes = [
         { path: 'news', component: AdminNewsComponent },
         { path: 'addNews', component: AdminAddNewsComponent },
         { path: 'updateNews/:id', component: AdminAddNewsComponent },
-        { path: 'orders-waiting' , component: AdminOrdersWaitingComponent }
+        // { path: 'orders-waiting' , component: AdminOrdersWaitingComponent }
 
       ]
     },
