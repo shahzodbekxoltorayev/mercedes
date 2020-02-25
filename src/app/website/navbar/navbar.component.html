@@ -108,8 +108,11 @@
 						<!-- <img src="assets/img/shopping.png" class="d-inline-block absolute" style="position: absolute;" alt=""> -->
 						<mat-icon aria-hidden="false" class="d-inline-block absolute" style="position: absolute;    font-size: 33px;" aria-label="Example add_shopping_cart icon">add_shopping_cart</mat-icon>
 						<h3 class="cabinet__title">Корзина</h3>
-						<p class="cabinet__item js-cart-total">
+						<p *ngIf = 'rate === 0' class="cabinet__item js-cart-total">
 							Нет товара
+            </p>
+            <p *ngIf = 'rate != 0' class="cabinet__item js-cart-total">
+							{{rate}}
 						</p>
 					</a>
 				</div>
@@ -404,5 +407,5 @@
 	</div>
   </div>
 <router-outlet></router-outlet>
- 
+
 <app-footer></app-footer>

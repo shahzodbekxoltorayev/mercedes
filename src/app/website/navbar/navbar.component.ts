@@ -18,6 +18,7 @@ declare var $: any;
 
 export class NavbarComponent implements OnInit {
 
+  public rate = 0;
   selected = 'option1';
   categories = [];
   subcategories = [];
@@ -57,6 +58,12 @@ export class NavbarComponent implements OnInit {
       localStorage.setItem('token', body.token);
 
     });
+  }
+
+  updateRate(number) {
+    if (number === 0) {
+      this.rate = 0;
+    } else {  this.rate++; }
   }
 
   verifyUser() {
