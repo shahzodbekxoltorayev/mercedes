@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BasketService } from 'src/app/shared/service/basketService';
 import { ProductService } from 'src/app/shared/service/productsService';
+import { UsersService } from 'src/app/shared/service/usersService';
 
 @Component({
   selector: 'app-basket',
@@ -13,11 +14,23 @@ export class BasketComponent implements OnInit {
   quantity = [];
   number: any;
   general_sum: any;
+  isUser = false;
+  body: any = {};
   constructor(
     private basketService: BasketService,
-    private productService: ProductService
+    private productService: ProductService,
+    private userService: UsersService
     ) {
     this.getProducts();
+    this.verifyUser();
+  }
+  verifyUser() {
+    this.userService.getVerify().subscribe( res => {
+        this.body = res.json();
+        if ( this.body.isUser) {
+          this.isUser = true;
+        }
+    });
   }
 
   getProducts() {
@@ -39,7 +52,7 @@ export class BasketComponent implements OnInit {
 
       });
     }
-        console.log(this.quantity);
+    console.log(this.quantity);
   }
 
   select(rate, price) {

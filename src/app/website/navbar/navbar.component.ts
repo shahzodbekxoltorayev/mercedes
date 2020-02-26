@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 
 import { ContactService } from 'src/app/shared/service/contactService';
 import { UsersService } from 'src/app/shared/service/usersService';
+import { BasketComponent } from '../basket/basket.component';
 declare var $: any;
 
 @Component({
@@ -24,7 +25,8 @@ export class NavbarComponent implements OnInit {
   subcategories = [];
   form: FormGroup;
   registerUser: FormGroup;
-
+  signin = true;
+  body: any = {};
   constructor(
     private categoryService: CategoryService,
     private subcategoryService: SubCategoryService,
@@ -55,8 +57,9 @@ export class NavbarComponent implements OnInit {
   sign(login, password) {
     this.userService.sign(login, password).subscribe( res => {
       const body = res.json();
+      console.log(body);
       localStorage.setItem('token', body.token);
-
+      location.reload();
     });
   }
 
@@ -67,9 +70,19 @@ export class NavbarComponent implements OnInit {
   }
 
   verifyUser() {
-
+      this.userService.getVerify().subscribe( res => {
+        this.body = res.json();
+        if (this.body.isUser) {
+          this.signin = false;
+        }
+      });
   }
 
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/']);
+    location.reload();
+  }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -105,7 +118,7 @@ export class NavbarComponent implements OnInit {
           });
 
 
-          $('.message a').click(function(){
+          $('.message a').click( function() {
             $('.reg-form').animate({height: 'toggle', opacity: 'toggle'} );
          });
     });

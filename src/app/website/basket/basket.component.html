@@ -77,11 +77,16 @@
     <div class="col-6">
       <p class="h5 pb-3 font-weight-bold text-dark">{{general_sum}} сум.</p>
     </div>
-    <div class="col-12">
-      <button routerLink='/delvery' class="btn text-white w-100 mb-3 card-button-dast" >Оформить заказ</button>
+    <div class="col-12" *ngIf = '!isUser'>
+      <button data-toggle="modal" data-target="#exampleModalphoneb"   class="btn text-white w-100 mb-3 card-button-dast" >Iltimos oldin ro'yhatdan o'ting</button>
+    </div>
+    <div class="col-12" *ngIf = 'isUser'>
+      <button  routerLink='/delvery' class="btn text-white w-100 mb-3 card-button-dast" >Оформить заказ</button>
     </div>
 
   </div>
+<!-- modal  -->
+
 
 
   </div>

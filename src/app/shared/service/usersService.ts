@@ -68,6 +68,10 @@ export class UsersService {
     return this.http.patch(this.api + 'updateCategory/' + id + '/' + localStorage.getItem('token'), body);
   }
 
+  getVerify() {
+    return this.http.get(this.api + 'verifyUser/' + localStorage.getItem('token'));
+  }
+
 
 
 }
