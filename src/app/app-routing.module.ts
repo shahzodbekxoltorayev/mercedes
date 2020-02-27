@@ -41,6 +41,7 @@ import { DeliveryComponent } from './website/delivery/delivery.component';
 import { AdminOrdersWaitingComponent } from './admin/admin-orders-waiting/admin-orders-waiting.component';
 import { AdminOrdersSuccessComponent } from './admin/admin-orders-success/admin-orders-success.component';
 import { AdminVideoNewsComponent } from './admin/admin-video-news/admin-video-news.component';
+import { NotFoundComponent } from './website/not-found/not-found.component';
 
 const routes: Routes = [
 
@@ -74,8 +75,9 @@ const routes: Routes = [
 
 
         ]
-    },
 
+    },
+{path:'not-found' , component:NotFoundComponent},
     { path: 'login', component: AdminSignComponent },
     {
       path: 'admin', component: AdminNavbarComponent, children : [
