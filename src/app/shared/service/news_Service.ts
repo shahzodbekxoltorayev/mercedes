@@ -65,7 +65,7 @@ export class News_Service {
  }
 
  updateRating(id) {
-   return this.http.patch(this.api + 'updateRaiting/' + id, id);
+   return this.http.get(this.api + 'updateRaiting/' + id);
  }
 
 

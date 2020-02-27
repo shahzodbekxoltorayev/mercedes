@@ -52,8 +52,8 @@ const routes: Routes = [
          {path: 'about', component: AboutWeComponent},
          {path: 'news', component: AllNewsComponent  , children:[
           { path: '', component: NewsComponent},
-          { path: 'video-news' , component:VideoNewsComponent },
-          { path: 'popular-news' , component:PopularNewsComponent }
+          { path: 'video-news' , component: VideoNewsComponent },
+          { path: 'popular-news' , component: PopularNewsComponent }
 
          ]},
          {path: 'contact', component: ContactComponent},
@@ -65,10 +65,9 @@ const routes: Routes = [
          { path: 'chassis', component: ChassisComponent},
          { path: 'accessuary', component: AccessoryComponent},
          { path: 'engine_oil', component: EngineOilComponent},
-         { path: 'new-about' , component:NewAboutComponent
-        }  ,
-         {path: 'payment-delivery', component:PeymentDeleveryComponent },
-         { path:'convenient-payment' , component: ConvenientPaymentComponent },
+         { path: 'new-about/:id' , component: NewAboutComponent},
+         { path: 'payment-delivery', component: PeymentDeleveryComponent },
+         { path: 'convenient-payment' , component: ConvenientPaymentComponent },
          { path: 'help' , component: HelpComponent },
          { path: 'delvery' , component: DeliveryComponent },
          { path: 'select/:id1/:id2' , component: AllCatalogComponent },
@@ -77,7 +76,6 @@ const routes: Routes = [
         ]
 
     },
-{path:'not-found' , component:NotFoundComponent},
     { path: 'login', component: AdminSignComponent },
     {
       path: 'admin', component: AdminNavbarComponent, children : [
@@ -102,6 +100,7 @@ const routes: Routes = [
         { path: 'orders-waiting' , component: AdminOrdersWaitingComponent }
       ]
     },
+    {path: '**' , component: NotFoundComponent}
   ];
 
 

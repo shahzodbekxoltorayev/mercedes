@@ -85,6 +85,8 @@ export class DeliveryComponent implements OnInit {
           'New Product Saved!',
           'success'
         );
+        localStorage.removeItem('products');
+        localStorage.removeItem('rate');
         this.router.navigate(['/']);
 
       } else {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BasketService } from 'src/app/shared/service/basketService';
 import { ProductService } from 'src/app/shared/service/productsService';
 import { UsersService } from 'src/app/shared/service/usersService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-basket',
@@ -21,7 +22,8 @@ export class BasketComponent implements OnInit {
   constructor(
     private basketService: BasketService,
     private productService: ProductService,
-    private userService: UsersService
+    private userService: UsersService,
+    private router: Router
     ) {
     this.getProducts();
     this.verifyUser();

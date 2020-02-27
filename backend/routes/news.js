@@ -97,6 +97,39 @@ router.get('/getLimit', async(request, response, next) => {
   })
 })
 
+router.get('/getPopular', async(request, response, next) => {
+  var news = [];
+  var prod = {};
+  var rating = [];
+  var q = 0 ;
+  News.find().then( (all)=>{
+    for (let i = 0; i <= all.length - 1; i++) {
+          rating[i] = all[i].rating;
+    }
+    rating.sort();
+      for(let i=rating.length-1; i>=0; i--){
+        // let z = 0;
+        q++;
+            News.find({rating: rating[i]}).then( res => {
+              prod = res[0];
+              prod.image_original_name = 'http://localhost:5000' + '/images/' + res[0].image_original_name;
+              news[q] = prod;
+              // console.log(news[q]);
+              // console.log('AAAAAAAAAAS');
+
+            }) ;
+            if (q == 2) {
+              break};
+            // break;
+      }
+      console.log(news);
+      response.status(200).json(news);
+  }).catch( (err) =>{
+      console.log(err);
+      response.status(400).json({message: "Error in Get News"});
+  })
+})
+
 
 router.get('/getNews/:id', async function(request, response, next) {
     var id = request.params.id;
@@ -186,7 +219,7 @@ router.patch('/updateNews/:id/:token', multer({ storage: storage }).single('imag
 // Miqdorini o'zgartirish
 
 
-router.patch('/updateRaiting/:id', async function(request, response) {
+router.get('/updateRaiting/:id', async function(request, response) {
     var id = request.params.id;
     let body = {};
     var newRate;

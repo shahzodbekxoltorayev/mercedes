@@ -34,13 +34,6 @@ export class AdminVideoNewsComponent implements OnInit {
 
   getnews() {
     this. videonewsService.getAll().subscribe( res => {
-      const obj = res.json();
-      for ( let i = 0; i = obj.length-1; i++) {
-          console.log('AAA');
-      }
-      // const object = res.json();
-      // this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + obj.url);
-      // object.url = this.safeSrc;
       this.dataSource = new MatTableDataSource(res.json());
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -50,7 +43,7 @@ export class AdminVideoNewsComponent implements OnInit {
 
   addNews(url) {
     this.videonewsService.post(url).subscribe( res => {
-      if( res.ok ) {
+      if ( res.ok ) {
         Swal.fire(
           'Good job!',
           'You clicked the button!',
@@ -65,7 +58,6 @@ export class AdminVideoNewsComponent implements OnInit {
           });
         }
       this.getnews();
-      console.log(res);
     });
   }
 
@@ -93,7 +85,7 @@ export class AdminVideoNewsComponent implements OnInit {
             title: 'Error',
             text: 'Maxsulot o`chirilmadi ',
             timer: 3000
-          })
+          });
         }
       this.getnews();
     });
