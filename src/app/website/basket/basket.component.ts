@@ -16,6 +16,8 @@ export class BasketComponent implements OnInit {
   general_sum: any;
   isUser = false;
   body: any = {};
+  i: any;
+
   constructor(
     private basketService: BasketService,
     private productService: ProductService,
@@ -84,7 +86,10 @@ export class BasketComponent implements OnInit {
 
 
   select(rate, price) {
-
+    this.i = this.basketService.q;
+    this.basketService.rates[this.i] = rate;
+    localStorage.setItem('rate', JSON.stringify(this.basketService.rates));
+    this.basketService.q++;
     const money = rate * price;
     this.basketService.temporary = money;
     this.basketService.general_sum = this.basketService.general_sum + this.basketService.temporary;

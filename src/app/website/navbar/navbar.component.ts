@@ -37,8 +37,15 @@ export class NavbarComponent implements OnInit {
     this.getCategory();
     this.subgetCategory();
     this.verifyUser();
-    this.rate = (JSON.parse(localStorage.getItem('products'))).length;
+    // this.verifyrate();
   }
+
+  // verifyrate() {
+
+  //     if ((JSON.parse(localStorage.getItem('products'))).length ) {
+  //   this.rate = (JSON.parse(localStorage.getItem('products'))).length;
+  //     }
+  // }
 
   getCategory() {
     this.categoryService.getAll().subscribe( res => {

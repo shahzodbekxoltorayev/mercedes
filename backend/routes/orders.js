@@ -2,6 +2,7 @@ const express = require('express');
 const Orders = require('../models/orders');
 const Admin = require('../models/admin');
 const Users = require('../models/users');
+const Products = require('../models/products');
 const router = express.Router();
 
 router.post('/:token' , async(request, response, next) => {
@@ -46,9 +47,16 @@ router.get('/getWaiting/:token', async(request, response, next) => {
     var obj = await Admin.verifyOfAdmin(admins, token);
     if(obj.isModerator) {
     let orders = await Orders.find({status: 'Waiting'});
-    // if (pharms.logo) {
-    //     pharms.logo = "/files/" + pharms.logo;
-    // }
+      for ( let i = 0; i <= orders.length - 1; i++ ) {
+        var length = orders[i].products.length;
+        // console.log(length + '  aaa ');
+        for ( let q = 0; q <= length - 1; q ++) {
+          var id = orders[i].products[q];
+          var result = await Products.findById(id);
+          var nameRu = result.name_ru;
+          orders[i].products[q] = nameRu;
+        }
+      }
     response.status(200).json(orders)
 
 }
@@ -72,29 +80,23 @@ router.get('/getSuccess/:token', async(request, response, next) => {
   var obj = await Admin.verifyOfAdmin(admins, token);
   if(obj.isModerator) {
   let orders = await Orders.find({status: 'Success'});
-  // if (pharms.logo) {
-  //     pharms.logo = "/files/" + pharms.logo;
-  // }
+  for ( let i = 0; i <= orders.length - 1; i++ ) {
+    var length = orders[i].products.length;
+    // console.log(length + '  aaa ');
+    for ( let q = 0; q <= length - 1; q ++) {
+      var id = orders[i].products[q];
+      var result = await Products.findById(id);
+      var nameRu = result.name_ru;
+      orders[i].products[q] = nameRu;
+    }
+  }
   response.status(200).json(orders)
-
 }
-  // var pharms = [];
-  // Pharmacy.find().then( (all)=>{
-  //     for(let i=all.length-1; i>=0; i--){
-  //             pharms.push(all[i]);
-  //     }
-  //     response.status(200).json(pharms);
-  // }).catch( (err) =>{
-  //     console.log(err);
-  //     response.status(400).json({message: "Error in Get Pharms"});
-  // })
-
 })
 
 
 
 router.get('/getOrder/:id/:token', async function(request, response, next) {
-
     var id = request.params.id;
     var token = request.params.token;
         var admins = await Admin.find();
@@ -138,33 +140,7 @@ router.delete('/deleteOrder/:id/:token', async function(request, response, next)
     }
 })
 
-// router.patch('/updateProduct/:id/:token', multer({ storage: storage }).single('image'), async function(request, response, next) {
-//     var id = request.params.id;
-//     var body = request.body;
-
-//     body.logo = request.file.filename;
-
-//     var token = request.params.token;
-//     var admin = await Admin.find();
-
-//     var obj = Admin.verifyOfAdmin(admin, token);
-//     if (obj.isModerator) {
-//         await Product.findByIdAndUpdate(id, { $set: body }, { new: true }).then((res) => {
-//             if (res) {
-//                 response.status(200).json({ message: "Product Update Successfully" });
-//             } else {
-//                 response.status(400).json({ message: "Error in Update Product" })
-//             }
-//         }).catch(err => {
-//             console.log(err);
-//             response.status(400).json({ message: "This is Not Moderator" });
-//         })
-//     }
-// })
-
-
-// Miqdorini o'zgartirish
-
+// Status o'zgartirish
 
 router.patch('/updateStatus/:id/:token', async function(request, response) {
     var id = request.params.id;
@@ -188,22 +164,6 @@ router.patch('/updateStatus/:id/:token', async function(request, response) {
 else {
     response.status(400).json({message: "It's not Moderator"});
 }
-})
-
-
-router.post('/search', async(request, response) => {
-    var body = request.body;
-    console.log("Body ");
-    console.log(body);
-
-    var thisname = body.name;
-    console.log(thisname)
-
-    await Orders.find({ "name": thisname }).then(all => {
-        response.status(200).json(all);
-    }).catch(err => {
-        response.status(400).json({ message: "Error in search Phram" })
-    })
 })
 
 module.exports = router;

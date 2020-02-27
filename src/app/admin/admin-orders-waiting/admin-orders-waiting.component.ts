@@ -25,14 +25,14 @@ export class AdminOrdersWaitingComponent implements OnInit {
 
 
   constructor(
-    private ordersService: OrdersService
+    private ordersService: OrdersService,
+    private productService: ProductService
   ) {
     this.getOrders();
    }
 
    getOrders() {
     this.ordersService.getWaiting().subscribe( res => {
-      console.log(res.json());
       this.dataSource = new MatTableDataSource(res.json());
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;

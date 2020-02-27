@@ -5,7 +5,8 @@ import { Http } from '@angular/http';
   })
   export class BasketService {
 
-    i: any = 0;
+    i: any = 0;     //products uchun
+    q: any = 0;      //rate uchun
     products = [];
     rates = []; // Soni
     general_sum: any = 0;

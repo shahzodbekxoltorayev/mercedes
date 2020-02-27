@@ -27,19 +27,21 @@ export class OrdersService {
   post(
       user_id: string,
       address: string,
-      products: string,   // Array
-      quantity: string, // Array
+      products: any,   // Array
+      quantity: any, // Array
       pay_type: string,
       general_sum: string
   ) {
-    const Orders = new FormData();
-    Orders.append('user_id', user_id);
-    Orders.append('address', address);
-    Orders.append('products', products);
-    Orders.append('pay_type', pay_type);
-    Orders.append('general_sum', general_sum);
-    // return this.http.post(this.api + localStorage.getItem('token'), Product);
-    return this.http.post(this.api + localStorage.getItem('token'), Orders);
+    const order = {
+      'user_id': user_id,
+      'address': address,
+      'products': products,
+      'quantity': quantity,
+      'pay_type': pay_type,
+      'general_sum': general_sum
+    };
+    console.log(order);
+    return this.http.post(this.api + localStorage.getItem('token'), order);
 
   }
 
