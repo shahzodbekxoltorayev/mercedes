@@ -76,6 +76,7 @@ export class MagazinComponent implements OnInit {
     this.i = this.basketService.i;
     console.log('AAAA' + this.i);
     this.basketService.products[this.i] = id;
+    localStorage.setItem('products', JSON.stringify(this.basketService.products));
     this.basketService.i++;
     this.navbarComponent.updateRate(1);
     Swal.fire({

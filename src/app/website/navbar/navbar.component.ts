@@ -37,6 +37,7 @@ export class NavbarComponent implements OnInit {
     this.getCategory();
     this.subgetCategory();
     this.verifyUser();
+    this.rate = (JSON.parse(localStorage.getItem('products'))).length;
   }
 
   getCategory() {
@@ -64,9 +65,10 @@ export class NavbarComponent implements OnInit {
   }
 
   updateRate(number) {
-    if (number === 0) {
-      this.rate = 0;
-    } else {  this.rate++; }
+    this.rate = (JSON.parse(localStorage.getItem('products'))).length;
+    // if (number === 0) {
+    //   this.rate = 0;
+    // } else {  this.rate++; }
   }
 
   verifyUser() {

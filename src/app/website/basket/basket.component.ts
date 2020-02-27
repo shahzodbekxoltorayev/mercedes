@@ -33,29 +33,58 @@ export class BasketComponent implements OnInit {
     });
   }
 
+  // getProducts() {
+  //   this.number = this.basketService.products.length;
+  //   for (let i = 0; i <= this.basketService.products.length - 1; i++) {
+  //     this.quantity[i] = [];
+  //   }                           //    2 o'lchovli massiv e'lin qilish
+
+  //   console.log(this.basketService.products.length);
+
+  //   for ( let i = 0; i <= this.basketService.products.length - 1; i++) {
+  //     this.productService.getProduct(this.basketService.products[i]).subscribe( res => {
+  //       this.products[i] = res.json();
+  //       // this.products.push(res.json());
+  //       for (let q = 0; q <= this.products[i].quantity; q++) {
+  //         this.quantity[i][q] = q;
+  //       }
+  //       // this.products.push(res.json());
+
+  //     });
+  //   }
+  //   console.log(this.quantity);
+  // }
+
+
   getProducts() {
-    this.number = this.basketService.products.length;
-    for (let i = 0; i <= this.basketService.products.length - 1; i++) {
+    const array = JSON.parse(localStorage.getItem('products'));
+    console.log(array);
+
+    this.number = array.length;
+    for (let i = 0; i <= array.length - 1; i++) {
       this.quantity[i] = [];
     }                           //    2 o'lchovli massiv e'lin qilish
 
-    console.log(this.basketService.products.length);
+    // console.log(this.basketService.products.length);
 
-    for ( let i = 0; i <= this.basketService.products.length - 1; i++) {
-      this.productService.getProduct(this.basketService.products[i]).subscribe( res => {
+    for ( let i = 0; i <= array.length - 1; i++) {
+      this.productService.getProduct(array[i]).subscribe( res => {
         this.products[i] = res.json();
         // this.products.push(res.json());
         for (let q = 0; q <= this.products[i].quantity; q++) {
           this.quantity[i][q] = q;
         }
         // this.products.push(res.json());
-
       });
     }
     console.log(this.quantity);
   }
 
+
+
+
   select(rate, price) {
+
     const money = rate * price;
     this.basketService.temporary = money;
     this.basketService.general_sum = this.basketService.general_sum + this.basketService.temporary;

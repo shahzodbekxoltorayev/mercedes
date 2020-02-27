@@ -38,9 +38,10 @@ export class DeliveryComponent implements OnInit {
     });
   }
   getProducts() {
+    const array = JSON.parse(localStorage.getItem('products'));
 
-    for ( let i = 0; i <= this.basketService.products.length - 1; i++) {
-      this.productService.getProduct(this.basketService.products[i]).subscribe( res => {
+    for ( let i = 0; i <= array.length - 1; i++) {
+      this.productService.getProduct(array[i]).subscribe( res => {
         this.products[i] = res.json();
         // this.products.push(res.json());
         // for (let q = 0; q <= this.products[i].quantity; q++) {
