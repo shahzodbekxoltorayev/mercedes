@@ -13,10 +13,13 @@ export class OrdersService {
   url = url.url;
   api = this.url + '/api/order/';
 
-  getAll() {
-    return this.http.get(  this.api + 'getall/' + localStorage.getItem('token'));
+  getWaiting() {
+    return this.http.get(  this.api + 'getWaiting/' + localStorage.getItem('token'));
   }
 
+  getSuccess() {
+    return this.http.get(  this.api + 'getSuccess/' + localStorage.getItem('token'));
+  }
   delete(id) {
     return this.http.delete(this.api + 'deleteOrder/'  + id + '/' + localStorage.getItem('token'));
   }

@@ -11,6 +11,8 @@ const sub_categoryRouter = require('./routes/sub-categories');
 const contactRouter = require('./routes/contact');
 const orderRouter = require('./routes/orders');
 const newsRouter = require('./routes/news');
+const video_newRouter = require('./routes/video-news');
+
 
 const cors = require("cors");
 const app = express();
@@ -66,6 +68,7 @@ app.use('/api/sub-category/', sub_categoryRouter);
 app.use('/api/contact/', contactRouter);
 app.use('/api/order/', orderRouter);
 app.use('/api/news/', newsRouter);
+app.use('/api/video-news/', video_newRouter);
 
 // app.get('/*', (req, res) => {
 //     res.sendFile(path.join(__dirname, '../dist/online-pharmacy', 'index.html'))

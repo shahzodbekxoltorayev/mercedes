@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VideoNewsService } from 'src/app/shared/service/video_newsService';
 
 @Component({
   selector: 'app-video-news',
@@ -7,7 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoNewsComponent implements OnInit {
 
-  constructor() { }
+  news = [];
+  constructor(
+    private videonewsService: VideoNewsService
+  ) {
+    this.getNews();
+  }
+
+  getNews() {
+    this.videonewsService.getLimit().subscribe( res => {
+      this.news = res.json();
+    });
+  }
 
   ngOnInit() {
   }

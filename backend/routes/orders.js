@@ -14,7 +14,9 @@ router.post('/:token' , async(request, response, next) => {
     var order = {
         user_id: obj.userName,
         address: body.address,
-        date: new Date(),
+        date: new Date().toISOString().
+                        replace(/T/, ' ').
+                        replace(/\..+/, ''),
         status: "Waiting",
         products: body.products,
         quantity: body.quantity,
@@ -37,15 +39,13 @@ router.post('/:token' , async(request, response, next) => {
 
 
 
-router.get('/getall/:token', async(request, response, next) => {
+router.get('/getWaiting/:token', async(request, response, next) => {
 
     var token = request.params.token;
     var admins = await Admin.find();
-
     var obj = await Admin.verifyOfAdmin(admins, token);
-
     if(obj.isModerator) {
-    let orders = await Orders.find();
+    let orders = await Orders.find({status: 'Waiting'});
     // if (pharms.logo) {
     //     pharms.logo = "/files/" + pharms.logo;
     // }
@@ -64,6 +64,33 @@ router.get('/getall/:token', async(request, response, next) => {
     // })
 
 })
+
+router.get('/getSuccess/:token', async(request, response, next) => {
+
+  var token = request.params.token;
+  var admins = await Admin.find();
+  var obj = await Admin.verifyOfAdmin(admins, token);
+  if(obj.isModerator) {
+  let orders = await Orders.find({status: 'Success'});
+  // if (pharms.logo) {
+  //     pharms.logo = "/files/" + pharms.logo;
+  // }
+  response.status(200).json(orders)
+
+}
+  // var pharms = [];
+  // Pharmacy.find().then( (all)=>{
+  //     for(let i=all.length-1; i>=0; i--){
+  //             pharms.push(all[i]);
+  //     }
+  //     response.status(200).json(pharms);
+  // }).catch( (err) =>{
+  //     console.log(err);
+  //     response.status(400).json({message: "Error in Get Pharms"});
+  // })
+
+})
+
 
 
 router.get('/getOrder/:id/:token', async function(request, response, next) {

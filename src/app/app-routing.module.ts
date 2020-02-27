@@ -38,6 +38,9 @@ import { VideoNewsComponent } from './website/video-news/video-news.component';
 import { NewsComponent } from './website/news/news.component';
 import { PopularNewsComponent } from './website/popular-news/popular-news.component';
 import { DeliveryComponent } from './website/delivery/delivery.component';
+import { AdminOrdersWaitingComponent } from './admin/admin-orders-waiting/admin-orders-waiting.component';
+import { AdminOrdersSuccessComponent } from './admin/admin-orders-success/admin-orders-success.component';
+import { AdminVideoNewsComponent } from './admin/admin-video-news/admin-video-news.component';
 
 const routes: Routes = [
 
@@ -91,8 +94,10 @@ const routes: Routes = [
         { path: 'news', component: AdminNewsComponent },
         { path: 'addNews', component: AdminAddNewsComponent },
         { path: 'updateNews/:id', component: AdminAddNewsComponent },
-        // { path: 'orders-waiting' , component: AdminOrdersWaitingComponent }
-
+        { path: 'orders-waiting' , component: AdminOrdersWaitingComponent },
+        { path: 'orders-success' , component: AdminOrdersSuccessComponent },
+        { path: 'video-news' , component: AdminVideoNewsComponent },
+        { path: 'orders-waiting' , component: AdminOrdersWaitingComponent }
       ]
     },
   ];

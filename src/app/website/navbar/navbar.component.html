@@ -96,20 +96,32 @@
 				 </div>
 			</div>
 			<div class="header__bottom-block">
-				<div class="cabinet">
+				<div class="cabinet" *ngIf = 'signin'>
 					<a class="cabinet__toggler" href="#" data-toggle="modal" data-target="#exampleModalphoneb">
 						<img src="assets/img/user.png" class="d-inline-block absolute" style="position: absolute;" alt="">
-						<h3 class="cabinet__title"   >Кабинет</h3>
-						<p class="cabinet__item"   >Войти</p>
+						<h3  class="cabinet__title"   >Кабинет</h3>
+            <p   class="cabinet__item"   >Войти</p>
 					</a>
-				</div>
+        </div>
+
+        <div class="cabinet" *ngIf = '!signin'>
+					<a class="cabinet__toggler" href="#" data-toggle="modal" data-target="#exampleModalphoneads" class="toolbar-link">
+						<img src="assets/img/user.png" class="d-inline-block absolute" style="position: absolute;" alt="">
+            <p  class="cabinet__item"   >Welcome </p>
+						<h3  class="cabinet__title"   >{{body.userName}}</h3>
+					</a>
+        </div>
+
 				<div class="basket">
 					<a class="basket__toggler" routerLink="/shopping-card">
 						<!-- <img src="assets/img/shopping.png" class="d-inline-block absolute" style="position: absolute;" alt=""> -->
 						<mat-icon aria-hidden="false" class="d-inline-block absolute" style="position: absolute;    font-size: 33px;" aria-label="Example add_shopping_cart icon">add_shopping_cart</mat-icon>
 						<h3 class="cabinet__title">Корзина</h3>
-						<p class="cabinet__item js-cart-total">
+						<p *ngIf = 'rate === 0' class="cabinet__item js-cart-total">
 							Нет товара
+            </p>
+            <p *ngIf = 'rate != 0' class="cabinet__item js-cart-total">
+							{{rate}}
 						</p>
 					</a>
 				</div>
@@ -363,6 +375,30 @@
 	</div>
   </div>
  <!-- end -->
+ <div class="modal fade" id="exampleModalphoneads" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">
+		<div class="modal-body">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute;right: 0;    right: 25px;
+			border-radius: 50%;
+			z-index: 55;">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			<div class="login-pagea"  >
+				<div class="form-as   "   >
+          <div class="h4 font-weight-bold">
+            Хотите выйти?</div>
+          <div  class=" d-flex  align-items-center justify-content-center" style="height: 200px; "  >
+            <button class=" w-50" style="background: #DC3545;" type='submit'  (click) = 'logout()' ><span class="fa fa-arrow-left"></span> Выйти </button>
+          </div>
+
+				</div>
+			  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+  <!-- end -->
  <div class="modal fade p-0" id="exampleModalphoneb" style="padding: 0;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 	  <div class="modal-content">
@@ -385,14 +421,14 @@
 					<input type="password"  formControlName="password"   placeholder="Password"/>
 					<button type="submit"   >create</button>
           </form>
-					<p class="message">Already registered? <a href="#">Sign In</a></p>
+					<p class="message">Already registered? <a >Sign In</a></p>
 
 				  <form class="login-form reg-form">
 					<label for=""  style="font-size: 22px;padding-bottom: 15px;">Логин	</label>
 					<input type="text" #login placeholder="Имя"/>
 					<input type="password"  #password placeholder="Пароль"/>
 					<button (click)='sign(login.value, password.value)'>Логин</button>
-					<p class="message"> Не зарегистрирован? <a href="#"  >Завести аккаунт
+					<p class="message"> Не зарегистрирован? <a>Завести аккаунт
 					</a></p>
 				  </form>
 				</div>
@@ -404,5 +440,5 @@
 	</div>
   </div>
 <router-outlet></router-outlet>
- 
+
 <app-footer></app-footer>

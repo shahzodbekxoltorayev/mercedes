@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2'
 import { ProductService } from 'src/app/shared/service/productsService';
+import { BasketService } from 'src/app/shared/service/basketService';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 declare var $: any;
 @Component({
@@ -10,9 +12,12 @@ declare var $: any;
 })
 export class MagazinComponent implements OnInit {
 
+  i: any;
   products = [] ;
   constructor(
-    private productService: ProductService
+    private productService: ProductService,
+    private basketService: BasketService,
+    private navbarComponent: NavbarComponent
   ) {
     this.getProducts();
   }
@@ -67,7 +72,12 @@ export class MagazinComponent implements OnInit {
   }
 
 
-  add() {
+  add(id) {
+    this.i = this.basketService.i;
+    console.log('AAAA' + this.i);
+    this.basketService.products[this.i] = id;
+    this.basketService.i++;
+    this.navbarComponent.updateRate(1);
     Swal.fire({
       position: 'top-end',
       icon: 'success',

@@ -1,20 +1,18 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-
 import {MatTableDataSource} from '@angular/material/table';
 import { MatPaginator, MatSort } from '@angular/material';
 import { ProductService } from 'src/app/shared/service/productsService';
 import Swal from 'sweetalert2';
 import { OrdersService } from 'src/app/shared/service/ordersService';
 @Component({
-  selector: 'app-admin-orders-waiting',
-  templateUrl: './admin-orders-waiting.component.html',
-  styleUrls: ['./admin-orders-waiting.component.css']
+  selector: 'app-admin-orders-success',
+  templateUrl: './admin-orders-success.component.html',
+  styleUrls: ['./admin-orders-success.component.css']
 })
-export class AdminOrdersWaitingComponent implements OnInit {
-
+export class AdminOrdersSuccessComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'products', 'quantity', 'user_id', 'address', 'date', 'pay_type',
-                                'general_sum', 'status', 'accept', 'delete'];
+                                'general_sum', 'status', 'delete'];
   dataSource;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -29,9 +27,8 @@ export class AdminOrdersWaitingComponent implements OnInit {
   ) {
     this.getOrders();
    }
-
    getOrders() {
-    this.ordersService.getWaiting().subscribe( res => {
+    this.ordersService.getSuccess().subscribe( res => {
       console.log(res.json());
       this.dataSource = new MatTableDataSource(res.json());
       this.dataSource.paginator = this.paginator;
@@ -39,6 +36,7 @@ export class AdminOrdersWaitingComponent implements OnInit {
       this.isLoad = false;
     } );
    }
+
 
    applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -48,7 +46,6 @@ export class AdminOrdersWaitingComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
 
   delete(id) {
     this.ordersService.delete(id).subscribe( res => {
@@ -70,28 +67,6 @@ export class AdminOrdersWaitingComponent implements OnInit {
       this.getOrders();
     });
   }
-
-  accept(id) {
-    this.ordersService.updateStatus(id).subscribe( res => {
-      console.log(res);
-      if (res.ok) {
-        Swal.fire(
-          'Good job!',
-          'You clicked the button!',
-          'success'
-        );
-        this.getOrders();
-      } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Error',
-          text: 'Maxsulot qabul qilinmadi ',
-          timer: 3000
-        });
-      }
-    });
-  }
-
 
   ngOnInit() {
   }
