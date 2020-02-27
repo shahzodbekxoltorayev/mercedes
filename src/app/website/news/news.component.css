@@ -1,16 +1,1 @@
-.demo-text{
-    padding: 0 !important;
-                      font-size: .9375em;
-                      margin: 0 0 .5em;
-                      -webkit-order: 4;
-                      -ms-flex-order: 4;
-                      order: 4;
-                      overflow: hidden;
-                      -o-text-overflow: ellipsis;
-                      text-overflow: ellipsis;
-                      display: -webkit-box;
-                      -webkit-box-orient: vertical;
-                      -webkit-line-clamp: 3;
-                      line-height: 1.5em;
-                      max-height: 4.5em;
-}
+ 
