@@ -3,6 +3,7 @@ import { BasketService } from 'src/app/shared/service/basketService';
 import { ProductService } from 'src/app/shared/service/productsService';
 import { UsersService } from 'src/app/shared/service/usersService';
 import { Router } from '@angular/router';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-basket',
@@ -18,6 +19,7 @@ export class BasketComponent implements OnInit {
   isUser = false;
   body: any = {};
   i: any;
+  rate = [];
 
   constructor(
     private basketService: BasketService,
@@ -28,14 +30,32 @@ export class BasketComponent implements OnInit {
     this.getProducts();
     this.verifyUser();
   }
+
   verifyUser() {
     this.userService.getVerify().subscribe( res => {
         this.body = res.json();
         if ( this.body.isUser) {
           this.isUser = true;
+          this.rate = JSON.parse(localStorage.getItem('rate'));
+          console.log(this.rate);
+
         }
     });
   }
+
+  deleteProduct(id) {
+    this.basketService.products = this.basketService.products.slice(0, id)
+      .concat(this.basketService.products.slice(id + 1, this.basketService.products.length));
+    localStorage.setItem('products', JSON.stringify(this.basketService.products));
+    location.reload();
+  }
+
+  clearBasket() {
+    localStorage.removeItem('products');
+    localStorage.removeItem('rate');
+    delete this.basketService.products;
+  }
+
 
   // getProducts() {
   //   this.number = this.basketService.products.length;
@@ -62,8 +82,6 @@ export class BasketComponent implements OnInit {
 
   getProducts() {
     const array = JSON.parse(localStorage.getItem('products'));
-    console.log(array);
-
     this.number = array.length;
     for (let i = 0; i <= array.length - 1; i++) {
       this.quantity[i] = [];
@@ -74,14 +92,11 @@ export class BasketComponent implements OnInit {
     for ( let i = 0; i <= array.length - 1; i++) {
       this.productService.getProduct(array[i]).subscribe( res => {
         this.products[i] = res.json();
-        // this.products.push(res.json());
         for (let q = 0; q <= this.products[i].quantity; q++) {
           this.quantity[i][q] = q;
         }
-        // this.products.push(res.json());
       });
     }
-    console.log(this.quantity);
   }
 
 

@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-
 import {MatTableDataSource} from '@angular/material/table';
 import { MatPaginator, MatSort } from '@angular/material';
 import { ProductService } from 'src/app/shared/service/productsService';
 import Swal from 'sweetalert2';
 import { OrdersService } from 'src/app/shared/service/ordersService';
+
 @Component({
   selector: 'app-admin-orders-waiting',
   templateUrl: './admin-orders-waiting.component.html',
@@ -22,7 +22,7 @@ export class AdminOrdersWaitingComponent implements OnInit {
 
 
   isLoad = true;
-
+  products: any = [];
 
   constructor(
     private ordersService: OrdersService,
@@ -33,11 +33,20 @@ export class AdminOrdersWaitingComponent implements OnInit {
 
    getOrders() {
     this.ordersService.getWaiting().subscribe( res => {
-      this.dataSource = new MatTableDataSource(res.json());
+      this.products = res.json();
+      for ( let i = 0; i <= this.products.length - 1; i++) {
+        for ( let j = 0; j <= this.products[i].products.length - 1; j++) {
+         this.productService.getProduct(this.products[i].products[j]).subscribe( result => {
+          this.products[i].products[j] = result.json().name_ru;
+         });
+      }
+    }
+      console.log(this.products);
+      this.dataSource = new MatTableDataSource(this.products);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       this.isLoad = false;
-    } );
+    });
    }
 
    applyFilter(event: Event) {

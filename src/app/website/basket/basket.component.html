@@ -32,11 +32,12 @@
                 <mat-option *ngFor="let state of quantity[i]" [value]="state">{{state}}</mat-option>
               </mat-select>
             </mat-form-field>
+
           </div>
         </div>
         <div class="" style="position: absolute; right: 10px;top: 10px;">
           <!-- <button class="remove-button"> <mat-icon aria-hidden="false" class="d-inline-block"  aria-label="Example add_shopping_cart icon">favorite_border</mat-icon></button> -->
-          <!-- <button class="like-button"><mat-icon aria-hidden="false" class="d-inline-block"  aria-label="Example add_shopping_cart icon">restore_from_trash</mat-icon></button> -->
+          <button class="like-button" (click)='deleteProduct(i)'   ><mat-icon aria-hidden="false" class="d-inline-block"  aria-label="Example add_shopping_cart icon">restore_from_trash</mat-icon></button>
         </div>
 
       <!-- <div class="col-12 text-right">
@@ -76,6 +77,9 @@
       <button  routerLink='/delvery' class="btn text-white w-100 mb-3 card-button-dast" >Оформить заказ</button>
     </div>
 
+    <div class="col-12">
+      <button (click)='clearBasket()' routerLink='/' class="btn text-white w-100 mb-3 card-button-dast" >Clear Basket</button>
+    </div>
   </div>
 <!-- modal  -->
 

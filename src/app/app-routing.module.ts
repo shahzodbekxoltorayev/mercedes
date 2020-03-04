@@ -57,7 +57,7 @@ const routes: Routes = [
 
          ]},
          {path: 'contact', component: ContactComponent},
-         {path: 'about-product', component: AboutProductComponent},
+         {path: 'about-product/:id', component: AboutProductComponent},
          {path: 'products', component: ProductsComponent},
          {path: 'sort-products', component: SortProductsComponent},
          {path: 'shopping-card', component: BasketComponent},

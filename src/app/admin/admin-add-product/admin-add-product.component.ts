@@ -96,7 +96,8 @@ export class AdminAddProductComponent implements OnInit {
             model:   this.product.model,
             configuration:  this.product.configuration,
             price:   this.product.price,
-            sale: this.product.sale
+            sale: this.product.sale,
+            rating: this.product.rating
           });
             this.isLoad = true;
         });
@@ -106,8 +107,6 @@ export class AdminAddProductComponent implements OnInit {
     });
 
   }
-
-
   onSave() {
     if (this.status === 'create') {
       this.productService.post(

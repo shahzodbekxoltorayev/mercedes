@@ -40,37 +40,46 @@ router.post('/:token' , async(request, response, next) => {
 
 
 
+// router.get('/getWaiting/:token', async(request, response, next) => {
+
+//     var token = request.params.token;
+//     var admins = await Admin.find();
+//     var obj = await Admin.verifyOfAdmin(admins, token);
+//     if(obj.isModerator) {
+//     let orders = await Orders.find({status: 'Waiting'});
+//     for ( let i = 0; i <= orders.length - 1; i++ ) {
+//       var length = orders[i].products.length;
+//       for ( let q = 0; q <= length - 1; q ++) {
+//         var id = orders[i].products[q];
+//        var result = await  Products.findById(id);
+//       }
+//     }
+//     response.status(200).json(orders)
+// }
+// })
+
+
+
+//   Xato Waitingda
 router.get('/getWaiting/:token', async(request, response, next) => {
 
-    var token = request.params.token;
-    var admins = await Admin.find();
-    var obj = await Admin.verifyOfAdmin(admins, token);
-    if(obj.isModerator) {
-    let orders = await Orders.find({status: 'Waiting'});
-      for ( let i = 0; i <= orders.length - 1; i++ ) {
-        var length = orders[i].products.length;
-        // console.log(length + '  aaa ');
-        for ( let q = 0; q <= length - 1; q ++) {
-          var id = orders[i].products[q];
-          var result = await Products.findById(id);
-          var nameRu = result.name_ru;
-          orders[i].products[q] = nameRu;
-        }
-      }
-    response.status(200).json(orders)
-
+  var token = request.params.token;
+  var admins = await Admin.find();
+  var obj = await Admin.verifyOfAdmin(admins, token);
+  if(obj.isModerator) {
+  let orders = await Orders.find({status: 'Waiting'});
+//   for ( let i = 0; i <= orders.length - 1; i++ ) {
+//     var length = orders[i].products.length;
+//     for ( let q = 0; q <= length - 1; q ++) {
+//       var id = orders[i].products[q];
+//       await  Products.findById(id).then( result => {
+//           var nameRu = result.name_ru;
+//            orders[i].products[q] = nameRu;
+//         })
+//     }
+//   }
+  response.status(200).json(orders)
 }
-    // var pharms = [];
-    // Pharmacy.find().then( (all)=>{
-    //     for(let i=all.length-1; i>=0; i--){
-    //             pharms.push(all[i]);
-    //     }
-    //     response.status(200).json(pharms);
-    // }).catch( (err) =>{
-    //     console.log(err);
-    //     response.status(400).json({message: "Error in Get Pharms"});
-    // })
-
 })
 
 router.get('/getSuccess/:token', async(request, response, next) => {
@@ -80,16 +89,16 @@ router.get('/getSuccess/:token', async(request, response, next) => {
   var obj = await Admin.verifyOfAdmin(admins, token);
   if(obj.isModerator) {
   let orders = await Orders.find({status: 'Success'});
-  for ( let i = 0; i <= orders.length - 1; i++ ) {
-    var length = orders[i].products.length;
-    // console.log(length + '  aaa ');
-    for ( let q = 0; q <= length - 1; q ++) {
-      var id = orders[i].products[q];
-      var result = await Products.findById(id);
-      var nameRu = result.name_ru;
-      orders[i].products[q] = nameRu;
-    }
-  }
+//   for ( let i = 0; i <= orders.length - 1; i++ ) {
+//     var length = orders[i].products.length;
+//     for ( let q = 0; q <= length - 1; q ++) {
+//       var id = orders[i].products[q];
+//       await  Products.findById(id).then( result => {
+//           var nameRu = result.name_ru;
+//            orders[i].products[q] = nameRu;
+//         })
+//     }
+//   }
   response.status(200).json(orders)
 }
 })

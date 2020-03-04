@@ -147,7 +147,6 @@ router.get('/getProduct/:id', async function(request, response, next) {
     var prod = {}
       await Product.findById(id).then((res) => {
         if (!res) {
-            data.message = "Product Not found";
             response.status(400).json({ message: "Product Not found" });
         } else {
             prod = res;
