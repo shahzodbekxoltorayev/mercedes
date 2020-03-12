@@ -98,7 +98,9 @@ export class BasketComponent implements OnInit {
       });
     }
   }
-
+  generalSum() {
+    localStorage.setItem('generalSum', this.general_sum);
+  }
 
 
 

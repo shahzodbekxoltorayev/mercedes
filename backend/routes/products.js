@@ -250,6 +250,7 @@ router.patch('/updateProduct/:id/:token', multer({ storage: storage }).single('i
 
 router.patch('/updateQuanity/:id', async function(request, response) {
     var id = request.params.id;
+    // var object =
     var rate = request.body;
     let body = {};
     var newRate;

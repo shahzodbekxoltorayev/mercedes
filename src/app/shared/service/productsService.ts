@@ -117,5 +117,11 @@ export class ProductService {
   return this.http.patch(this.api + 'updateProduct/' + id + '/' + localStorage.getItem('token'), Product);
  }
 
+  updateQuantity(id, rate) {
+    var body = {
+      'quantity' : rate
+    };
+    return this.http.patch(this.api + 'updateQuanity/' + id, body);
+  }
 
 }

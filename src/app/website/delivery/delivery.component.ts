@@ -25,6 +25,7 @@ export class DeliveryComponent implements OnInit {
   isUser = true;
   userId: any;
   body: any = {};
+  generalSum: any = 0;
   constructor(
     private basketService: BasketService,
     private productService: ProductService,
@@ -47,13 +48,13 @@ export class DeliveryComponent implements OnInit {
   }
   getProducts() {
     const array = JSON.parse(localStorage.getItem('products'));
-    const rate_array = JSON.parse(localStorage.getItem('rate'));
+    this.rates = JSON.parse(localStorage.getItem('rate'));
     for ( let i = 0; i <= array.length - 1; i++) {
       this.productService.getProduct(array[i]).subscribe( res => {
         this.products[i] = res.json();
-        this.rates[i] = {
-          'rate': rate_array[i]
-        };
+        // this.rates[i] = {
+        //   'rate ': rate_array[i]
+        // };
         // this.products.push(res.json());
         // for (let q = 0; q <= this.products[i].quantity; q++) {
         //   this.quantity[i][q] = q;
@@ -62,15 +63,16 @@ export class DeliveryComponent implements OnInit {
 
       });
     }
-    console.log(this.rates);
+    this.generalSum = localStorage.getItem('generalSum');
+    console.log(this.generalSum);
 
-    console.log(this.products);
   }
 
   createOrder() {
     const products = JSON.parse(localStorage.getItem('products'));
     const rates = JSON.parse(localStorage.getItem('rate'));
     const general_sum = this.basketService.general_sum;
+
     this.orderService.post(
         this.userId,
         this.full_address,
@@ -80,15 +82,18 @@ export class DeliveryComponent implements OnInit {
         general_sum
     ).subscribe( res => {
       if (res.ok) {
-        Swal.fire(
-          'Good job!',
-          'New Product Saved!',
-          'success'
-        );
-        localStorage.removeItem('products');
-        localStorage.removeItem('rate');
-        this.router.navigate(['/']);
-
+          for (let i = 0; i <= products.length - 1; i++) {
+            this.productService.updateQuantity(products[i], rates[i]);
+          }
+          Swal.fire(
+              'Good job!',
+              'New Product Saved!',
+              'success'
+            );
+          localStorage.removeItem('products');
+          localStorage.removeItem('rate');
+          localStorage.removeItem('generalSum');
+          this.router.navigate(['/']);
       } else {
         Swal.fire({
           icon: 'error',

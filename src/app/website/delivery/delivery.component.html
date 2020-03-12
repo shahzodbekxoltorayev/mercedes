@@ -209,14 +209,14 @@
                     <div class="	conard_wrap_works">
                         <div class="h6 text-left font-weight-bold text-dark border-b-2">Состав заказа</div>
 
-                        <div class="row d-flex align-items-center pb-2  dastaw-row  " *ngFor = 'let product of products' >
+                        <div class="row d-flex align-items-center pb-2  dastaw-row  " *ngFor = 'let product of products, let i = index' >
                             <div class="col-3">
                                 <img src="{{product.image_original_name}}" class="img-fluid" alt="">
                             </div>
                             <div class="col-9 text-left">
                                 <p class="dastav-text-size">{{product.name_ru}}</p>
                                 <p class="dastav-text-size">Mercedes W212 36884</p>
-                                <p class="dastav-text-size">1 x {{product.price}} sum</p>
+                                <p class="dastav-text-size">{{rates[i]}} x {{product.price}} sum</p>
                             </div>
                         </div>
 
@@ -238,7 +238,7 @@
                                     <p class=" h6">Подытог :  </p>
                                 </div>
                                 <div class="col-6">
-                                    <p class="font-weight-bold h6"> 342 720 sum</p>
+                                    <p class="font-weight-bold h6"> {{generalSum}} sum</p>
                                 </div>
                             </div>
                             <!-- <form >

@@ -20,7 +20,7 @@ import {
   MatPaginatorModule,
   MatSortModule,
   MatProgressSpinnerModule
-}  from '@angular/material';
+} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

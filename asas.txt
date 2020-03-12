@@ -13,6 +13,9 @@ admin da hisobotlar(statistika)
 home page da carusel
 Search		
 YouTube  <iframe embed>
+Buyurtma bo'lganda bazadan sonini ayirish	++
+delevry componentda Chek ni to'g'irlash		++
+Language larni yozish
 
 
 local :

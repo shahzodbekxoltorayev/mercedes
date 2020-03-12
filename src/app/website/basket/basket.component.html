@@ -74,7 +74,7 @@
       <button data-toggle="modal" data-target="#exampleModalphoneb"   class="btn text-white w-100 mb-3 card-button-dast" >Iltimos oldin ro'yhatdan o'ting</button>
     </div>
     <div class="col-12" *ngIf = 'isUser'>
-      <button  routerLink='/delvery' class="btn text-white w-100 mb-3 card-button-dast" >Оформить заказ</button>
+      <button (click)='generalSum()' routerLink='/delvery' class="btn text-white w-100 mb-3 card-button-dast" >Оформить заказ</button>
     </div>
 
     <div class="col-12">
