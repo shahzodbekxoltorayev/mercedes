@@ -18,9 +18,9 @@ export class AdminNavbarComponent implements OnInit {
         this.verifyAdmin();
   }
   verifyAdmin() {
-    this.authService.verify().subscribe(res =>{
+    this.authService.verify().subscribe(res => {
         var object = res.json();
-        if (!object.isAdmin || !object.isModerator ){
+        if (!object.isAdmin || !object.isModerator ) {
         this.router.navigate(['login']);
         }
     });

@@ -68,16 +68,14 @@ router.get('/getWaiting/:token', async(request, response, next) => {
   var obj = await Admin.verifyOfAdmin(admins, token);
   if(obj.isModerator) {
   let orders = await Orders.find({status: 'Waiting'});
-//   for ( let i = 0; i <= orders.length - 1; i++ ) {
-//     var length = orders[i].products.length;
-//     for ( let q = 0; q <= length - 1; q ++) {
-//       var id = orders[i].products[q];
-//       await  Products.findById(id).then( result => {
-//           var nameRu = result.name_ru;
-//            orders[i].products[q] = nameRu;
-//         })
-//     }
-//   }
+  for ( let i = 0; i <= orders.length - 1; i++ ) {
+    var length = orders[i].products.length;
+    for ( let q = 0; q <= length - 1; q ++) {
+      var id = orders[i].products[q];
+        const prod  =   await  Products.findById(id);
+          orders[i].products[q] = prod.name_ru;
+    }
+  }
   response.status(200).json(orders)
 }
 })
@@ -89,16 +87,14 @@ router.get('/getSuccess/:token', async(request, response, next) => {
   var obj = await Admin.verifyOfAdmin(admins, token);
   if(obj.isModerator) {
   let orders = await Orders.find({status: 'Success'});
-//   for ( let i = 0; i <= orders.length - 1; i++ ) {
-//     var length = orders[i].products.length;
-//     for ( let q = 0; q <= length - 1; q ++) {
-//       var id = orders[i].products[q];
-//       await  Products.findById(id).then( result => {
-//           var nameRu = result.name_ru;
-//            orders[i].products[q] = nameRu;
-//         })
-//     }
-//   }
+  for ( let i = 0; i <= orders.length - 1; i++ ) {
+    var length = orders[i].products.length;
+    for ( let q = 0; q <= length - 1; q ++) {
+      var id = orders[i].products[q];
+        const prod  =   await  Products.findById(id);
+          orders[i].products[q] = prod.name_ru;
+    }
+  }
   response.status(200).json(orders)
 }
 })

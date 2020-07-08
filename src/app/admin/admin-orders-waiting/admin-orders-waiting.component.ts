@@ -34,14 +34,6 @@ export class AdminOrdersWaitingComponent implements OnInit {
    getOrders() {
     this.ordersService.getWaiting().subscribe( res => {
       this.products = res.json();
-      for ( let i = 0; i <= this.products.length - 1; i++) {
-        for ( let j = 0; j <= this.products[i].products.length - 1; j++) {
-         this.productService.getProduct(this.products[i].products[j]).subscribe( result => {
-          this.products[i].products[j] = result.json().name_ru;
-         });
-      }
-    }
-      console.log(this.products);
       this.dataSource = new MatTableDataSource(this.products);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
